@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> To-Do List </title>
+</head>
+<body>
+    <h1> To-Do List</h1>
+
+    <div  id="ListItems">
+        <input type="text" id="NewItem" placeholder="new item..">
+        <input type="button" value="Create Element" onclick="createNewItem();"/>
+        <ul class="checked" id="nextTo-DoItem">
+
+        </ul>
+        <script>
+            function createNewItem() {
+                let inputBox= document.createElement('li');
+                let textInput = document.getElementById("NewItem").value;
+                let textT = document.createTextNode(textInput);
+
+
+               inputBox.appendChild(textT)
+                
+                document.getElementById("nextTo-DoItem").appendChild(inputBox);
+            }
+
+            // Come back to this later, delete not working, leaves bullet points in ul
+            function deleteAllElements() {
+                let parent = document.getElementsByClassName("checked")
+                let children = document.getElementsByClassName("unchecked")
+                for (let child of children) {
+                    child.parentNode.removeChild(child);
+
+                }
+            }
+
+        </script>
+        <input type="button" value="delete checked items" onclick="deleteAllElements();"/>
+
+
+
+
+    </div>
+
+
+
+</body>
+</html>
