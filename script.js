@@ -5,7 +5,7 @@ let toDoList = document.querySelector('#list');
 
 function enterB() {
     let txt = inputText.value;
-    let li = document.createElement('li');
+    let li = document.createElement('li')
     li.innerHTML= txt;
     toDoList.insertBefore(li, toDoList.childNodes[0]);
     inputText.value = '';
