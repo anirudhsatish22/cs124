@@ -47,29 +47,33 @@ function enterB() {
 
 function deleteAll() {
     // change to delete all checked children
-    for (let i = 0; i < toDoList.childNodes.length; i++) {
-        console.log(toDoList.childNodes[i])
-        console.log(toDoList.childNodes[i].className)
-        if (toDoList.childNodes[i].className === 'checked') {
-            toDoList.removeChild(toDoList.childNodes[i+1]);
-            toDoList.removeChild(toDoList.childNodes[i]);
-            i++;
+    // for (let i = 0; i < toDoList.childNodes.length; i++) {
+    //     if (toDoList.childNodes[i].className === 'checked') {
+    //         toDoList.removeChild(toDoList.childNodes[i+1]);
+    //         toDoList.removeChild(toDoList.childNodes[i]);
+    //         i+=2;
+    //     }
+    //
+    //
+    // }
+
+    for (let child of toDoList.childNodes) {
+        console.log(child)
+        if (child.className === 'checked') {
+            toDoList.removeChild(child)
         }
-
-
     }
-
     // while (toDoList.firstChild) {
     //     toDoList.removeChild(toDoList.firstChild);
     // }
 
 }
-
-document.getElementById("list").addEventListener("click", function(e) {
-    if (e.target && e.target.matches("unchecked")) {
-        console.log("we reached here")
-    }
-})
+//
+// document.getElementById("list").addEventListener("click", function(e) {
+//     if (e.target && e.target.matches("unchecked")) {
+//         console.log("we reached here")
+//     }
+// })
 
 
 // toDoList.addEventListener('click', e=> {

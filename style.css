@@ -1,4 +1,12 @@
-label {
-    pointer-events: none;
-    cursor: default;
+/*label {*/
+/*    pointer-events: none;*/
+/*    cursor: default;*/
+/*}*/
+
+body{
+    font-family: SansSerif;
+}
+
+.container {
+    background: lightblue;
 }
