@@ -7,6 +7,7 @@ function enterB() {
     let txt = inputText.value;
     let li = document.createElement('li')
     li.innerHTML= txt;
+    li.contentEditable = "true";
     toDoList.insertBefore(li, toDoList.childNodes[0]);
     inputText.value = '';
 
