@@ -10,3 +10,17 @@ body{
 .container {
     background: lightblue;
 }
+
+.unchecked {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: white;
+    border-radius: 50%;
+
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.unchecked:checked {
+    background: red;
+}
