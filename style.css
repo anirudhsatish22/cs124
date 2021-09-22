@@ -8,7 +8,12 @@ body{
 }
 
 .container {
+    width: 1000pt;
+    height: 1000pt;
     background: lightblue;
+    display: grid;
+    grid-template-columns: 900pts;
+    grid-template-rows: 100pt 600pt 100pt;
 }
 
 .unchecked {
@@ -23,4 +28,16 @@ body{
 
 .unchecked:checked {
     background: red;
+}
+
+.checked {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: red;
+    border-radius: 50%;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+.checked:checked {
+    background: white;
 }

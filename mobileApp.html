@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title> To-Do List </title>
-    <script defer src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1> To-Do List</h1>
+        <h1 id="top-title"> To-Do List</h1>
         <div class="enter-item">
             <input type="text" id="inputToDo" placeholder="Add a thing to-do">
             <button onclick="enterB()" id="enter">Add</button>
@@ -31,7 +30,7 @@
                 </li>
                 <li>
                     <label>
-                        <input type="checkbox" class="checked">
+                        <input type="checkbox" class="unchecked">
                         <p>test 2</p>
                     </label>
                 </li>
