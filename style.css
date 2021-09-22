@@ -9,11 +9,22 @@ body{
 
 .container {
     width: 1000pt;
-    height: 1000pt;
+    height: 1500pt;
     background: lightblue;
     display: grid;
     grid-template-columns: 900pts;
-    grid-template-rows: 100pt 600pt 100pt;
+    grid-template-rows: 150pt 200pt 500pt 100pt;
+}
+
+
+
+.enter-item {
+    grid-row: 2/ span1;
+    align-content: center;
+}
+
+.ListItems {
+    grid-row: 3/ span1;
 }
 
 .unchecked {
