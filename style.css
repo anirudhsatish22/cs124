@@ -1,5 +1,10 @@
 /*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');*/
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+/*label {*/
+/*    pointer-events: none;*/
+/*    cursor: default;*/
+/*}*/
 * {
     box-sizing: border-box;
     background: antiquewhite;
@@ -93,7 +98,7 @@ body{
     cursor: pointer;
 }
 
-#test {
+.checked-text {
     text-decoration: line-through;
 }
 .checked:checked {
@@ -138,6 +143,10 @@ body{
     grid-row: 3;
     grid-column: 1;
 
+}
+
+#hide-completed-button:focus {
+    background: #e28743;
 }
 
 #delete-button {
