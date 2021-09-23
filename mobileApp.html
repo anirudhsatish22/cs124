@@ -6,36 +6,58 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1 id="top-title"> To-Do List</h1>
-        <div class="enter-item">
-            <input type="text" id="inputToDo" placeholder="Add a thing to-do">
-            <button onclick="enterB()" id="enter">Add</button>
-            <button onclick="deleteAll()" id="delete">Delete</button>
+    <h1 id="top-title"> To-Do List</h1>
+    <div id="container">
+        <div id="enter-item">
+            <input type="text" id="input-text" placeholder="Add a task...">
+            <span id="enter-span">
+                <button onclick="enterB()" id="enter-button">+</button>
+            </span>
+
         </div>
 
         <div class="ListItems">
             <ul id="list">
-                <li>
+                <li id="item-01">
                     <label>
-                        <input type="checkbox" class="unchecked">
-                        <p>test 1</p>
+                        <input type="checkbox" class="checked">
+                        <span id="test">Buy new John Grisham book</span>
                     </label>
                 </li>
                 <li>
                     <label>
                         <input type="checkbox" class="unchecked">
-                        <p>test 2</p>
+                        <span>idiot</span>
                     </label>
                 </li>
                 <li>
                     <label>
                         <input type="checkbox" class="unchecked">
-                        <p>test 2</p>
+                        <span>test 2</span>
+                    </label>
+                </li>
+                <li id="item-01">
+                    <label>
+                        <input type="checkbox" class="unchecked">
+                        <span>Buy new John Grisham book</span>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" class="unchecked">
+                        <span>do cs homework</span>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" class="unchecked">
+                        <span>submit lab</span>
                     </label>
                 </li>
             </ul>
         </div>
+        <button id="hide-completed-button">Hide Completed</button>
+        <button id="delete-button">Delete Completed</button>
 
     </div>
 
