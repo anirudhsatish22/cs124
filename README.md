@@ -1,3 +1,4 @@
-# cs124
+# CS124 - All Labs by Anirudh Satish and Saatvik Sejpal
 
-## ![Lab 1] (https://anirudhsatish22.github.io/cs124/)
+## <a href='https://anirudhsatish22.github.io/cs124/'>Lab 1</a>
+
