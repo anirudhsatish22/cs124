@@ -114,6 +114,7 @@ Screen during the process of renaming the item
 ![](Screenshots/IntermediateTask4.png)
 
 Screen after renaming the item
+
 ![](Screenshots/PostTask4.png)
 
 To rename the item, our text is editable, and thus when a user clicks on the text, they are able 
