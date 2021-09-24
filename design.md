@@ -68,6 +68,7 @@ Attached below is a screenshot of our application at a random stage, with some i
 
 <img src='Screenshots/MainHTMLPic.png' width=50%/>
 
+
 We also have images from different stages of our application to show the flow when completing the different tasks that it is intended to do. 
 
 ### Task 1: Adding a task to an empty list
@@ -182,6 +183,6 @@ displaying hyphens. Hence, we finally arrived at the QuickSand font which is a G
 ## Part of the Design you are most proud of: 
 
 We are quite proud of the color scheme that we ended up using. We both think that we are not super artistic and hence are quite proud of how pleasing
-our To-Do List looks. The general minimal design that we have come up with also looks quite nice in our opinion with the rounded corners of all the elements on the page.
+our To-Do List looks. The general minimalist design that we have come up with also looks quite nice in our opinion with the rounded corners of all the elements on the page.
 
 
