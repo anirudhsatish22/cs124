@@ -44,7 +44,7 @@ at the bottom of the application.
 The "Hide Completed" Button's purpose is to hide all completed/checked tasks, and the "Delete Completed" button is meant 
 to delete all completed tasks from the list.
 
-![](Page4.png)
+<img src='Page4.png' text-align='center' width=50%/>
 
 
 ## User Testing:
@@ -64,9 +64,9 @@ Therefore, we would like to add this functionality in our future implementation.
 
 ## Screenshots and Images from our implementation:
 
-Attached below is a screenshot of our application at a random stage, with some items in the list and some marked as checked
+Attached below is a screenshot of our application at a random stage, with some items in the list, and some items marked as checked.
 
-![](Screenshots/MainHTMLPic.png)
+<img src='Screenshots/MainHTMLPic.png' width=50%/>
 
 We also have images from different stages of our application to show the flow when completing the different tasks that it is intended to do. 
 
@@ -74,29 +74,29 @@ We also have images from different stages of our application to show the flow wh
 
 Screen at the Beginning of the task:
 
-![](Screenshots/PreTask1.png)
+<img src='Screenshots/PreTask1.png' width=50%/>
 
 Screen during the process of adding an item to the list:
 
-![](Screenshots/IntermediateTask1.png)
+<img src='Screenshots/IntermediateTask1.png' width=50%/>
 
 Screen after adding said item to the list:
 
-![](Screenshots/PostTask1.png)
+<img src='Screenshots/PostTask1.png' width=50%/>
 
 ### Task 2: Adding an element to a non-empty List
 
 Screen at the Beginning of the task:
 
-![](Screenshots/PreTask2.png)
+<img src='Screenshots/PreTask2.png' width=50%/>
 
 Screen during the process of adding the item to the list:
 
-![](Screenshots/IntermediateTask2.png)
+<img src='Screenshots/IntermediateTask2.png' width=50%/>
 
 Screen after adding said item to the list:
 
-![](Screenshots/PostTask2.png)
+<img src='Screenshots/PostTask2.png' width=50%/>
 
 Here we can see how our app deals with new items when there are already existing things to do. 
 It simply adds it to the top, and moves the rest down, like a stack. 
@@ -106,11 +106,11 @@ It simply adds it to the top, and moves the rest down, like a stack.
 
 Screen at the Beginning of the task:
 
-![](Screenshots/PreTask3.png)
+<img src='Screenshots/PreTask3.png' width=50%/>
 
 Screen after marking item as completed:
 
-![](Screenshots/PostTask3.png)
+<img src='Screenshots/PostTask3.png' width=50%/>
 
 Our app moves the completed items to the bottom of the list, as talked about earlier, therefore grouping all
 completed and uncompleted items together. 
@@ -119,15 +119,15 @@ completed and uncompleted items together.
 
 Screen at the Beginning of the task:
 
-![](Screenshots/PreTask4.png)
+<img src='Screenshots/PreTask4.png' width=50%/>
 
 Screen during the process of renaming the item:
 
-![](Screenshots/IntermediateTask4.png)
+<img src='Screenshots/IntermediateTask4.png' width=50%/>
 
 Screen after renaming the item:
 
-![](Screenshots/PostTask4.png)
+<img src='Screenshots/PostTask4.png' width=50%/>
 
 To rename the item, our text is editable, and thus when a user clicks on the text, they are able 
 to rename that to whatever they please. whether this be completely removing text, or adding some more. 
@@ -141,11 +141,11 @@ to show all. Clicking this button show all will revert to the stage where all ta
 
 Screen at the Beginning of the task:
 
-![](Screenshots/PreTask5.png)
+<img src='Screenshots/PreTask5.png' width=50%/>
 
 Screen after clicking hide completed button:
 
-![](Screenshots/PostTask5.png)
+<img src='Screenshots/PostTask5.png' width=50%/>
 
 ### Task 6: Delete all completed tasks:
 
@@ -156,11 +156,11 @@ than just not showing the completed tasks.
 
 Screen at the Beginning of the task:
 
-![](Screenshots/PreTask6.png)
+<img src='Screenshots/PreTask6.png' width=50%/>
 
 Screen after deleting all completed tasks:
 
-![](Screenshots/PostTask6.png)
+<img src='Screenshots/PostTask6.png' width=50%/>
 
 
 
