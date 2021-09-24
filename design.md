@@ -1,10 +1,5 @@
----
-author: (Saatvik Sejpal, Anirudh Satish)
-geometry: margin=1in
-fontsize: 12pt
---- 
 
-#CS124: Interaction Design Lab 1
+# CS124: Interaction Design Lab 1
 
 (Saatvik Sejpal, Anirudh Satish
 )
@@ -49,13 +44,127 @@ to delete all completed tasks from the list.
 
 ![](Page4.png)
 
-### Screenshots and Images from our implementation:
+
+## User Testing:
+
+We showed our project to one of our roommates, who we will refer to as Person A in this section. As we do not have a working 
+page/application due to the lack of javascript, we just spoke about the design, their first thoughts on how useable it was, etc. 
+
+Person A believed that our application was quite clear on how to add elements to the to-do list, which was via the text input at the top
+followed by an enter keystroke, or hitting the plus button. Additionally, they liked our idea of how checked items/completed items 
+would float down the list and pile up at the bottom of the list, creating a clear demarcation between uncompleted and completed tasks. 
+
+They did mention something that we feel could be useful if we are ever to actually implement javascript for this application. To edit 
+items that are already in the list, they felt that a long press on mobile was the most intuitive and logical way to edit tasks. 
+Therefore, we would like to add this functionality in our future implementation. 
+
+
+
+## Screenshots and Images from our implementation:
+
+Attached below is a screenshot of our application at a random stage, with some items in the list and some marked as checked
+
+![](Screenshots/MainHTMLPic.png)
+
+We also have images from different stages of our application to show the flow when completing the different tasks that it is intended to do. 
+
+### Task 1: Adding a task to an empty list
+
+Screen at the Beginning of the task:
+![](Screenshots/PreTask1.png)
+
+Screen during the process of adding an item to the list:
+![](Screenshots/IntermediateTask1.png)
+
+Screen after adding said item to the list:
+![](Screenshots/PostTask1.png)
+
+### Task 2: Adding an element to a non-empty List
+
+Screen at the Beginning of the task:
+![](Screenshots/PreTask2.png)
+
+Screen during the process of adding the item to the list:
+![](Screenshots/IntermediateTask2.png)
+
+Screen after adding said item to the list:
+![](Screenshots/PostTask2.png)
+
+Here we can see how our app deals with new items when there are already existing things to do. 
+It simply adds it to the top, and moves the rest down, like a stack. 
+
+
+### Task 3: Mark an Item completed
+
+Screen at the Beginning of the task:
+![](Screenshots/PreTask3.png)
+
+Screen after marking item as completed:
+![](Screenshots/PostTask3.png)
+
+Our app moves the completed items to the bottom of the list, as talked about earlier, therefore grouping all
+completed and uncompleted items together. 
+
+### Task 4: Rename an item in the list:
+
+Screen at the Beginning of the task:
+![](Screenshots/PreTask4.png)
+
+Screen during the process of renaming the item
+![](Screenshots/IntermediateTask4.png)
+
+Screen after renaming the item
+![](Screenshots/PostTask4.png)
+
+To rename the item, our text is editable, and thus when a user clicks on the text, they are able 
+to rename that to whatever they please. whether this be completely removing text, or adding some more. 
+
+
+### Task 5: To show only uncompleted items
+
+To accommodate this task, we have a button called "Hide Completed", which is pretty self explanatory. 
+On clicking this button, the application will hide all completed tasks from the user, and the button's text changes
+to show all. Clicking this button show all will revert to the stage where all tasks, both completed and uncompleted are visible
+
+Screen at the Beginning of the task:
+![](Screenshots/PreTask5.png)
+
+Screen after clicking hide completed button:
+![](Screenshots/PostTask5.png)
+
+### Task 6: Delete all completed tasks:
+
+For this function, our app has a "delete completed" button, which when clicked will 
+delete all items that are marked as checked/completed in the list, leaving only the uncompleted 
+tasks on the screen. Unlike hide completed tasks, this is not reversible, and actually removes them, rather
+than just not showing the completed tasks. 
+
+Screen at the Beginning of the task:
+![](Screenshots/PreTask6.png)
+
+Screen after deleting all completed tasks:
+![](Screenshots/PostTask6.png)
+
 
 
 
 
 ## Challenges Faced
 
+Our initial mistake was in understanding the purpose of this lab. We thought that we had to make a fully functioning JavaScript based
+Web App that would allow all the To-Do List functionalities. Hence, we spent a few hours, initially working in Raw JS trying to make this a
+proper To-Do List. After we realized that the task was to simply make static webpages, our process went a lot more smoothly and we did not face any really 
+problematic challenges. 
+
+I think the primary thing that we struggled with was just not being able to align elements correctly with GridBoxes.
+Also, it took us a while to select a font that we were happy with because some of the initial fonts we chose had weird ways of
+displaying hyphens. Hence, we finally arrived at the QuickSand font which is a Google Font (and we think it looks pretty good!).
+
+
 
 ## Part of the Design you are most proud of: 
+
+We are quite proud of the color scheme that we ended up using. We both think that we are not super artistic and hence are quite proud of how pleasing
+our To-Do List looks. The general minimal design that we have come up with also looks quite nice in our opinion with the rounded corners of all the elements on the page.
+
 

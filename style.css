@@ -1,18 +1,14 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');*/
+
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
-/*label {*/
-/*    pointer-events: none;*/
-/*    cursor: default;*/
-/*}*/
 * {
     box-sizing: border-box;
     background: antiquewhite;
 }
 body{
     font-family: Quicksand;
-    /*    jersey 754 themify*/
 }
+
 
 #top-title {
     text-align: center;
@@ -145,10 +141,6 @@ body{
 
 }
 
-#hide-completed-button:focus {
-    background: #e28743;
-}
-
 #delete-button {
     height: 100px;
     width: 300px;
@@ -163,27 +155,3 @@ body{
     grid-row: 3;
     grid-column: 2;
 }
-/*.ListItems ul li:hover {*/
-/*    font-weight: bold;*/
-/*    color: #e28743;*/
-/*}*/
-
-
-
-
-
-
-
-
-
-
-
-/*#enter-item {*/
-/*    align-content: center;*/
-/*    grid-row: 2/ span1;*/
-/*}*/
-
-/*.ListItems {*/
-/*    grid-row: 3/ span1;*/
-/*}*/
-
