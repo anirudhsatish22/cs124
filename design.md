@@ -71,23 +71,29 @@ We also have images from different stages of our application to show the flow wh
 ### Task 1: Adding a task to an empty list
 
 Screen at the Beginning of the task:
+
 ![](Screenshots/PreTask1.png)
 
 Screen during the process of adding an item to the list:
+
 ![](Screenshots/IntermediateTask1.png)
 
 Screen after adding said item to the list:
+
 ![](Screenshots/PostTask1.png)
 
 ### Task 2: Adding an element to a non-empty List
 
 Screen at the Beginning of the task:
+
 ![](Screenshots/PreTask2.png)
 
 Screen during the process of adding the item to the list:
+
 ![](Screenshots/IntermediateTask2.png)
 
 Screen after adding said item to the list:
+
 ![](Screenshots/PostTask2.png)
 
 Here we can see how our app deals with new items when there are already existing things to do. 
@@ -97,9 +103,11 @@ It simply adds it to the top, and moves the rest down, like a stack.
 ### Task 3: Mark an Item completed
 
 Screen at the Beginning of the task:
+
 ![](Screenshots/PreTask3.png)
 
 Screen after marking item as completed:
+
 ![](Screenshots/PostTask3.png)
 
 Our app moves the completed items to the bottom of the list, as talked about earlier, therefore grouping all
@@ -108,12 +116,14 @@ completed and uncompleted items together.
 ### Task 4: Rename an item in the list:
 
 Screen at the Beginning of the task:
+
 ![](Screenshots/PreTask4.png)
 
-Screen during the process of renaming the item
+Screen during the process of renaming the item:
+
 ![](Screenshots/IntermediateTask4.png)
 
-Screen after renaming the item
+Screen after renaming the item:
 
 ![](Screenshots/PostTask4.png)
 
@@ -128,9 +138,11 @@ On clicking this button, the application will hide all completed tasks from the 
 to show all. Clicking this button show all will revert to the stage where all tasks, both completed and uncompleted are visible
 
 Screen at the Beginning of the task:
+
 ![](Screenshots/PreTask5.png)
 
 Screen after clicking hide completed button:
+
 ![](Screenshots/PostTask5.png)
 
 ### Task 6: Delete all completed tasks:
@@ -141,9 +153,11 @@ tasks on the screen. Unlike hide completed tasks, this is not reversible, and ac
 than just not showing the completed tasks. 
 
 Screen at the Beginning of the task:
+
 ![](Screenshots/PreTask6.png)
 
 Screen after deleting all completed tasks:
+
 ![](Screenshots/PostTask6.png)
 
 
