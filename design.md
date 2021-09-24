@@ -10,7 +10,9 @@
 Our design process began with some discussions on what a to-do list is meant to do, and a few simple
 sketches of prospective desings that are included below.
 
-![](Page2.png)
+
+<img src='Page2.png' text-align='center' width=50%/>
+
 We thought about the "plus" button being floating, moving down as we added items.
 Although this probably looks cool, this is not ideal as the user needs to search for the "plus"
 button each time, and therefore we decided against the same.
@@ -18,7 +20,7 @@ We also thought about having a separate section for completed items at the botto
 to just do away with having a separate section and just float the completed tasks to the bottom of the page when we mark them
 completed.
 
-![](Page3.png)
+<img src='Page3.png' text-align='center' width=50%/>
 
 The intent of the "plus" button in our initial designs was to bring up a text box
 for input. But after some deliberation, we came to the conclusion that this was unnecessarily
