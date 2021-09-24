@@ -11,7 +11,7 @@ Our design process began with some discussions on what a to-do list is meant to 
 sketches of prospective desings that are included below.
 
 
-<img src='Page2.png' text-align='center' width=50%/>
+<img src='Screenshots/Page2.png' text-align='center' width=50%/>
 
 We thought about the "plus" button being floating, moving down as we added items.
 Although this probably looks cool, this is not ideal as the user needs to search for the "plus"
@@ -20,7 +20,7 @@ We also thought about having a separate section for completed items at the botto
 to just do away with having a separate section and just float the completed tasks to the bottom of the page when we mark them
 completed.
 
-<img src='Page3.png' text-align='center' width=50%/>
+<img src='Screenshots/Page3.png' text-align='center' width=50%/>
 
 The intent of the "plus" button in our initial designs was to bring up a text box
 for input. But after some deliberation, we came to the conclusion that this was unnecessarily
@@ -44,7 +44,7 @@ at the bottom of the application.
 The "Hide Completed" Button's purpose is to hide all completed/checked tasks, and the "Delete Completed" button is meant 
 to delete all completed tasks from the list.
 
-<img src='Page4.png' text-align='center' width=50%/>
+<img src='Screenshots/Page4.png' text-align='center' width=50%/>
 
 
 ## User Testing:
