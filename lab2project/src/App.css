@@ -36,3 +36,161 @@
     transform: rotate(360deg);
   }
 }
+
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+* {
+  box-sizing: border-box;
+  background: antiquewhite;
+}
+body{
+  font-family: Quicksand;
+}
+
+
+#top-title {
+  text-align: center;
+  transform-style: flat;
+  font-size: 60px;
+}
+
+
+#container {
+  width: 800px;
+  height: 1500px;
+  padding: 15px;
+  border: 7px solid #eab676;
+  border-radius: 15px;
+  margin: auto;
+
+  display: grid;
+  row-gap: 5px;
+  grid-template-rows: 1fr 10fr 1fr;
+  grid-template-columns: 1fr 1fr;
+
+
+}
+
+#enter-item {
+  align-items: center;
+  margin: auto;
+  grid-row: 1;
+  grid-column: 1/ span 2;
+
+}
+#enter-button {
+  height: 65px;
+  width: 65px;
+  margin: auto;
+  font-size: 30pt;
+  border-radius: 50%;
+  background: #ffaf4b;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+#enter-span {
+  grid-row: 1;
+  grid-column: 2;
+  margin-top: 15pt;
+  margin-left: 5pt;
+}
+
+#input-text {
+  text-align: center;
+  font-size: 30px;
+  border-radius: 20px;
+  height: 65px;
+  width: 450px;
+  margin: auto;
+  background: whitesmoke;
+
+}
+
+.unchecked {
+  width: 45px;
+  height: 45px;
+  background-color: whitesmoke;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  box-shadow: none;
+  cursor: pointer;
+
+}
+
+.unchecked:checked {
+  background: #e28743;
+}
+
+.checked {
+  width: 45px;
+  height: 45px;
+  background-color: #e28743;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.checked-text {
+  text-decoration: line-through;
+}
+.checked:checked {
+  background: whitesmoke;
+}
+
+.ListItems {
+  grid-column: 1/ span 2;
+}
+
+.ListItems li {
+  list-style-type: none;
+
+}
+
+.ListItems li label span {
+  vertical-align: middle;
+}
+
+.ListItems li label input {
+  vertical-align: middle;
+}
+
+.ListItems ul li {
+  margin: auto;
+  font-size: 35pt;
+  padding-top: 10px;
+
+}
+
+#hide-completed-button {
+  height: 100px;
+  width: 300px;
+  margin: auto;
+  background: #ffaf4b;
+  border-radius: 20px;
+  font-size: 20pt;
+  font-family: Quicksand;
+  border: 2px solid black;
+  cursor: pointer;
+
+  grid-row: 3;
+  grid-column: 1;
+
+}
+
+#delete-button {
+  height: 100px;
+  width: 300px;
+  margin: auto;
+  background: #ffaf4b;
+  border-radius: 20px;
+  font-size: 20pt;
+  font-family: Quicksand;
+  border: 2px solid black;
+  cursor: pointer;
+
+  grid-row: 3;
+  grid-column: 2;
+}
