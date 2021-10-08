@@ -7,11 +7,23 @@ import reportWebVitals from './reportWebVitals';
 const initialData = [
     {
         id: "1",
-        task: "Buy Lunch"
+        task: "Buy Lunch",
+        completed: false
     },
     {
         id: "2",
-        task: "Finish CS124 Lab"
+        task: "Finish CS124 Lab",
+        completed: false
+    },
+    {
+        id: "3",
+        task: "Test",
+        completed: true,
+    },
+    {
+        id: "4",
+        task: "Eat Food",
+        completed: false
     }
 ];
 
