@@ -4,21 +4,20 @@ import './index.css';
 import App from './App';
 import InMemoryApp from "./InMemoryApp";
 import reportWebVitals from './reportWebVitals';
-// const initialData = [
-//     {
-//         id: "1",
-//         task: "Buy Lunch"
-//     },
-//     {
-//         id: "2",
-//         task: "Finish CS124 Lab"
-//     }
-// ];
+const initialData = [
+    {
+        id: "1",
+        task: "Buy Lunch"
+    },
+    {
+        id: "2",
+        task: "Finish CS124 Lab"
+    }
+];
 
 ReactDOM.render(
   <React.StrictMode>
-       {/*<InMemoryApp initialData={initialData}/>*/}
-    <App />
+       <InMemoryApp initialData={initialData}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

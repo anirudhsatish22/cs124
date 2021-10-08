@@ -5,6 +5,7 @@ const initialData = [
     {
         id: "1",
         task: "Buy Lunch"
+
     },
     {
         id: "2",
@@ -16,7 +17,7 @@ const initialData = [
 function App(props) {
   return (
     <div className="App">
-      <ToDoList list={initialData}></ToDoList>
+      <ToDoList list={props.data}></ToDoList>
     </div>
   );
 }
