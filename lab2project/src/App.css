@@ -31,9 +31,15 @@
 /*  width: fit-content;*/
 /*}*/
 
-/*html {*/
-/*  width: fit-content;*/
-/*}*/
+#root {
+  width: 800px;
+  height: 1500px;
+  padding: 15px;
+  margin: auto;
+}
+html {
+  width: fit-content;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
