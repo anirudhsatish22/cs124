@@ -30,15 +30,20 @@
 /*.vsc-initialized {*/
 /*  width: fit-content;*/
 /*}*/
+html {
+  width:980px;
+  height: 1663.38px;
+  margin: auto;
+  zoom: inherit;
+  /*width: 100vw;*/
+  /*height: 100vh;*/
+  /*margin: auto;*/
+
+}
 
 #root {
-  width: 800px;
-  height: 1500px;
-  padding: 15px;
-  margin: auto;
-}
-html {
-  width: fit-content;
+  width:964px;
+  height: 1615.19px;
 }
 @keyframes App-logo-spin {
   from {

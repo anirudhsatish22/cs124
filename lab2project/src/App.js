@@ -20,8 +20,12 @@ function App(props) {
     function addItem(newItem) {
         setData([...data, newItem]);
     }
+    function onDelete(remainingList) {
+        setData(remainingList);
+        console.log("newData:", data)
+    }
   return (
-      <ToDoList list={data} onContentChange={setField} onNewItemAdded={addItem}></ToDoList>
+      <ToDoList list={data} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete}></ToDoList>
 
     //   <ToDoList list={props.data}></ToDoList>
   );
@@ -32,9 +36,9 @@ export default App;
 
 
 // css is still being weird
-// when item is checked, move to very bottom of the list, that is it becomes the bottom most element.
 // edit item in list
-// delete and hide buttons and implementations
-// round buttons to rounded squares? maybe?
+// delete button and implementations
+//alert... chrome one? or fancy one
+
 // formatting long text? think about wrapping and indent or smt
 
