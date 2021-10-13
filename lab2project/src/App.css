@@ -2,6 +2,17 @@
 /*  text-align: center;*/
 /*}*/
 
+label {
+  pointer-events: none;
+  cursor: default;
+}
+
+label input {
+  pointer-events: all;
+}
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -160,6 +171,8 @@ body{
 
 .ListItems {
   grid-column: 1/ span 2;
+  overflow-y:auto;
+  overflow-x:auto;
 }
 
 .ListItems li {
@@ -181,17 +194,25 @@ body{
   padding-top: 10px;
 
 }
+.show-buttons {
+  background: #ffaf4b;
+  cursor: pointer;
 
+}
+
+.grey-buttons {
+  background: lightgrey;
+  pointer-events: none;
+  cursor: not-allowed;
+}
 #hide-completed-button {
   height: 100px;
   width: 300px;
   margin: auto;
-  background: #ffaf4b;
   border-radius: 20px;
   font-size: 20pt;
   font-family: Quicksand;
   border: 2px solid black;
-  cursor: pointer;
 
   grid-row: 3;
   grid-column: 1;
@@ -202,12 +223,10 @@ body{
   height: 100px;
   width: 300px;
   margin: auto;
-  background: #ffaf4b;
   border-radius: 20px;
   font-size: 20pt;
   font-family: Quicksand;
   border: 2px solid black;
-  cursor: pointer;
 
   grid-row: 3;
   grid-column: 2;

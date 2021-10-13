@@ -35,10 +35,9 @@ export default App;
 
 
 
-// css is still being weird
-// edit item in list
-// delete button and implementations
-//alert... chrome one? or fancy one
-
+// css zooming in,
 // formatting long text? think about wrapping and indent or smt
+
+// implement in INmemoryApp
+//alert... chrome one? or fancy one
 
