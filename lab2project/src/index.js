@@ -2,34 +2,33 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import InMemoryApp from "./InMemoryApp";
 import reportWebVitals from './reportWebVitals';
 const initialData = [
     {
         id: "1",
-        task: "Buy Lunch",
+        task: "Sleep",
         completed: false
     },
     {
         id: "2",
-        task: "Finish CS124 Lab",
+        task: "Start CS124 Lab3",
         completed: false
     },
     {
         id: "3",
-        task: "Test",
+        task: "Submit CS124 Lab2",
         completed: true,
     },
     {
         id: "4",
-        task: "Eat Food",
+        task: "Enjoy Fall Break!",
         completed: false
     }
 ];
 
 ReactDOM.render(
   <React.StrictMode>
-       <InMemoryApp initialData={initialData}/>
+       <App data={initialData}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

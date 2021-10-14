@@ -1,4 +1,5 @@
 import Task from './Task';
+import swal from 'sweetalert';
 
 import React, {useEffect, useState} from 'react';
 let myLength = 4;
@@ -8,7 +9,7 @@ function ToDoList(props) {
     const [numCompleted, setNumCompleted] = useState(1);
 
     function enterB() {
-        if (value != null && value != "") {
+        if (value !== null && value !== "") {
             let newItem = {
                 id: (++myLength).toString(),
                 task: value,
@@ -25,17 +26,29 @@ function ToDoList(props) {
     }
 
     function onDelete(){
-        let remainingList = updatedList.filter(a => a.completed === false);
-        props.onDeleteItem(remainingList);
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover completed tasks!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((okToDelete) => {
+                if (okToDelete) {
+                    let remainingList = updatedList.filter(a => a.completed === false);
+                    props.onDeleteItem(remainingList);
+                    setNumCompleted(0)
+
+                } else {
+                    return;
+                }
+            });
     }
 
 
 
     let updatedList = renderList(props.list)
-    console.log("numcompleted", numCompleted);
 
-    // let listOfIds = updatedList.map(e => e.id)
-    // console.log("listofID: ", listOfIds)
     return (
         <>
             <h1 id="top-title">To-Do List</h1>
@@ -44,7 +57,7 @@ function ToDoList(props) {
                 <div id="enter-item">
                     <input type="text" value={value} id="input-text" onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Add a task..."/>
                     <span id="enter-span">
-                    <button onClick={enterB} id="enter-button">+</button>
+                    <button class={ value !== "" && value !== null ? "show-buttons" : "grey-buttons"}onClick={enterB} id="enter-button">+</button>
                     </span>
                 </div>
 
@@ -58,32 +71,22 @@ function ToDoList(props) {
                             displayButtons ={(whetherCompleted)=> whetherCompleted ? setNumCompleted(numCompleted + 1) : setNumCompleted(numCompleted-1)}
                             {...a}
                         />) : updatedList.filter(a => a.completed === false).map(a => <Task
-                            onTaskCompleted={ (selectedId, value) =>
-                                props.onContentChange(selectedId, 'completed', value)
+                            onTaskCompleted={ (selectedId, field, value) =>
+                                props.onContentChange(selectedId, field, value)
                             }
                             key = {a.id}
                             displayButtons ={(whetherCompleted)=> whetherCompleted ? setNumCompleted(numCompleted + 1) : setNumCompleted(numCompleted-1)}
                             {...a}
                         />)}
 
-                        {/*{listOfIds.map(a => <Task*/}
-                        {/*    onTaskCompleted={ (selectedId, value) =>*/}
-                        {/*        props.onContentChange(selectedId, 'completed', value)*/}
-                        {/*    }*/}
-                        {/*    key = {a}*/}
-                        {/*    {...elementById(a, updatedList)}*/}
-                        {/*/>)}*/}
-
                     </ul>
                 </div>
-                {/*{console.log(props.list)}*/}
                 <button class={numCompleted > 0 ? "show-buttons" : "grey-buttons"} id="hide-completed-button" onClick={() => setShowCompleted(!showCompleted)}>{showCompleted ? "Hide Completed" : "Show Completed"}</button>
-                <button class={numCompleted > 0 ? "show-buttons" : "grey-buttons"} id="delete-button" onClick={() => {onDelete(); setNumCompleted(0)}}>Delete Completed</button>
+                <button class={numCompleted > 0 && showCompleted ? "show-buttons" : "grey-buttons"} id="delete-button" onClick={onDelete}>Delete Completed</button>
             </div>
         </>
 );
 }
-
 
 
 export default ToDoList;

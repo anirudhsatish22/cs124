@@ -11,7 +11,17 @@ label input {
   pointer-events: all;
 }
 
-
+.swal-modal {
+  background-color: antiquewhite;
+  border: 3px solid white;
+}
+.swal-title {
+  font-size: x-large;
+}
+.swal-text {
+  font-size: large;
+  text-align: center;
+}
 
 .App-logo {
   height: 40vmin;
@@ -22,6 +32,11 @@ label input {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+@keyframes fade {
+  0% { opacity: 0 }
+  50% { opacity: 1 }
+  100% {opacity: 1}
 }
 
 .App-header {
@@ -38,23 +53,22 @@ label input {
 .App-link {
   color: #61dafb;
 }
-/*.vsc-initialized {*/
-/*  width: fit-content;*/
-/*}*/
+
 html {
-  width:980px;
-  height: 1663.38px;
+
+  width:360px;
+  height:640px;
   margin: auto;
   zoom: inherit;
-  /*width: 100vw;*/
-  /*height: 100vh;*/
-  /*margin: auto;*/
+
 
 }
 
 #root {
-  width:964px;
-  height: 1615.19px;
+  /*width:964px;*/
+  /*height: 1615.19px;*/
+  width:360px;
+  height: 640px;
 }
 @keyframes App-logo-spin {
   from {
@@ -79,43 +93,39 @@ body{
 
 #top-title {
   text-align: center;
+  font-weight: bold;
   transform-style: flat;
-  font-size: 60px;
+  /*font-size: 60px;*/
+  font-size: 20px;
+  margin: auto;
+  padding: 12px;
 }
 
 
 #container {
-  width: 800px;
-  height: 1500px;
-  padding: 15px;
-  border: 7px solid #eab676;
-  border-radius: 15px;
+  width: 300px;
+  height: 580px;
   margin: auto;
+  padding-left: 5px;
+  border: 3px solid #eab676;
+  border-radius: 8px;
 
   display: grid;
   row-gap: 5px;
-  grid-template-rows: 1fr 10fr 1fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 10fr 1.5fr;
+  grid-template-columns: 140px 140px;
 
 
 }
 
 #enter-item {
-  align-items: center;
+  align-self: center;
   margin: auto;
+  padding: 10px;
+  padding-top: 15px;
   grid-row: 1;
   grid-column: 1/ span 2;
 
-}
-#enter-button {
-  height: 65px;
-  width: 65px;
-  margin: auto;
-  font-size: 30pt;
-  border-radius: 50%;
-  background: #ffaf4b;
-  cursor: pointer;
-  border: 2px solid black;
 }
 
 #enter-span {
@@ -127,10 +137,11 @@ body{
 
 #input-text {
   text-align: center;
-  font-size: 30px;
-  border-radius: 20px;
-  height: 65px;
-  width: 450px;
+  font-size: 12px;
+  border-radius: 8px;
+  border: 1px solid black;
+  height: 25px;
+  width: 180px;
   margin: auto;
   background: whitesmoke;
 
@@ -138,8 +149,8 @@ body{
 
 
 .unchecked {
-  width: 45px;
-  height: 45px;
+  width: 20px;
+  height: 20px;
   background-color: whitesmoke;
   border-radius: 50%;
   -webkit-appearance: none;
@@ -153,8 +164,8 @@ body{
 }
 
 .checked {
-  width: 45px;
-  height: 45px;
+  width: 20px;
+  height: 20px;
   background-color: #e28743;
   border-radius: 50%;
   -webkit-appearance: none;
@@ -162,9 +173,17 @@ body{
   cursor: pointer;
 }
 
+/*.fade-text {*/
+/*  text-decoration: line-through;*/
+/*  opacity: 1;*/
+/*  animation: fade 3s linear;*/
+/*}*/
 .checked-text {
   text-decoration: line-through;
+  /*opacity: 1;*/
+  /*animation: fade 3s linear;*/
 }
+
 .checked:checked {
   background: whitesmoke;
 }
@@ -172,27 +191,37 @@ body{
 .ListItems {
   grid-column: 1/ span 2;
   overflow-y:auto;
-  overflow-x:auto;
 }
 
 .ListItems li {
   list-style-type: none;
-
+  white-space: nowrap;
 }
 
 .ListItems li label span {
   vertical-align: middle;
+  overflow-x: scroll;
+  white-space: nowrap;
+
 }
 
 .ListItems li label input {
   vertical-align: middle;
 }
 
+.ListItems ul {
+  padding-left: 15px;
+  margin: auto
+}
 .ListItems ul li {
   margin: auto;
-  font-size: 35pt;
-  padding-top: 10px;
+  font-size: 14pt;
+  padding-top: 2px;
 
+}
+
+.ListItems ul li span {
+  text-align: center;
 }
 .show-buttons {
   background: #ffaf4b;
@@ -205,14 +234,25 @@ body{
   pointer-events: none;
   cursor: not-allowed;
 }
-#hide-completed-button {
-  height: 100px;
-  width: 300px;
+#enter-button {
+  height: 25px;
+  width: 25px;
   margin: auto;
-  border-radius: 20px;
-  font-size: 20pt;
+  font-size: 12pt;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+
+#hide-completed-button {
+  height: 45px;
+  width: 130px;
+  margin: auto;
+  border-radius: 10px;
+  font-size: 10pt;
   font-family: Quicksand;
-  border: 2px solid black;
+  border: 1px solid black;
 
   grid-row: 3;
   grid-column: 1;
@@ -220,13 +260,13 @@ body{
 }
 
 #delete-button {
-  height: 100px;
-  width: 300px;
+  height: 45px;
+  width: 130px;
   margin: auto;
-  border-radius: 20px;
-  font-size: 20pt;
+  border-radius: 10px;
+  font-size: 10pt;
   font-family: Quicksand;
-  border: 2px solid black;
+  border: 1px solid black;
 
   grid-row: 3;
   grid-column: 2;
