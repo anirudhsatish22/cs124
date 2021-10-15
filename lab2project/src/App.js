@@ -8,7 +8,7 @@ import React, {useState} from 'react';
 function App(props) {
     const [data, setData] = useState(props.data)
     function setField(id, field, value) {
-        if (field === 'task' && (value == "" || value != null)) {
+        if (field === 'task' && (value == "" || value == null)) {
             const newData = data.filter(e => e.id != id)
             setData(newData)
             if (data.filter(e => e.id === id)[0].completed === true) {
