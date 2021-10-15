@@ -69,8 +69,7 @@ Firstly, if a button is in a situation that it cannot/should not be used, we gre
 Therefore, for the add (+) button, until and unless an input is typed in the text box, it remains greyed out, and as soon as we enter/add the typed item
 to our to-do list, it gets greyed out again.
 
-<img src='Screenshots/PlusActivated.png' text-align='center' width=50%/>
-
+<img src='Screenshots/HideDeleteDeactivated.png' text-align='center' width=50%/>
 
 Along the same lines, when no items are marked as completed, or when the to-do list is empty, the "hide completed" and "delete completed" buttons are
 greyed out to indicate that they cannot be used (have no function). In addition to this, the buttons are disabled so that accidentally clicking on them does not trigger any
