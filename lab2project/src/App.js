@@ -30,22 +30,4 @@ function App(props) {
       <ToDoList list={data} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete}></ToDoList>
   );
 }
-
 export default App;
-
-
-// focus in list when adding item
-// slowly move down when checked
-
-// for design.md
-// talk about new design changes (label not clickable)
-// scrolling vertically and horizontally,  (wrapping)
-// when buttons are usable (grey out when not) (all 3 buttons)
-// added an alert when deleting (talk about the package )
-// cannot enter a null item
-// enter / return in keyboard works
-// delete html files
-
-
-
-
