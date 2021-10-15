@@ -69,9 +69,6 @@ Firstly, if a button is in a situation that it cannot/should not be used, we gre
 Therefore, for the add (+) button, until and unless an input is typed in the text box, it remains greyed out, and as soon as we enter/add the typed item
 to our to-do list, it gets greyed out again.
 
-<img src='Screenshots/PlusActivated.png' text-align='center' width=50%/>
-
-
 Along the same lines, when no items are marked as completed, or when the to-do list is empty, the "hide completed" and "delete completed" buttons are
 greyed out to indicate that they cannot be used (have no function). In addition to this, the buttons are disabled so that accidentally clicking on them does not trigger any
 unwanted actions
@@ -83,7 +80,7 @@ When the "hide completed" button is clicked to hide items, the delete button bec
 items that they cannot see. Therefore, you can only delete completed items from the list if you are in the visibility mode where you can 
 see all the items. 
 
-<img src='Screenshots/DeleteDeactivated.png' text-align='center' width=50%/>
+<img src='Screenshots/DeleteDeactivate.png' text-align='center' width=50%/>
 
 Finally, we considered comments from Lab 1 about our buttons for the items resembling radio buttons. However, considering the context that they are in (todo list app)
 plus the results from the user testing we did, we decided to keep the same design for the buttons (as they also match our rounded theme without sacrificing usability)
