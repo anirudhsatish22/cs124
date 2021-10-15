@@ -85,7 +85,7 @@ see all the items.
 Finally, we considered comments from Lab 1 about our buttons for the items resembling radio buttons. However, considering the context that they are in (todo list app)
 plus the results from the user testing we did, we decided to keep the same design for the buttons (as they also match our rounded theme without sacrificing usability)
 
-### Alert when Delete button is clicked
+### Alert when Delete Button is Clicked:
 
 We added an alert box for when the "delete completed" button is clicked, warning the user that they are going to make an irreversible change, 
 and asking them to confirm if they want to carry out the action, or hit "No" to revert to the initial state of the list (before the delete button was clicked)
@@ -99,7 +99,7 @@ Sweet Alert: https://sweetalert.js.org/
 
 
 
-### Changes to Label-Checkbox implementation
+### Changes to Label-Checkbox Implementation:
 
 To implement editing of items in the Todo List, we removed the functionality of clicking on the label as well to mark the items. Instead, now to mark an item 
 as completed, a click on the checkbox is required. Clicking on the label enables editing of the text, and allows the user to change the name/title of any task already 
@@ -107,12 +107,12 @@ in the todo List.
 
 <img src='Screenshots/NewLabelCheck.png' text-align='center' width=50%/>
 
-Additionally, to deal with long tasks (singel task), we implemented a horizontal scrolling mechanism, rather than wrapping. An example of the same is shown below. 
+Additionally, to deal with long tasks (single task), we implemented a horizontal scrolling mechanism, rather than wrapping. An example of the same is shown below. 
 This screenshot is a frame while scrolling to the right to see the full item.
 
 <img src='Screenshots/HorizontalScrolling.png' text-align='center' width=50%/>
 
-### Vertical Scrolling
+### Vertical Scrolling:
 
 After thinking about edge cases/possible situations where our initial design might break, we thought about implementing 
 a vertical scrolling mechanism to help deal with lists that have a lot of tasks. A picture of the same is attached below for illustration. 
@@ -141,6 +141,7 @@ Therefore, we would like to add this functionality in our future implementation.
 #### Person B:
 (This user testing was done before the complete version of the app was done. i.e, the alert box was not implemented, along with some other teething issues
 such as wrapping)
+
 Person B also had positive feedback about our application. They were impressed by how hitting enter while adding an item added it to our list. 
 They also suggested that when the hide completed button was clicked, and the completed items were hidden, the delete button should be deactivated, so that users do not accidentally delete something they did not intend to.
 (This feedback was implemented in our final version). Person B also spoke about how it would be nice if when they checked an item to mark as completed, if it first visually showed itself being checked, and then moving 
@@ -158,7 +159,7 @@ on click. At the moment, we could not think of a way to make it more obvious whi
 Person C also thought that when a task is too long, it was perhaps not convenient that the task extends on the same line and allows the user to scroll horizontally.
 While we do note Person C's thoughts, we were having trouble wrapping the text of a task that was too long correctly.
 
-## Screenshots and Images from our implementation:
+## Screenshots and Images from our Implementation:
 
 Attached below is a screenshot of our application at a random stage, with some items in the list, and some items marked as checked.
 
@@ -167,7 +168,7 @@ Attached below is a screenshot of our application at a random stage, with some i
 
 We also have images from different stages of our application to show the flow when completing the different tasks that it is intended to do. 
 
-### Task 1: Adding a task to an empty list
+### Task 1: Adding a task to an Empty List:
 
 To add an item, simply type in the input text box at the top of the app, and then hit "Enter/Return" on your keyboard, or the + button
 to add the item to the list.
@@ -184,7 +185,7 @@ Screen after adding said item to the list:
 
 <img src='Screenshots/PostTask1.png' width=50%/>
 
-### Task 2: Adding an element to a non-empty List
+### Task 2: Adding an element to a Non-Empty List:
 
 To add an item, simply type in the input text box at the top of the app, and then hit "Enter/Return" on your keyboard, or the + button
 to add the item to the list.
@@ -206,7 +207,7 @@ It simply adds it to the bottom of the unchecked portion of the list (if there a
 and gets added just above completed items (if any)
 
 
-### Task 3: Mark an Item completed
+### Task 3: Mark an Item Completed:
 
 To mark an item as completed, simply click on the check button on the left, and this marks the item as completed. 
 
@@ -221,7 +222,7 @@ Screen after marking item as completed:
 Our app moves the completed items to the bottom of the list, as talked about earlier, therefore grouping all
 completed and uncompleted items together. 
 
-### Task 4: Rename an item in the list:
+### Task 4: Rename an item in the List:
 
 To rename a task, a click on the text is all that is required. Once done editing, simply click away (in a different position) or 
 hit enter
@@ -242,11 +243,11 @@ To rename the item, our text is editable, and thus when a user clicks on the tex
 to rename that to whatever they please. whether this be completely removing text, or adding some more. 
 
 
-### Task 5: To show only uncompleted items
+### Task 5: To show only Uncompleted Items:
 
 To accommodate this task, we have a button called "Hide Completed", which is pretty self explanatory. 
 On clicking this button, the application will hide all completed tasks from the user, and the button's text changes
-to show all. Clicking this button show all will revert to the stage where all tasks, both completed and uncompleted are visible
+to "Show Completed". Clicking this button "Show Completed" will revert to the stage where all tasks, both completed and uncompleted are visible
 
 Screen at the Beginning of the task:
 
@@ -256,10 +257,10 @@ Screen after clicking hide completed button:
 
 <img src='Screenshots/PostTask5.png' width=50%/>
 
-### Task 6: Delete all completed tasks:
+### Task 6: Delete all Completed tasks:
 
 For this function, our app has a "delete completed" button, which when clicked will bring up an alert tab, 
-asking the user to confirm their action, or revert back. If they chose to delete all items delete all items that are marked as checked/completed in the list, leaving only the uncompleted 
+asking the user to confirm their action, or revert. If they chose to delete all items delete all items that are marked as checked/completed in the list, leaving only the uncompleted 
 tasks on the screen. Unlike hide completed tasks, this is not reversible, and actually removes them, rather
 than just not showing the completed tasks. 
 
@@ -281,7 +282,7 @@ Screen if No/Cancel is hit:
 
 
 
-## Challenges Faced
+## Challenges Faced:
 
 
 ### Lab1
@@ -296,7 +297,7 @@ displaying hyphens. Hence, we finally arrived at the QuickSand font which is a G
 
 
 ### Lab2
-One of the first challenges we faced was when we were trying to make completed items float below our uncompleted items was that the text of our item would move down; however,
+One of the first challenges we faced was when we were trying to make completed items float below our uncompleted items was that the text of our item would move down. However,
 the item that takes its place would be marked as completed. This bug took us a really long time to figure out until we realized that we had to use keys so that React would know
 which list item actually needs to be moved where.
 
