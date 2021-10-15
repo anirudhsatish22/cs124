@@ -83,7 +83,7 @@ When the "hide completed" button is clicked to hide items, the delete button bec
 items that they cannot see. Therefore, you can only delete completed items from the list if you are in the visibility mode where you can 
 see all the items. 
 
-<img src='Screenshots/DeleteDeactivated.png' text-align='center' width=50%/>
+<img src='Screenshots/DeleteDeactivate.png' text-align='center' width=50%/>
 
 Finally, we considered comments from Lab 1 about our buttons for the items resembling radio buttons. However, considering the context that they are in (todo list app)
 plus the results from the user testing we did, we decided to keep the same design for the buttons (as they also match our rounded theme without sacrificing usability)
