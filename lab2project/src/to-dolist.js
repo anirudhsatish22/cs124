@@ -30,7 +30,7 @@ function ToDoList(props) {
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover completed tasks!",
             icon: "warning",
-            buttons: true,
+            buttons: ["No", "Yes"],
             dangerMode: true,
         })
             .then((okToDelete) => {

@@ -2,3 +2,7 @@
 
 ## <a href='https://anirudhsatish22.github.io/cs124/'>Lab 1</a>
 
+## <a href='https://anirudhsatish22.github.io/cs124/'>Lab 2</a>
+
+
+
