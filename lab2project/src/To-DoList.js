@@ -65,14 +65,14 @@ function ToDoList(props) {
                     <ul id="list">
                         {showCompleted ? updatedList.map(a => <Task
                             onTaskCompleted={ (selectedId, field, value) =>
-                                props.onContentChange(selectedId, field, value)
+                            props.onContentChange(selectedId, field, value) ? setNumCompleted(numCompleted - 1) : null
                             }
                             key = {a.id}
                             displayButtons ={(whetherCompleted)=> whetherCompleted ? setNumCompleted(numCompleted + 1) : setNumCompleted(numCompleted-1)}
                             {...a}
                         />) : updatedList.filter(a => a.completed === false).map(a => <Task
                             onTaskCompleted={ (selectedId, field, value) =>
-                                props.onContentChange(selectedId, field, value)
+                            props.onContentChange(selectedId, field, value) ? setNumCompleted(numCompleted - 1) : null
                             }
                             key = {a.id}
                             displayButtons ={(whetherCompleted)=> whetherCompleted ? setNumCompleted(numCompleted + 1) : setNumCompleted(numCompleted-1)}

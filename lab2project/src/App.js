@@ -11,10 +11,14 @@ function App(props) {
         if (field === 'task' && (value == "" || value != null)) {
             const newData = data.filter(e => e.id != id)
             setData(newData)
-            return
+            if (data.filter(e => e.id === id)[0].completed === true) {
+                return true
+            }
+            return false
         }
         const newData = data.map(e => e.id === id? {...e, [field]: value} : e)
         setData(newData)
+        return false
     }
     function addItem(newItem) {
         setData([...data, newItem]);
