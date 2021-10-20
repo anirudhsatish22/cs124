@@ -3,7 +3,15 @@ import './App.css';
 import ToDoList from "./To-DoList";
 import React, {useState} from 'react';
 
-
+const firebaseConfig = {
+  apiKey: "AIzaSyAMsDbORWI7OtcnI4VjQnY6xEE6XGjZPf0",
+  authDomain: "to-do-list-78c30.firebaseapp.com",
+  projectId: "to-do-list-78c30",
+  storageBucket: "to-do-list-78c30.appspot.com",
+  messagingSenderId: "466185835646",
+  appId: "1:466185835646:web:dbe8a4413a6cad9f3f742f",
+  measurementId: "G-3Q5LDPJYK6"
+};
 
 function App(props) {
     const [data, setData] = useState(props.data)
