@@ -35,7 +35,7 @@ function ToDoList(props) {
         })
             .then((okToDelete) => {
                 if (okToDelete) {
-                    let remainingList = updatedList.filter(a => a.completed === false);
+                    let remainingList = updatedList.filter(a => a.completed === true);
                     props.onDeleteItem(remainingList);
                     setNumCompleted(0)
 
