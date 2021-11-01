@@ -2,16 +2,18 @@ import Task from './Task';
 import swal from 'sweetalert';
 
 import React, {useEffect, useState} from 'react';
-let myLength = 4;
+import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
+
+// let myLength = generateUniqueID()
 function ToDoList(props) {
     const [value, setValue] = useState(null);
     const [showCompleted, setShowCompleted] = useState(true);
-    const [numCompleted, setNumCompleted] = useState(1);
+    const [numCompleted, setNumCompleted] = useState(0);
 
     function enterB() {
         if (value !== null && value !== "") {
             let newItem = {
-                id: (++myLength).toString(),
+                id: generateUniqueID(),
                 task: value,
                 completed: false
             };
@@ -65,19 +67,20 @@ function ToDoList(props) {
                     <ul id="list">
                         {showCompleted ? updatedList.map(a => <Task
                             onTaskCompleted={ (selectedId, field, value) =>
-                            props.onContentChange(selectedId, field, value) ? setNumCompleted(numCompleted - 1) : null
+                            props.onContentChange(selectedId, field, value) ?  setNumCompleted(numCompleted - 1): null
                             }
                             key = {a.id}
-                            displayButtons ={(whetherCompleted)=> whetherCompleted ? setNumCompleted(numCompleted + 1) : setNumCompleted(numCompleted-1)}
+                            displayButtons ={(whetherCompleted)=> {whetherCompleted ? setNumCompleted(numCompleted + 1) : setNumCompleted(numCompleted-1)}}
                             {...a}
                         />) : updatedList.filter(a => a.completed === false).map(a => <Task
                             onTaskCompleted={ (selectedId, field, value) =>
-                            props.onContentChange(selectedId, field, value) ? setNumCompleted(numCompleted - 1) : null
+                            props.onContentChange(selectedId, field, value) ?  setNumCompleted(numCompleted - 1) : null
                             }
                             key = {a.id}
                             displayButtons ={(whetherCompleted)=> whetherCompleted ? setNumCompleted(numCompleted + 1) : setNumCompleted(numCompleted-1)}
                             {...a}
                         />)}
+                        {console.log(numCompleted)}
 
                     </ul>
                 </div>

@@ -36,25 +36,29 @@ function App(props) {
     const [data, setData] = useState(props.data)
 
 
-    function setField(id, field, value) {
-        db.collection(ourCollection).doc(id).update({[field]:value})
-        if (field === 'task' && (value == "" || value == null)) {
-            const newData = data.filter(e => e.id != id)
-            // setData(newData)
-            if (data.filter(e => e.id === id)[0].completed === true) {
-                return true
-            }
-            return false
+    async function setField(id, field, value) {
+        let reduceCounter = false;
+        if (field === 'task' && (value == "" || value == null) ) {
+            await db.collection(ourCollection).doc(id).get().then((docRef) => {
+                // console.log(docRef.data()['completed'])
+                reduceCounter =  docRef.data()['completed'];
+            })
         }
-        const newData = data.map(e => e.id === id? {...e, [field]: value} : e)
-        setData(newData)
-        return false
+
+        if (value === "") {
+            await db.collection(ourCollection).doc(id).delete();
+        }
+        else {
+            await db.collection(ourCollection).doc(id).update({[field]:value})
+        }
+        console.log(reduceCounter)
+        return reduceCounter;
 
     }
-    function addItem(newItem) {
+    async function addItem(newItem) {
         // setData([...data, newItem]);
         const docRef = db.collection(ourCollection).doc(newItem.id)
-        docRef.set(newItem)
+        await docRef.set(newItem)
     }
     function onDelete(remainingList) {
         setData(remainingList);
