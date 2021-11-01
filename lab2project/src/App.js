@@ -41,8 +41,13 @@ function App(props) {
         if (field === 'task' && (value == "" || value == null) ) {
             db.collection(ourCollection).doc(id).get().then((docRef) => {
                 console.log("docRef:",docRef.data()['completed'])
-                reduceCounter =  docRef.data()['completed']
-                db.collection(ourCollection).doc(id).delete();
+                if (docRef.data()['completed']) {
+                    db.collection(ourCollection).doc(id).delete().then();
+                    return true;
+                } else {
+                    db.collection(ourCollection).doc(id).delete().then();
+                    return false;
+                }
             })
         }
 
@@ -53,14 +58,14 @@ function App(props) {
         return reduceCounter;
 
     }
-    async function addItem(newItem) {
+    function addItem(newItem) {
         // setData([...data, newItem]);
         const docRef = db.collection(ourCollection).doc(newItem.id)
-        await docRef.set(newItem)
+        docRef.set(newItem)
     }
     function onDelete(remainingList) {
         setData(remainingList);
-        let listOfIds = remainingList.map(e => e.id)
+        const listOfIds = remainingList.map(e => e.id)
         listOfIds.map(id => db.collection(ourCollection).doc(id).delete())
     }
   return (
