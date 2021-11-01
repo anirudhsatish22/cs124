@@ -36,22 +36,20 @@ function App(props) {
     const [data, setData] = useState(props.data)
 
 
-    async function setField(id, field, value) {
+    function setField(id, field, value) {
         let reduceCounter = false;
         if (field === 'task' && (value == "" || value == null) ) {
-            await db.collection(ourCollection).doc(id).get().then((docRef) => {
-                // console.log(docRef.data()['completed'])
-                reduceCounter =  docRef.data()['completed'];
+            db.collection(ourCollection).doc(id).get().then((docRef) => {
+                console.log("docRef:",docRef.data()['completed'])
+                reduceCounter =  docRef.data()['completed']
+                db.collection(ourCollection).doc(id).delete();
             })
         }
 
-        if (value === "") {
-            await db.collection(ourCollection).doc(id).delete();
+        if (value !== '' && value != null) {
+            db.collection(ourCollection).doc(id).update({[field]:value})
         }
-        else {
-            await db.collection(ourCollection).doc(id).update({[field]:value})
-        }
-        console.log(reduceCounter)
+        console.log("lastprint",reduceCounter)
         return reduceCounter;
 
     }
