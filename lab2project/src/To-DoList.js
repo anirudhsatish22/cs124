@@ -7,22 +7,26 @@ import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 // let myLength = generateUniqueID()
 function ToDoList(props) {
     const [value, setValue] = useState(null);
+    const [priority, setPriority] = useState("Now");
     const [showCompleted, setShowCompleted] = useState(true);
-    const [numCompleted, setNumCompleted] = useState(0);
+    // const [numCompleted, setNumCompleted] = useState(0);
 
     function enterB() {
         if (value !== null && value !== "") {
             let newItem = {
                 id: generateUniqueID(),
                 task: value,
-                completed: false
+                completed: false,
+                priority: priority
             };
             props.onNewItemAdded(newItem);
             setValue("")
         }
     }
+    let numCompleted = 0
     function renderList(unSortedList) {
         let checkedArray = unSortedList.filter(x => x.completed)
+        numCompleted = checkedArray.length
         let uncheckedArray = unSortedList.filter(x => !x.completed)
         return [...uncheckedArray, ...checkedArray]
     }
@@ -37,9 +41,9 @@ function ToDoList(props) {
         })
             .then((okToDelete) => {
                 if (okToDelete) {
-                    let remainingList = updatedList.filter(a => a.completed === true);
-                    props.onDeleteItem(remainingList);
-                    setNumCompleted(0)
+                    let listOfIds = updatedList.filter(a => a.completed === true).map(a => a.id);
+                    props.onDeleteItem(listOfIds);
+                    numCompleted = 0
 
                 } else {
                     return;
@@ -59,6 +63,13 @@ function ToDoList(props) {
                 <div id="enter-item">
                     <input type="text" value={value} id="input-text" onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Add a task..."/>
                     <span id="enter-span">
+                    <span id="priority-container">
+                    <select id="priority-button" onChange={(e)=> setPriority(e.target.value)} defaultValue={priority} class={ value !== "" && value !== null ? "show-buttons" : "grey-buttons"}>
+                            <option>Now</option>
+                            <option>Today</option>
+                            <option>Later</option>
+                    </select>
+                    </span>
                     <button class={ value !== "" && value !== null ? "show-buttons" : "grey-buttons"}onClick={enterB} id="enter-button">+</button>
                     </span>
                 </div>
@@ -67,17 +78,17 @@ function ToDoList(props) {
                     <ul id="list">
                         {showCompleted ? updatedList.map(a => <Task
                             onTaskCompleted={ (selectedId, field, value) =>
-                            props.onContentChange(selectedId, field, value) ?  setNumCompleted(numCompleted - 1) : null
+                            props.onContentChange(selectedId, field, value) ?  numCompleted--  : null
                             }
                             key = {a.id}
-                            displayButtons ={(whetherCompleted)=> {whetherCompleted ? setNumCompleted(numCompleted + 1) : setNumCompleted(numCompleted-1)}}
+                            displayButtons ={(whetherCompleted)=> {whetherCompleted ? numCompleted++ : numCompleted--}}
                             {...a}
                         />) : updatedList.filter(a => a.completed === false).map(a => <Task
                             onTaskCompleted={ (selectedId, field, value) =>
-                            props.onContentChange(selectedId, field, value) ?  setNumCompleted(numCompleted - 1) : null
+                            props.onContentChange(selectedId, field, value) ?  numCompleted-- : null
                             }
                             key = {a.id}
-                            displayButtons ={(whetherCompleted)=> whetherCompleted ? setNumCompleted(numCompleted + 1) : setNumCompleted(numCompleted-1)}
+                            displayButtons ={(whetherCompleted)=> whetherCompleted ? numCompleted++ : numCompleted--}
                             {...a}
                         />)}
                         {console.log(numCompleted)}

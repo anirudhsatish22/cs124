@@ -28,45 +28,27 @@ function App(props) {
     const query = db.collection(ourCollection);
     const [value, loading, error] = useCollection(query);
 
-    if (!loading) {
+    if (loading) {
+       return <h1> Loading...</h1>
     }
 
     const listOfTasks = value != null? value.docs.map((doc) => doc.data()) : []
 
-    const [data, setData] = useState(props.data)
-
-
     function setField(id, field, value) {
-        let reduceCounter = false;
         if (field === 'task' && (value == "" || value == null) ) {
-            db.collection(ourCollection).doc(id).get().then((docRef) => {
-                console.log("docRef:",docRef.data()['completed'])
-                if (docRef.data()['completed']) {
-                    db.collection(ourCollection).doc(id).delete().then();
-                    return true;
-                } else {
-                    db.collection(ourCollection).doc(id).delete().then();
-                    return false;
-                }
-            })
-        }
+            onDelete([id]);
+            }
 
-        if (value !== '' && value != null) {
-            db.collection(ourCollection).doc(id).update({[field]:value})
+        else {
+            db.collection(ourCollection).doc(id).update({[field]:value});
         }
-        console.log("lastprint",reduceCounter)
-        return reduceCounter;
-
     }
     function addItem(newItem) {
-        // setData([...data, newItem]);
-        const docRef = db.collection(ourCollection).doc(newItem.id)
-        docRef.set(newItem)
+        const docRef = db.collection(ourCollection).doc(newItem.id);
+        docRef.set(newItem);
     }
-    function onDelete(remainingList) {
-        setData(remainingList);
-        const listOfIds = remainingList.map(e => e.id)
-        listOfIds.map(id => db.collection(ourCollection).doc(id).delete())
+    function onDelete(listOfIds) {
+        listOfIds.map(id => db.collection(ourCollection).doc(id).delete());
     }
   return (
       <ToDoList list={listOfTasks} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete}></ToDoList>
