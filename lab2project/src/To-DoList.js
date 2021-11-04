@@ -13,6 +13,7 @@ function ToDoList(props) {
     const [showCompleted, setShowCompleted] = useState(true);
     const [dummyState, setDummyState] = useState(true);
     // const [numCompleted, setNumCompleted] = useState(0);
+    const dict = {'task': 'Name', 'priority': 'Priority', 'created':'Creation Date'};
 
     function enterB() {
         if (value !== null && value !== "") {
@@ -61,16 +62,18 @@ function ToDoList(props) {
 
     return (
         <>
-            <span>
+            <span className='headerClass'>
             <h1 id="top-title">To-Do List</h1>
-                <select id='sort-button'  onChange={(e) => {
+                <span id='sort-button'>
+                <select  defaultValue={dict[props.filterValue]} onChange={(e) => {
                     props.filterBy(e.target.value.toLowerCase())
-                    setDummyState(!dummyState)
+                    // setDummyState(!dummyState)
                 }}>
                     <option>Priority</option>
                     <option>Name</option>
                     <option>Creation Date</option>
                 </select>
+                </span>
             </span>
             <div id="container">
 
