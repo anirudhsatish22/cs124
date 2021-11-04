@@ -30,6 +30,7 @@ function App(props) {
        return <h1> Loading...</h1>
     }
 
+
     // let taskList = null;
     // query.orderBy(filter).get().then((snapshot)=> {taskList = snapshot.docs.map((doc)=> doc.data())
     //     console.log("inside",taskList);

@@ -52,7 +52,7 @@ to delete all completed tasks from the list.
 <img src='Screenshots/Page4.png' text-align='center' width=50%/>
 
 
-## Final Design (changes in Lab2 React implementation):
+## Lab2 Design (changes in Lab2 React implementation):
 
 ### List items, completed and uncompleted items
 In Lab 2, We implement our app using React, to create a working To-Do list. We made some changes to the initial design in this lab
@@ -120,6 +120,23 @@ The scroll bar can be seen on the right side of the app.
 
 <img src='Screenshots/VerticalScrolling.png' text-align='center' width=50%/>
 
+
+## Lab 3 Design:
+
+To incorporate the added functionality of priority for tasks, we needed to make some substantial changes to our 
+design. These were. 
+1. Adding a dropdown at the top of the application to allow the user to choose by what metric they want to sort by
+2. Adding a dropdown by the input field, to allow the user to add the priority of the task they add to the list. 
+3. A dropdown for each task in the list, indicating the current task, allowing for editing/changing functionality of priorities. 
+4. To make the addition of these new features look more pleasing to the eye, and not so cluttered, we incorporate a 
+   greyed our background for the items of the list. This then creates a visual demarcation from the two other fields, the input section 
+   and the section with the delete and hide buttons. 
+5. To add the dropdown for each list item, we incorporate a one dimensional gridbox for each list item, which are inserted
+   into the two dimensional gridbox that holds all the contents of the list, and the buttons and input fields
+
+
+TODO: Insert pictures
+### Dropdown at the top:
 
 
 ## User Testing:
