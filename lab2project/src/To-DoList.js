@@ -3,12 +3,15 @@ import swal from 'sweetalert';
 
 import React, {useEffect, useState} from 'react';
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
+import firebase from "firebase/compat";
+
 
 // let myLength = generateUniqueID()
 function ToDoList(props) {
     const [value, setValue] = useState(null);
-    const [priority, setPriority] = useState("Now");
+    const [priority, setPriority] = useState(1);
     const [showCompleted, setShowCompleted] = useState(true);
+    const [dummyState, setDummyState] = useState(true);
     // const [numCompleted, setNumCompleted] = useState(0);
 
     function enterB() {
@@ -17,7 +20,8 @@ function ToDoList(props) {
                 id: generateUniqueID(),
                 task: value,
                 completed: false,
-                priority: priority
+                priority: priority,
+                created: firebase.database.ServerValue.TIMESTAMP
             };
             props.onNewItemAdded(newItem);
             setValue("")
@@ -57,17 +61,27 @@ function ToDoList(props) {
 
     return (
         <>
+            <span>
             <h1 id="top-title">To-Do List</h1>
+                <select id='sort-button'  onChange={(e) => {
+                    props.filterBy(e.target.value.toLowerCase())
+                    setDummyState(!dummyState)
+                }}>
+                    <option>Priority</option>
+                    <option>Name</option>
+                    <option>Creation Date</option>
+                </select>
+            </span>
             <div id="container">
 
                 <div id="enter-item">
                     <input type="text" value={value} id="input-text" onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Add a task..."/>
                     <span id="enter-span">
                     <span id="priority-container">
-                    <select id="priority-button" onChange={(e)=> setPriority(e.target.value)} defaultValue={priority} class={ value !== "" && value !== null ? "show-buttons" : "grey-buttons"}>
-                            <option>Now</option>
-                            <option>Today</option>
-                            <option>Later</option>
+                    <select id="priority-button" onChange={(e)=> setPriority(parseInt(e.target.value))} defaultValue={priority} class={ value !== "" && value !== null ? "show-buttons" : "grey-buttons"}>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
                     </select>
                     </span>
                     <button class={ value !== "" && value !== null ? "show-buttons" : "grey-buttons"}onClick={enterB} id="enter-button">+</button>

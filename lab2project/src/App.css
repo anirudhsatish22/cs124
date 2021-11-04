@@ -196,6 +196,7 @@ body{
 
 .ListItems {
   overflow-y:auto;
+  overflow-x: hidden;
   grid-column: 1/ span 3;
 }
 
@@ -204,14 +205,35 @@ body{
   white-space: nowrap;
 }
 
-
-.ListItems li label span {
-  vertical-align: middle;
-  overflow-x: scroll;
-  white-space: nowrap;
-
+.ListItems ul li {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 200px 65px;
 }
 
+
+.ListItems ul li label span {
+  vertical-align: middle;
+  /*white-space: nowrap;*/
+  /*grid-column: 1/ span 1;*/
+}
+.taskItem {
+  grid-column: 1;
+  overflow-x: auto;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  height: 3px;
+}
+::-webkit-scrollbar-button {
+  background: #e28743;
+}
+::-webkit-scrollbar-track-piece {
+  background: #eee
+}
+::-webkit-scrollbar-thumb {
+  background: #e28743;
+}
 .ListItems li label input {
   vertical-align: middle;
 }
@@ -220,25 +242,18 @@ body{
   padding-left: 15px;
   margin: auto
 }
-.ListItems ul span li {
-  margin: auto;
-  font-size: 14pt;
-  padding-top: 2px;
-}
-/*.ListItems ul li label {*/
-/*  grid-column: 1/ span 2;*/
-
-/*}*/
-.test {
-  grid-column: 1/ span 2;
-}
 .taskPriority{
-  grid-column: 3/ span 1;
+  grid-column: 2;
 }
 .ListItems ul li span {
-  text-align: center;
+  text-align: left ;
 }
 
+.ListItems ul li label {
+  /*grid-column: 1/ span 1;*/
+  /*padding-bottom: 10px;*/
+
+}
 .show-buttons {
   background: #ffaf4b;
   cursor: pointer;
@@ -255,7 +270,7 @@ body{
   width: 25px;
   margin: auto;
   font-size: 12pt;
-  border-radius: 50%;
+  border-radius: 30%;
   cursor: pointer;
   border: 1px solid black;
 }

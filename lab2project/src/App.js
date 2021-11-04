@@ -4,6 +4,7 @@ import ToDoList from "./To-DoList";
 import React, {useState} from 'react';
 
 import firebase from "firebase/compat";
+import { query, orderBy, limit } from "firebase/firestore";
 import {useCollection} from "react-firebase-hooks/firestore";
 
 const firebaseConfig = {
@@ -20,20 +21,21 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const ourCollection = "Master-List";
 
-
-
-
-
 function App(props) {
-    const query = db.collection(ourCollection);
+    const [filter, setFilter] = useState('task');
+    const query = db.collection(ourCollection).orderBy(filter);
     const [value, loading, error] = useCollection(query);
 
     if (loading) {
        return <h1> Loading...</h1>
     }
 
-    const listOfTasks = value != null? value.docs.map((doc) => doc.data()) : []
-
+    // let taskList = null;
+    // query.orderBy(filter).get().then((snapshot)=> {taskList = snapshot.docs.map((doc)=> doc.data())
+    //     console.log("inside",taskList);
+    // })
+    // console.log("outside",taskList)
+    let taskList = value != null? value.docs.map((doc) => doc.data()) : []
     function setField(id, field, value) {
         if (field === 'task' && (value == "" || value == null) ) {
             onDelete([id]);
@@ -50,8 +52,18 @@ function App(props) {
     function onDelete(listOfIds) {
         listOfIds.map(id => db.collection(ourCollection).doc(id).delete());
     }
+    function getFilteredList(currentFilter) {
+        if (currentFilter === "name") {
+            currentFilter = "task"
+        }
+        if (currentFilter === "creation date") {
+            currentFilter = "created"
+        }
+        setFilter(currentFilter)
+        }
+
   return (
-      <ToDoList list={listOfTasks} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete}></ToDoList>
+      <ToDoList list={taskList} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete} filterBy={getFilteredList} filterValue={filter}></ToDoList>
   );
 }
 
