@@ -60,18 +60,22 @@ function ToDoList(props) {
 
     let updatedList = renderList(props.list)
 
+
     return (
         <>
             <span className='headerClass'>
             <h1 id="top-title">To-Do List</h1>
-                <span id='sort-button'>
-                <select  defaultValue={dict[props.filterValue]} onChange={(e) => {
+                <span id='sort-items'>
+                <span id="sort-title">Sort By: </span>
+                <select  id="sort-button" class={updatedList.length != 0  ? "show-buttons" : "grey-buttons"} onChange={(e) => {
                     props.filterBy(e.target.value.toLowerCase())
                     // setDummyState(!dummyState)
                 }}>
+                    <optgroup label="Sort By">
                     <option>Priority</option>
                     <option>Name</option>
                     <option>Creation Date</option>
+                    </optgroup>
                 </select>
                 </span>
             </span>

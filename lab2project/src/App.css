@@ -113,7 +113,9 @@ body{
   height: 25px;
 
 }
-#sort-button {
+
+
+#sort-items {
   padding-top: 12px;
   padding-left: 0px;
   padding-bottom: 12px;
@@ -121,6 +123,17 @@ body{
   margin-left: 7px;
 }
 
+#sort-title {
+  font-weight: bold;
+  font-size: 10px;
+}
+#sort-button {
+  border-radius: 10px;
+  width: 70px;
+  /*background: #ffaf4b;*/
+  cursor: pointer;
+  border: 1px solid black;
+}
 #container {
   width: 300px;
   height: 580px;
@@ -263,6 +276,14 @@ body{
 }
 .taskPriority{
   grid-column: 2;
+  height: 25px;
+  border-radius: 6px;
+  background: lightcoral;
+  background: #ffaf4b;
+}
+
+.taskPriorityContainer {
+  padding-top: 4px;
 }
 .ListItems ul li span {
   text-align: left ;
