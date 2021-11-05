@@ -11,9 +11,8 @@ function ToDoList(props) {
     const [value, setValue] = useState(null);
     const [priority, setPriority] = useState(1);
     const [showCompleted, setShowCompleted] = useState(true);
-    const [dummyState, setDummyState] = useState(true);
     // const [numCompleted, setNumCompleted] = useState(0);
-    const dict = {'task': 'Name', 'priority': 'Priority', 'created':'Created'};
+    const dict = {'task': 'Name', 'priority': 'Priority', 'created':'Created', 'Filter By:':'Filter By:'};
 
     function enterB() {
         if (value !== null && value !== "") {
@@ -67,16 +66,16 @@ function ToDoList(props) {
             <span className='headerClass'>
             <h1 id="top-title">To-Do List</h1>
                 <span id='sort-items'>
-                <span id="sort-title">Filter By: </span>
+                {/*<span id="sort-title">Filter By: </span>*/}
                 <select  id="sort-button" defaultValue={dict[props.filterValue]} class={updatedList.length != 0  ? "show-buttons" : "grey-buttons"} onChange={(e) => {
                     props.filterBy(e.target.value.toLowerCase())
-                    // setDummyState(!dummyState)
                 }}>
-                    <optgroup label="Filter By">
+                    {/*<optgroup label="Filter By">*/}
+                    <option selected disabled>Filter By:</option>
                     <option>Priority</option>
                     <option>Name</option>
                     <option>Created</option>
-                    </optgroup>
+                    {/*</optgroup>*/}
                 </select>
                 </span>
             </span>
@@ -92,7 +91,9 @@ function ToDoList(props) {
                             <option>3</option>
                     </select>
                     </span>
-                    <button class={ value !== "" && value !== null ? "show-buttons" : "grey-buttons"}onClick={enterB} id="enter-button">+</button>
+                        <span id='enter-button-container'>
+                    <button className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"} onClick={enterB} id="enter-button">+</button>
+                        </span>
                     </span>
                 </div>
 

@@ -4,7 +4,7 @@ import ToDoList from "./To-DoList";
 import React, {useState} from 'react';
 
 import firebase from "firebase/compat";
-import { query, orderBy, limit } from "firebase/firestore";
+import { orderBy, limit } from "firebase/firestore";
 import {useCollection} from "react-firebase-hooks/firestore";
 
 const firebaseConfig = {
@@ -22,8 +22,14 @@ const db = firebase.firestore();
 const ourCollection = "Master-List";
 
 function App(props) {
-    const [filter, setFilter] = useState('task');
-    const query = db.collection(ourCollection).orderBy(filter);
+    const [filter, setFilter] = useState('Filter By:');
+    let query = ''
+    if (filter === 'Filter By:') {
+        query = db.collection(ourCollection);
+    }
+    else {
+        query = db.collection(ourCollection).orderBy(filter);
+    }
     const [value, loading, error] = useCollection(query);
 
     if (loading) {
