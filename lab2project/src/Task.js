@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 function Task(props) {
-    const completed=props.completed;
+    const completed = props.completed;
     const [editContent, setEditContent] = useState(true);
     const [taskValue, setTaskValue] = useState(props.task)
 
@@ -15,7 +15,6 @@ function Task(props) {
         <label>
             <input type="checkbox" onChange={() => {props.onTaskCompleted(props.id, 'completed', !completed); props.displayButtons(!completed)}} checked = {false} class={completed ? "checked" : "unchecked"}/>
                     <span suppressContentEditableWarning={true} contentEditable={editContent} onKeyDown={(k)=> k.code === 'Enter' ? editTimeout() : null} class={completed ? "checked-text" : "unchecked-text"} onInput={(e) => setTaskValue(e.currentTarget.textContent)}>{props.task}</span>
-                             {/*onChange={(e) => setPriority(e.target.value)} defaultValue={priority}*/}
         </label>
         </span>
         <span className="taskPriorityContainer">
@@ -30,5 +29,4 @@ function Task(props) {
 
 }
 
-// {
 export default Task;

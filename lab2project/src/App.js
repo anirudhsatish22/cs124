@@ -1,10 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import ToDoList from "./To-DoList";
 import React, {useState} from 'react';
 
 import firebase from "firebase/compat";
-import { orderBy, limit } from "firebase/firestore";
 import {useCollection} from "react-firebase-hooks/firestore";
 
 const firebaseConfig = {
@@ -33,15 +31,25 @@ function App(props) {
     const [value, loading, error] = useCollection(query);
 
     if (loading) {
-       return <h1> Loading...</h1>
-    }
+
+   return (
+        <div id="root"><span className="headerClass"><h1 id="top-title">To-Do List</h1><span id="sort-items"><select
+            id="sort-button" className="grey-buttons"><option disabled="" selected="">Filter By:</option><option>Priority</option><option>Name</option><option>Date Created</option></select></span></span>
+            <div id="container">
+                <div id="enter-item"><input type="text" id="input-text" placeholder="Add a task..." value=""/><span id="enter-span"><span id="priority-container"><select id="priority-button" className="grey-buttons"><option disabled="" selected="">Priority:</option><option>1</option><option>2</option><option>3</option></select></span><span id="enter-button-container"><button className="grey-buttons" id="enter-button">+</button></span></span>
+                </div>
+                <div className="ListItems">
+                    <ul id="list">
+                        <h2 align="center">Loading...</h2>
+                    </ul>
+                </div>
+                <button className="grey-buttons" id="hide-completed-button">Hide Completed</button>
+                <button className="grey-buttons" id="delete-button">Delete Completed</button>
+            </div>
+        </div>
+        );}
 
 
-    // let taskList = null;
-    // query.orderBy(filter).get().then((snapshot)=> {taskList = snapshot.docs.map((doc)=> doc.data())
-    //     console.log("inside",taskList);
-    // })
-    // console.log("outside",taskList)
     let taskList = value != null? value.docs.map((doc) => doc.data()) : []
     function setField(id, field, value) {
         if (field === 'task' && (value == "" || value == null) ) {
@@ -77,12 +85,3 @@ function App(props) {
 }
 
 export default App;
-
-
-//change collection name, new db
-//test
-
-// Users -> list -> items
-
-
-

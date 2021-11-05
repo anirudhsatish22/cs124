@@ -1,7 +1,4 @@
-/*.App {*/
-/*  text-align: center;*/
-/*}*/
-
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 label {
   pointer-events: none;
   cursor: default;
@@ -28,17 +25,6 @@ label input {
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-@keyframes fade {
-  0% { opacity: 0 }
-  50% { opacity: 1 }
-  100% {opacity: 1}
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -55,32 +41,16 @@ label input {
 }
 
 html {
-
   width:360px;
   height:640px;
   margin: auto;
   zoom: inherit;
-
-
 }
 
 #root {
-  /*width:964px;*/
-  /*height: 1615.19px;*/
   width:360px;
   height: 640px;
 }
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 * {
   box-sizing: border-box;
@@ -114,7 +84,6 @@ body{
 
 }
 
-
 #sort-items {
   padding-top: 12px;
   padding-left: 0px;
@@ -130,7 +99,6 @@ body{
 #sort-button {
   border-radius: 08px;
   width: 105px;
-  /*background: #ffaf4b;*/
   cursor: pointer;
   font-size: 13px;
   text-align: center;
@@ -147,8 +115,6 @@ body{
   row-gap: 5px;
   grid-template-rows: 1fr 10fr 1.5fr;
   grid-template-columns: 140px 90px 50px;
-
-
 }
 
 #enter-item {
@@ -158,7 +124,6 @@ body{
   padding-top: 15px;
   grid-row: 1;
   grid-column: 1/ span 3;
-
 }
 #priority-container{
   padding: 7px;
@@ -185,7 +150,6 @@ body{
   width: 140px;
   margin: auto;
   background: whitesmoke;
-
 }
 
 
@@ -197,7 +161,6 @@ body{
   -webkit-appearance: none;
   box-shadow: none;
   cursor: pointer;
-
 }
 
 .unchecked:checked {
@@ -214,15 +177,8 @@ body{
   cursor: pointer;
 }
 
-/*.fade-text {*/
-/*  text-decoration: line-through;*/
-/*  opacity: 1;*/
-/*  animation: fade 3s linear;*/
-/*}*/
 .checked-text {
   text-decoration: line-through;
-  /*opacity: 1;*/
-  /*animation: fade 3s linear;*/
 }
 
 .checked:checked {
@@ -246,12 +202,8 @@ body{
   grid-template-rows: 1fr;
   grid-template-columns: 210px 45px;
 }
-
-
 .ListItems ul li label span {
   vertical-align: middle;
-  /*white-space: nowrap;*/
-  /*grid-column: 1/ span 1;*/
 }
 .taskItem {
   grid-column: 1;
@@ -288,22 +240,14 @@ body{
 
 .taskPriorityContainer {
   padding-left: 19px;
-  /*padding-top: 2px;*/
-  /*padding-bottom: 2px;*/
 }
 .ListItems ul li span {
   text-align: left ;
 }
 
-.ListItems ul li label {
-  /*grid-column: 1/ span 1;*/
-  /*padding-bottom: 10px;*/
-
-}
 .show-buttons {
   background: #ffaf4b;
   cursor: pointer;
-
 }
 
 .grey-buttons {
@@ -311,6 +255,7 @@ body{
   pointer-events: none;
   cursor: not-allowed;
 }
+
 #enter-button {
   height: 26px;
   width: 28px;
