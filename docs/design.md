@@ -135,8 +135,8 @@ design. These were.
    into the two dimensional gridbox that holds all the contents of the list, and the buttons and input fields
 
 
-TODO: Insert pictures
-### Dropdown at the top:
+### Dropdown at the top: 
+
 
 
 ## User Testing:

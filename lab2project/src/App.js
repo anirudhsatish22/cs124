@@ -51,6 +51,7 @@ function App(props) {
         else {
             const doc = db.collection(ourCollection).doc(id);
             doc.update({[field]:value});
+            setFilter(filter)
         }
     }
     function addItem(newItem) {
