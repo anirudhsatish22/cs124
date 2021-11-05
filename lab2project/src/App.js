@@ -64,7 +64,7 @@ function App(props) {
         if (currentFilter === "name") {
             currentFilter = "task"
         }
-        if (currentFilter === "Created") {
+        if (currentFilter === "date created") {
             currentFilter = "created"
         }
         setFilter(currentFilter)

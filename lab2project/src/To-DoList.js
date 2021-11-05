@@ -12,7 +12,7 @@ function ToDoList(props) {
     const [priority, setPriority] = useState(1);
     const [showCompleted, setShowCompleted] = useState(true);
     // const [numCompleted, setNumCompleted] = useState(0);
-    const dict = {'task': 'Name', 'priority': 'Priority', 'created':'Created', 'Filter By:':'Filter By:'};
+    const dict = {'task': 'Name', 'priority': 'Priority', 'created':'Date Created', 'Filter By:':'Filter By:'};
 
     function enterB() {
         if (value !== null && value !== "") {
@@ -74,7 +74,7 @@ function ToDoList(props) {
                     <option selected disabled>Filter By:</option>
                     <option>Priority</option>
                     <option>Name</option>
-                    <option>Created</option>
+                    <option>Date Created</option>
                     {/*</optgroup>*/}
                 </select>
                 </span>
@@ -85,7 +85,8 @@ function ToDoList(props) {
                     <input type="text" value={value} id="input-text" onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Add a task..."/>
                     <span id="enter-span">
                     <span id="priority-container">
-                    <select id="priority-button" onChange={(e)=> setPriority(parseInt(e.target.value))} defaultValue={priority} class={ value !== "" && value !== null ? "show-buttons" : "grey-buttons"}>
+                    <select id="priority-button" onChange={(e)=> setPriority(parseInt(e.target.value))} defaultValue='Priority:' class={ value !== "" && value !== null ? "show-buttons" : "grey-buttons"}>
+                            <option selected disabled>Priority:</option>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
