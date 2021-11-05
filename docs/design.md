@@ -156,7 +156,7 @@ The pictures for the flow of performing a sorting task are below.
 ### 2. Dropdown by Input Field:
 
 #### When there is nothing in the input field, the dropdown button remains greyed out
-<img src='Screenshots/InputPriorityAdding.png' width=50%/>
+<img src='Screenshots/InputPriorityStart.png' width=50%/>
 
 #### While typing, the button becomes orange to indicate that it can be used.
 <img src='Screenshots/InputPriorityAdding.png' width=50%/>
