@@ -1,6 +1,5 @@
 import Task from './Task';
 import swal from 'sweetalert';
-
 import React, {useEffect, useState} from 'react';
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import firebase from "firebase/compat";

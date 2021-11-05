@@ -1,5 +1,5 @@
 
-# CS124: Interaction Design Lab 1 & Lab 2 (React)
+# CS124: Interaction Design Lab 1 , Lab 2, and Lab 3 
 
 (Saatvik Sejpal, Anirudh Satish
 )
@@ -33,7 +33,7 @@ complicated and tedious. Thus we reverted to a fixed text input box at the top o
 with a plus button to add the item to the list.
 
 
-## Lab1 Design:
+## Lab 1 Design:
 
 When an item is added to our list, and the enter/plus button is hit, it gets added to the list much like it would to a stack, 
 that is it gets added to the top, and the other elements would move down to make space for the newly 
@@ -52,7 +52,7 @@ to delete all completed tasks from the list.
 <img src='Screenshots/Page4.png' text-align='center' width=50%/>
 
 
-## Lab2 Design (changes in Lab2 React implementation):
+## Lab 2 Design (changes in Lab2 React implementation):
 
 ### List items, completed and uncompleted items
 In Lab 2, We implement our app using React, to create a working To-Do list. We made some changes to the initial design in this lab
@@ -128,20 +128,20 @@ The scroll bar can be seen on the right side of the app.
 ## Lab 3 Design:
 
 To incorporate the added functionality of priority for tasks, we needed to make some substantial changes to our 
-design. These were. 
-1. Adding a dropdown at the top of the application to allow the user to choose by what metric they want to sort by
+design. These were:
+1. Adding a dropdown at the top of the application to allow the user to choose what metric they want to sort by.
 2. Adding a dropdown by the input field, to allow the user to add the priority of the task they add to the list. However, users who do not care about priority can continue to use the app with no hiccups, as the default priority of 1
-   is applied to all the entered items
-3. A dropdown for each task in the list, indicating the current task, allowing for editing/changing functionality of priorities.
-4. To add the dropdown for each list item, we incorporate a one dimensional gridbox for each list item, which are inserted
-   into the two dimensional gridbox that holds all the contents of the list, and the buttons and input fields
+   is applied to all the entered items.
+3. A dropdown for each task in the list, indicating the current priority, allowing for editing/changing functionality of priorities.
+4. To add the dropdown for each list item, we incorporate a one dimensional gridbox for each list item, which is inserted
+   into the two dimensional gridbox that holds all the contents of the list, and the buttons and input fields.
 
 Throughout this design, we maintain our design philosophy of greying out all buttons that cannot be used. Therefore, when
 there are no items to be filtered, the filter button remains greyed out, and similarly when there is nothing to add, 
 the priority button by the input field remains greyed out. 
 
 ### 1. Dropdown at the top: 
-The dropdown at the top provides three features to the user. We allow the user to filter by Name, Priority, or Created Date. 
+The dropdown at the top provides three features to the user. We allow the user to filter by Name, Priority, or Date Created . 
 The pictures for the flow of performing a sorting task are below. 
 
 #### Filter Button at the beginning of the task:
@@ -155,28 +155,30 @@ The pictures for the flow of performing a sorting task are below.
 
 ### 2. Dropdown by Input Field:
 
-When there is nothing in the input field, the dropdown button remains greyed out
+#### When there is nothing in the input field, the dropdown button remains greyed out
 <img src='Screenshots/InputPriorityAdding.png' width=50%/>
 
-While typing, the button becomes orange to indicate that it can be used.
+#### While typing, the button becomes orange to indicate that it can be used.
 <img src='Screenshots/InputPriorityAdding.png' width=50%/>
 
-Clicking on the button gives the following dropdown.
+#### Clicking on the button gives the following dropdown.
 <img src='Screenshots/InputPriorityInter.png' width=50%/>
 
-After selecting the priority, and enter/item is added. Then, the item is added, and the next priority remains the same
-This allows users to enter multiple items in quick successing with the same priority.
+#### After selecting the priority, and enter/item is added. 
+Then, the item is added, and the next priority remains the same.
+This allows users to enter multiple items in quick succession with the same priority.
+
 <img src='Screenshots/InputPriorityEnd.png' width=50%/>
 
 ### 3. Dropdown button for each task item in the list:
 
-Before editing the priority of the task, screen looks like this.
+#### Before editing the priority of the task, screen looks like this.
 <img src='Screenshots/TaskPriorityStart.png' width=50%/>
 
-Screen while editing the priority:
+#### Screen while editing the priority:
 <img src='Screenshots/TaskPriorityInter.png' width=50%/>
 
-Screen After priority is edited:
+#### Screen After priority is edited:
 <img src='Screenshots/TaskPriorityEnd.png' width=50%/>
 
 
@@ -220,10 +222,10 @@ While we do note Person C's thoughts, we were having trouble wrapping the text o
 ### Lab 3
 
 #### Person D. 
-This user testing was done before the complete version of our application for this lab was completed. The results/feedback from
-this persons feedback really helped and resulted in some changes in our delpoyed model. 
-This user, while adding items to our list, did not know what the 1,2,3 meant (in our priority dropdown). At this stage, 
-the dropdown in our input field for priority did not have any text, and was simply 1,2,3 as well. So the user was confused, and assumed that
+This user testing was done before the complete version of our application for this lab was completed. 
+This person's feedback really helped and resulted in some changes in our delpoyed model. 
+This user, while adding items to our list, did not know what the 1, 2, 3 referred to priorities. At this stage, 
+the dropdown in our input field for priority did not have any text, and was simply 1, 2, 3 as well. So the user was confused, and assumed that
 these numbers implied how long it should take them to complete the task. Therefore, we took this feedback, and edited the 
 priority button in the input field to have the text priority while loading as its default value, so that users know what it is. 
 
@@ -359,7 +361,7 @@ Screen if No/Cancel is hit:
 ## Challenges Faced
 
 
-### Lab1
+### Lab 1
 Our initial mistake was in understanding the purpose of this lab. We thought that we had to make a fully functioning JavaScript based
 Web App that would allow all the To-Do List functionalities. Hence, we spent a few hours, initially working in Raw JS trying to make this a
 proper To-Do List. After we realized that the task was to simply make static webpages, our process went a lot more smoothly and we did not face any really 
@@ -370,7 +372,7 @@ Also, it took us a while to select a font that we were happy with because some o
 displaying hyphens. Hence, we finally arrived at the QuickSand font which is a Google Font (and we think it looks pretty good!).
 
 
-### Lab2
+### Lab 2
 One of the first challenges we faced was when we were trying to make completed items float below our uncompleted items was that the text of our item would move down; however,
 the item that takes its place would be marked as completed. This bug took us a really long time to figure out until we realized that we had to use keys so that React would know
 which list item actually needs to be moved where.
@@ -378,10 +380,10 @@ which list item actually needs to be moved where.
 Another challenge we faced was wrapping the text in the same alignment as the first line of the task. The text would wrap below the checkbox and we were unable to find a fix for this.
 Hence, we changed our implementation so that if a task was too long it would continue on the same line and provide a horizontal scroll bar.
 
-### Lab3
+### Lab 3
 We struggled a lot with understanding the filtering and how firestore implements this. The thing that took us a while to figure out 
 was how to re-render the React app when the filter query is run, on the new filtered data. We managed to overcome the issue by
-using two different queries, one when filter is active, and one when we just want to pull the data as is from firestore. 
+using two different queries, one that uses an OrderBy clause when filter is active, and one that is just our default query when we just want to pull the data as is from firestore. 
 
 Another big issue we had this lab was getting the app working simultaneously on two different tabs or devices. We were very puzzled 
 as this functionality seemed to work in most instances, but not completely. For instance, adding an item/editing an item worked well, and
@@ -400,13 +402,13 @@ We are also quite pleased with the SWAL alert box that we have when the delete b
 app. 
 
 
-### Lab3:
+### Lab 3:
 We are very proud of how our app turned out this week. Firstly, the new buttons we added do not clog the screen. 
 They are quite nice in their location with regards to the other elements. Also, the philosophy we have of greying out the buttons 
 when they are not in a position to be used is incorporated with all of these buttons, and we are quite pleased with that. 
 
 When a metric for sorting is selected, and changes are made to the tasks in the list, its position changes dynamically. That is, 
-it slots into its required position as soon as the change is made. We think this is pretty cool, and are really happy with this functionality. 
+it slots into its required position according to the filter as soon as the change is made. We think this is pretty cool, and are really happy with this functionality. 
 
 We are also proud of our alignment of elements in this application. We used the advice from the guest lecture from Wednesday's class
 and applied the same to our app. We tried our best to align elements with something else, and we think this turned out really well. 
