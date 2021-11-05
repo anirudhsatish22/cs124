@@ -13,7 +13,7 @@ function ToDoList(props) {
     const [showCompleted, setShowCompleted] = useState(true);
     const [dummyState, setDummyState] = useState(true);
     // const [numCompleted, setNumCompleted] = useState(0);
-    const dict = {'task': 'Name', 'priority': 'Priority', 'created':'Creation Date'};
+    const dict = {'task': 'Name', 'priority': 'Priority', 'created':'Created'};
 
     function enterB() {
         if (value !== null && value !== "") {
@@ -29,6 +29,7 @@ function ToDoList(props) {
         }
     }
     let numCompleted = 0
+    console.log(props.list)
     function renderList(unSortedList) {
         let checkedArray = unSortedList.filter(x => x.completed)
         numCompleted = checkedArray.length
@@ -66,15 +67,15 @@ function ToDoList(props) {
             <span className='headerClass'>
             <h1 id="top-title">To-Do List</h1>
                 <span id='sort-items'>
-                <span id="sort-title">Sort By: </span>
-                <select  id="sort-button" class={updatedList.length != 0  ? "show-buttons" : "grey-buttons"} onChange={(e) => {
+                <span id="sort-title">Filter By: </span>
+                <select  id="sort-button" defaultValue={dict[props.filterValue]} class={updatedList.length != 0  ? "show-buttons" : "grey-buttons"} onChange={(e) => {
                     props.filterBy(e.target.value.toLowerCase())
                     // setDummyState(!dummyState)
                 }}>
-                    <optgroup label="Sort By">
+                    <optgroup label="Filter By">
                     <option>Priority</option>
                     <option>Name</option>
-                    <option>Creation Date</option>
+                    <option>Created</option>
                     </optgroup>
                 </select>
                 </span>

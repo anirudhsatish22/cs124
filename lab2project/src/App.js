@@ -43,7 +43,8 @@ function App(props) {
             }
 
         else {
-            db.collection(ourCollection).doc(id).update({[field]:value});
+            const doc = db.collection(ourCollection).doc(id);
+            doc.update({[field]:value});
         }
     }
     function addItem(newItem) {
@@ -57,7 +58,7 @@ function App(props) {
         if (currentFilter === "name") {
             currentFilter = "task"
         }
-        if (currentFilter === "creation date") {
+        if (currentFilter === "Created") {
             currentFilter = "created"
         }
         setFilter(currentFilter)

@@ -3,32 +3,32 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-const initialData = [
-    {
-        id: "1",
-        task: "Sleep",
-        completed: false
-    },
-    {
-        id: "2",
-        task: "Start CS124 Lab3",
-        completed: false
-    },
-    {
-        id: "3",
-        task: "Submit CS124 Lab2",
-        completed: true,
-    },
-    {
-        id: "4",
-        task: "Enjoy Fall Break!",
-        completed: false
-    }
-];
+// const initialData = [
+//     {
+//         id: "1",
+//         task: "Sleep",
+//         completed: false
+//     },
+//     {
+//         id: "2",
+//         task: "Start CS124 Lab3",
+//         completed: false
+//     },
+//     {
+//         id: "3",
+//         task: "Submit CS124 Lab2",
+//         completed: true,
+//     },
+//     {
+//         id: "4",
+//         task: "Enjoy Fall Break!",
+//         completed: false
+//     }
+// ];
 
 ReactDOM.render(
   <React.StrictMode>
-       <App data={initialData}/>
+       <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

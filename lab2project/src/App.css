@@ -165,6 +165,7 @@ body{
 #priority-button {
   height: 25px;
   border-radius: 6px;
+  border: 1px solid black;
 }
 #enter-span {
   grid-row: 1;
@@ -235,6 +236,7 @@ body{
 .ListItems li {
   list-style-type: none;
   white-space: nowrap;
+  padding-bottom: 5px;
 }
 
 .ListItems ul li {
@@ -283,7 +285,8 @@ body{
 }
 
 .taskPriorityContainer {
-  padding-top: 4px;
+  /*padding-top: 2px;*/
+  /*padding-bottom: 2px;*/
 }
 .ListItems ul li span {
   text-align: left ;
