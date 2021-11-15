@@ -7,7 +7,7 @@ import Lists from './Lists'
 
 ReactDOM.render(
   <React.StrictMode>
-       <Lists/>
+       <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );

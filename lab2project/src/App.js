@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 
 import firebase from "firebase/compat";
 import {useCollection} from "react-firebase-hooks/firestore";
+import Lists from "./Lists";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAMsDbORWI7OtcnI4VjQnY6xEE6XGjZPf0",
@@ -17,18 +18,25 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-const ourCollection = "Master-List";
+const ourCollection = "Lists";
 
 function App(props) {
     const [filter, setFilter] = useState('Filter By:');
+    const [selectedList, setSelectedList] = useState(null);
     let query = ''
-    if (filter === 'Filter By:') {
-        query = db.collection(ourCollection);
+    if (selectedList === null) {
+        query = db.collection(ourCollection)
     }
     else {
-        query = db.collection(ourCollection).orderBy(filter);
+        if (filter === 'Filter By:') {
+            query = db.collection(ourCollection).doc(selectedList).collection('Tasks');
+        } else {
+            query = db.collection(ourCollection).doc(selectedList).collection('Tasks').orderBy(filter);
+        }
     }
     const [value, loading, error] = useCollection(query);
+
+    const docRef = query
 
     if (loading) {
 
@@ -51,23 +59,38 @@ function App(props) {
 
 
     let taskList = value != null? value.docs.map((doc) => doc.data()) : []
-    function setField(id, field, value) {
-        if (field === 'task' && (value == "" || value == null) ) {
-            onDelete([id]);
-            }
+    console.log(taskList)
 
+    if (selectedList === null) {
+        return (
+            <Lists list={taskList} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete}></Lists>
+        )
+    }
+    function setField(id, field, value) {
+        if (selectedList === null) {
+            if (field === 'name' && (value == "" || value == null)) {
+                onDelete([id]);
+            } else {
+                const doc = docRef.doc(id);
+                doc.update({[field]: value}).then().catch(error=>console.log("error"));
+            }
+        }
         else {
-            const doc = db.collection(ourCollection).doc(id);
-            doc.update({[field]:value});
-            setFilter(filter)
+            if (field === 'task' && (value == "" || value == null)) {
+                onDelete([id]);
+            } else {
+                const doc = db.collection(ourCollection).doc(id);
+                doc.update({[field]: value});
+                setFilter(filter)
+            }
         }
     }
     function addItem(newItem) {
-        const docRef = db.collection(ourCollection).doc(newItem.id);
-        docRef.set(newItem);
+        // const docRef = db.collection(ourCollection).doc(newItem.id);
+        docRef.doc(newItem.id).set(newItem).then().catch(error=>console.log("error"));
     }
     function onDelete(listOfIds) {
-        listOfIds.map(id => db.collection(ourCollection).doc(id).delete());
+        listOfIds.map(id => docRef.doc(id).delete()).then().catch(error=>console.log("error"));
     }
     function getFilteredList(currentFilter) {
         if (currentFilter === "name") {

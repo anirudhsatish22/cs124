@@ -2,48 +2,24 @@
 import App from './App';
 import './App.css';
 import ToDoList from "./To-DoList";
+import List from './List';
+import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import React, {useState} from 'react';
 
-import firebase from "firebase/compat";
-import {useCollection} from "react-firebase-hooks/firestore";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyAMsDbORWI7OtcnI4VjQnY6xEE6XGjZPf0",
-    authDomain: "to-do-list-78c30.firebaseapp.com",
-    projectId: "to-do-list-78c30",
-    storageBucket: "to-do-list-78c30.appspot.com",
-    messagingSenderId: "466185835646",
-    appId: "1:466185835646:web:dbe8a4413a6cad9f3f742f",
-    measurementId: "G-3Q5LDPJYK6"
-};
-
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-const ourCollection = "Lists";
 
 function Lists(props) {
 
-    let query = db.collection(ourCollection);
-    const [value, loading, error] = useCollection(query);
-
-
-    const [currentItem, setCurrentItem] = useState(null);
-
+    const [value, setValue] = useState(null);
 
     function enterB() {
         if (value !== null && value !== "") {
-            // let newItem = {
-            //     id: generateUniqueID(),
-            //     task: value,
-            //     completed: false,
-            //     priority: priority,
-            //     created: firebase.database.ServerValue.TIMESTAMP
-            // };
-            // props.onNewItemAdded(newItem);
-            // setValue("")
-            return (
-                <div>test</div>
-            )
+            let newItem = {
+                id: generateUniqueID(),
+                name: value
+                // created: firebase.database.ServerValue.TIMESTAMP
+            };
+            props.onNewItemAdded(newItem);
+            setValue("")
         }
     }
 
@@ -52,19 +28,29 @@ function Lists(props) {
             <h1 id="top-title">Lists</h1>
             <div id="container">
                 <div id="enter-item">
-                    <input type="text" id="input-text" onChange={ (e) => setCurrentItem(e.target.value)} placeholder="Create a list..."/>
+                    <input type="text" id="input-text" value={value} onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Create a list..."/>
                     <span id="enter-span">
                         <span id='enter-button-container'>
-                        <button className={currentItem !== "" && currentItem !== null ? "show-buttons" : "grey-buttons"}  onClick={enterB} id="enter-button">+</button>
+                        <button className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"}  onClick={enterB} id="enter-button">+</button>
                         </span>
                     </span>
                 </div>
+                <div class="ListItems">
+                    <ul id="list">{
+                        props.list.map(a => <List onListChange={props.onContentChange}{...a}/>)
+                    }
+                    </ul>
+               </div>
             </div>
         </div>
 
     )
 }
 
+// onTaskCompleted={ (selectedId, field, value) =>
+//     props.onContentChange(selectedId, field, value) ?  numCompleted--  : null
+// }
+// displayButtons ={(whetherCompleted)=> {whetherCompleted ? numCompleted++ : numCompleted--}}
 
 export default Lists;
 
