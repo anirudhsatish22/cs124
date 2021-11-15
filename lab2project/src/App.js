@@ -22,26 +22,30 @@ const ourCollection = "Lists";
 
 function App(props) {
     const [filter, setFilter] = useState('Filter By:');
-    const [selectedList, setSelectedList] = useState(null);
+    const [selectedList, setSelectedList] = useState('');
+    const [listName, setListName] = useState('');
     let query = ''
-    if (selectedList === null) {
+    let docRef = db.collection(ourCollection)
+    if (selectedList === '') {
         query = db.collection(ourCollection)
+        docRef = query
     }
     else {
         if (filter === 'Filter By:') {
             query = db.collection(ourCollection).doc(selectedList).collection('Tasks');
+            docRef = query
         } else {
             query = db.collection(ourCollection).doc(selectedList).collection('Tasks').orderBy(filter);
+            docRef = db.collection(ourCollection).doc(selectedList).collection('Tasks')
         }
     }
     const [value, loading, error] = useCollection(query);
 
-    const docRef = query
 
     if (loading) {
 
    return (
-        <div id="root"><span className="headerClass"><h1 id="top-title">To-Do List</h1><span id="sort-items"><select
+        <div id="root"><span className="headerClass"><h1 id="top-title">{listName}</h1><span id="sort-items"><select
             id="sort-button" className="grey-buttons"><option disabled="" selected="">Filter By:</option><option>Priority</option><option>Name</option><option>Date Created</option></select></span></span>
             <div id="container">
                 <div id="enter-item"><input type="text" id="input-text" placeholder="Add a task..." value=""/><span id="enter-span"><span id="priority-container"><select id="priority-button" className="grey-buttons"><option disabled="" selected="">Priority:</option><option>1</option><option>2</option><option>3</option></select></span><span id="enter-button-container"><button className="grey-buttons" id="enter-button">+</button></span></span>
@@ -59,27 +63,26 @@ function App(props) {
 
 
     let taskList = value != null? value.docs.map((doc) => doc.data()) : []
-    console.log(taskList)
 
-    if (selectedList === null) {
+    if (selectedList === '') {
         return (
-            <Lists list={taskList} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete}></Lists>
+            <Lists list={taskList} displayList={(id,name)=>{setSelectedList(id); setListName(name)}} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete}/>
         )
     }
     function setField(id, field, value) {
-        if (selectedList === null) {
+        if (selectedList === '') {
             if (field === 'name' && (value == "" || value == null)) {
                 onDelete([id]);
             } else {
                 const doc = docRef.doc(id);
-                doc.update({[field]: value}).then().catch(error=>console.log("error"));
+                doc.update({[field]: value});
             }
         }
         else {
             if (field === 'task' && (value == "" || value == null)) {
                 onDelete([id]);
             } else {
-                const doc = db.collection(ourCollection).doc(id);
+                const doc = docRef.doc(id);
                 doc.update({[field]: value});
                 setFilter(filter)
             }
@@ -87,10 +90,10 @@ function App(props) {
     }
     function addItem(newItem) {
         // const docRef = db.collection(ourCollection).doc(newItem.id);
-        docRef.doc(newItem.id).set(newItem).then().catch(error=>console.log("error"));
+        docRef.doc(newItem.id).set(newItem);
     }
     function onDelete(listOfIds) {
-        listOfIds.map(id => docRef.doc(id).delete()).then().catch(error=>console.log("error"));
+        listOfIds.map(id => docRef.doc(id).delete());
     }
     function getFilteredList(currentFilter) {
         if (currentFilter === "name") {
@@ -103,7 +106,7 @@ function App(props) {
         }
 
   return (
-      <ToDoList list={taskList} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete} filterBy={getFilteredList} filterValue={filter}></ToDoList>
+      <ToDoList listName={listName} list={taskList} goBack={()=>setSelectedList('')} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete} filterBy={getFilteredList} filterValue={filter}/>
   );
 }
 

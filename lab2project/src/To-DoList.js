@@ -25,7 +25,6 @@ function ToDoList(props) {
         }
     }
     let numCompleted = 0
-    console.log(props.list)
     function renderList(unSortedList) {
         let checkedArray = unSortedList.filter(x => x.completed)
         numCompleted = checkedArray.length
@@ -61,7 +60,8 @@ function ToDoList(props) {
     return (
         <>
             <span className='headerClass'>
-            <h1 id="top-title">To-Do List</h1>
+            <button id="back-button" className="show-buttons" onClick={props.goBack}>Back</button>
+            <h1 id="top-title">{props.listName}</h1>
                 <span id='sort-items'>
                 <select  id="sort-button" defaultValue={dict[props.filterValue]} class={updatedList.length != 0  ? "show-buttons" : "grey-buttons"} onChange={(e) => {
                     props.filterBy(e.target.value.toLowerCase())
@@ -109,8 +109,6 @@ function ToDoList(props) {
                             displayButtons ={(whetherCompleted)=> whetherCompleted ? numCompleted++ : numCompleted--}
                             {...a}
                         />)}
-                        {console.log(numCompleted)}
-
                     </ul>
                 </div>
                 <button class={numCompleted > 0 ? "show-buttons" : "grey-buttons"} id="hide-completed-button" onClick={() => setShowCompleted(!showCompleted)}>{showCompleted ? "Hide Completed" : "Show Completed"}</button>

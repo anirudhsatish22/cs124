@@ -9,7 +9,7 @@ import React, {useState} from 'react';
 
 function Lists(props) {
 
-    const [value, setValue] = useState(null);
+    const [value, setValue] = useState('');
 
     function enterB() {
         if (value !== null && value !== "") {
@@ -37,7 +37,7 @@ function Lists(props) {
                 </div>
                 <div class="ListItems">
                     <ul id="list">{
-                        props.list.map(a => <List onListChange={props.onContentChange}{...a}/>)
+                        props.list.map(a => <List onGo={props.displayList} onListChange={props.onContentChange}{...a}/>)
                     }
                     </ul>
                </div>
