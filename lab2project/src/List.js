@@ -9,11 +9,11 @@ function List(props) {
         setTimeout(() => {setEditContent(true)},50)
     }
     return (
-        <li key={props.id}>
+        <li className="listItem" key={props.id}>
         <span className="taskItem">
             <label suppressContentEditableWarning={true} contentEditable={editContent} onKeyDown={(k)=> k.code === 'Enter' ? editTimeout() : null} onInput={(e) => setListValue(e.currentTarget.textContent)}>{props.name}</label>
-            <button onClick={() => props.onGo(props.id, props.name)}>Go</button>
         </span>
+            <button className="show-buttons" id="go-button" onClick={() => props.onGo(props.id, props.name)}>Go</button>
         </li>
     );
 

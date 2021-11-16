@@ -58,7 +58,7 @@ html {
 }
 .headerClass {
   display: flex;
-  /*justify-content: center;*/
+  justify-content: center;
   column-gap: 1px;
 }
 body{
@@ -75,8 +75,8 @@ body{
   margin: auto;
   padding-top: 12px;
   padding-bottom: 12px;
-  margin-left: 115px;
-  margin-right: 00px;
+  /*margin-left: 115px;*/
+  /*margin-right: 00px;*/
   width: 100px;
 }
 .headerClass select {
@@ -85,11 +85,33 @@ body{
 }
 
 #sort-items {
-  padding-top: 12px;
-  padding-left: 0px;
+  /*padding-top: 12px;*/
+  /*padding-left: 0px;*/
   padding-bottom: 12px;
   margin: auto;
-  margin-left: 7px;
+  display: flex;
+  justify-content: center;
+  column-gap: 15px;
+  /*margin-left: 7px;*/
+}
+
+#go-button {
+  height: 25px;
+  width: auto;
+  border-radius: 08px;
+  border: 1px solid black;
+  text-align: center;
+  grid-column: 2;
+}
+
+
+#back-button {
+ margin: auto;
+  height: 25px;
+  width: 50px;
+  border-radius: 08px;
+  border: 1px solid black;
+  text-align: center;
 }
 
 #sort-title {
@@ -98,7 +120,7 @@ body{
 }
 #sort-button {
   border-radius: 08px;
-  width: 105px;
+ width: 105px;
   cursor: pointer;
   font-size: 13px;
   text-align: center;
@@ -193,9 +215,11 @@ body{
 
 .ListItems li {
   list-style-type: none;
+  /*list-style-type: circle;*/
   white-space: nowrap;
   padding-bottom: 5px;
 }
+
 
 .ListItems ul li {
   display: grid;
@@ -254,6 +278,13 @@ body{
   background: lightgrey;
   pointer-events: none;
   cursor: not-allowed;
+}
+
+
+#list {
+  list-style-type: circle;
+  white-space: nowrap;
+  padding-bottom: 5px;
 }
 
 #enter-button {
