@@ -14,9 +14,9 @@ function List(props) {
             <label suppressContentEditableWarning={true} contentEditable={editContent} onKeyDown={(k)=> k.code === 'Enter' ? editTimeout() : null} onInput={(e) => setListValue(e.currentTarget.textContent)}>{props.name}</label>
         </span>
             <button className="show-buttons" id="go-button" onClick={() => props.onGo(props.id, props.name)}>Go</button>
+            <button className="show-buttons" id="delete-list-button" onClick={() =>props.onDelete(props.id)}>🗑</button>
         </li>
     );
-
 }
 
 {/*<label onChange={() => {props.onTaskCompleted(props.id, 'completed', !completed); props.displayButtons(!completed)}} checked = {false} class={completed ? "checked" : "unchecked"}/>*/}

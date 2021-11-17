@@ -5,6 +5,8 @@ import ToDoList from "./To-DoList";
 import List from './List';
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import React, {useState} from 'react';
+import swal from 'sweetalert';
+
 
 
 function Lists(props) {
@@ -23,21 +25,38 @@ function Lists(props) {
         }
     }
 
+
+    function onDelete(id){
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this List!",
+            icon: "warning",
+            buttons: ["No", "Yes"],
+            dangerMode: true,
+        })
+            .then((okToDelete) => {
+                if (okToDelete) {
+                    props.onDeleteItem([id]);
+                } else {
+                    return;
+                }
+            });
+    }
     return (
         <div>
-            <h1 id="top-title">Lists</h1>
-            <div id="container">
-                <div id="enter-item">
-                    <input type="text" id="input-text" value={value} onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Create a list..."/>
-                    <span id="enter-span">
-                        <span id='enter-button-container'>
+            <h1 className="top-title">Lists</h1>
+            <div id="list-container">
+                <div className="enter-item">
+                    <input type="text" maxLength="28" className="input-text" value={value} onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Create a list..."/>
+                    <span className="enter-span">
+                        <span className='enter-button-container'>
                         <button className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"}  onClick={enterB} id="enter-button">+</button>
                         </span>
                     </span>
                 </div>
-                <div class="ListItems">
+                <div class="ListItems" id="List-of-list-items">
                     <ul id="list">{
-                        props.list.map(a => <List onGo={props.displayList} onListChange={props.onContentChange}{...a}/>)
+                        props.list.map(a => <List onGo={props.displayList} onListChange={props.onContentChange} onDelete={onDelete}{...a}/>)
                     }
                     </ul>
                </div>

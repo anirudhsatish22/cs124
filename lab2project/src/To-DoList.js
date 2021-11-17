@@ -60,7 +60,7 @@ function ToDoList(props) {
     return (
         <>
             <span className='headerClass'>
-            <h1 id="top-title">{props.listName}</h1>
+            <h1 className="top-title">{props.listName}</h1>
             </span>
             <span className='headerClass'>
                 <span id='sort-items'>
@@ -77,9 +77,9 @@ function ToDoList(props) {
             </span>
             <div id="container">
 
-                <div id="enter-item">
-                    <input type="text" value={value} id="input-text" onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Add a task..."/>
-                    <span id="enter-span">
+                <div className="enter-item">
+                    <input type="text" value={value} className="input-text" onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Add a task..."/>
+                    <span className="enter-span">
                     <span id="priority-container">
                     <select id="priority-button" onChange={(e)=> setPriority(parseInt(e.target.value))} defaultValue='Priority:' class={ value !== "" && value !== null ? "show-buttons" : "grey-buttons"}>
                             <option selected disabled>Priority:</option>
@@ -88,7 +88,7 @@ function ToDoList(props) {
                             <option>3</option>
                     </select>
                     </span>
-                        <span id='enter-button-container'>
+                        <span className='enter-button-container'>
                     <button className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"} onClick={enterB} id="enter-button">+</button>
                         </span>
                     </span>

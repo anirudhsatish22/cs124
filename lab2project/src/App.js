@@ -48,7 +48,7 @@ function App(props) {
         <div id="root"><span className="headerClass"><h1 id="top-title">{listName}</h1><span id="sort-items"><select
             id="sort-button" className="grey-buttons"><option disabled="" selected="">Filter By:</option><option>Priority</option><option>Name</option><option>Date Created</option></select></span></span>
             <div id="container">
-                <div id="enter-item"><input type="text" id="input-text" placeholder="Add a task..." value=""/><span id="enter-span"><span id="priority-container"><select id="priority-button" className="grey-buttons"><option disabled="" selected="">Priority:</option><option>1</option><option>2</option><option>3</option></select></span><span id="enter-button-container"><button className="grey-buttons" id="enter-button">+</button></span></span>
+                <div className="enter-item"><input type="text" className="input-text" placeholder="Add a task..." value=""/><span id="enter-span"><span id="priority-container"><select id="priority-button" className="grey-buttons"><option disabled="" selected="">Priority:</option><option>1</option><option>2</option><option>3</option></select></span><span id="enter-button-container"><button className="grey-buttons" id="enter-button">+</button></span></span>
                 </div>
                 <div className="ListItems">
                     <ul id="list">
@@ -106,7 +106,7 @@ function App(props) {
         }
 
   return (
-      <ToDoList listName={listName} list={taskList} goBack={()=>setSelectedList('')} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete} filterBy={getFilteredList} filterValue={filter}/>
+      <ToDoList listName={listName.slice(0,28)} list={taskList} goBack={()=>setSelectedList('')} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete} filterBy={getFilteredList} filterValue={filter}/>
   );
 }
 
