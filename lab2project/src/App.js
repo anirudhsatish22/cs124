@@ -21,7 +21,7 @@ const db = firebase.firestore();
 const ourCollection = "Lists";
 
 function App(props) {
-    const [filter, setFilter] = useState('Filter By:');
+    const [filter, setFilter] = useState('Sort By:');
     const [selectedList, setSelectedList] = useState('');
     const [listName, setListName] = useState('');
     let query = ''
@@ -31,7 +31,7 @@ function App(props) {
         docRef = query
     }
     else {
-        if (filter === 'Filter By:') {
+        if (filter === 'Sort By:') {
             query = db.collection(ourCollection).doc(selectedList).collection('Tasks');
             docRef = query
         } else {
@@ -46,7 +46,7 @@ function App(props) {
 
    return (
         <div id="root"><span className="headerClass"><h1 id="top-title">{listName}</h1><span id="sort-items"><select
-            id="sort-button" className="grey-buttons"><option disabled="" selected="">Filter By:</option><option>Priority</option><option>Name</option><option>Date Created</option></select></span></span>
+            id="sort-button" className="grey-buttons"><option disabled="" selected="">Sort By:</option><option>Priority</option><option>Name</option><option>Date Created</option></select></span></span>
             <div id="container">
                 <div className="enter-item"><input type="text" className="input-text" placeholder="Add a task..." value=""/><span id="enter-span"><span id="priority-container"><select id="priority-button" className="grey-buttons"><option disabled="" selected="">Priority:</option><option>1</option><option>2</option><option>3</option></select></span><span id="enter-button-container"><button className="grey-buttons" id="enter-button">+</button></span></span>
                 </div>

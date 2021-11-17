@@ -9,7 +9,7 @@ function ToDoList(props) {
     const [value, setValue] = useState(null);
     const [priority, setPriority] = useState(1);
     const [showCompleted, setShowCompleted] = useState(true);
-    const dict = {'task': 'Name', 'priority': 'Priority', 'created':'Date Created', 'Filter By:':'Filter By:'};
+    const dict = {'task': 'Name', 'priority': 'Priority', 'created':'Date Created', 'Sort By:':'Sort By:'};
 
     function enterB() {
         if (value !== null && value !== "") {
@@ -68,7 +68,7 @@ function ToDoList(props) {
                 <select  id="sort-button" defaultValue={dict[props.filterValue]} class={updatedList.length != 0  ? "show-buttons" : "grey-buttons"} onChange={(e) => {
                     props.filterBy(e.target.value.toLowerCase())
                 }}>
-                    <option selected disabled>Filter By:</option>
+                    <option selected disabled>Sort By:</option>
                     <option>Priority</option>
                     <option>Name</option>
                     <option>Date Created</option>
