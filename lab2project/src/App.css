@@ -8,6 +8,7 @@ label input {
   pointer-events: all;
 }
 
+
 .swal-modal {
   background-color: antiquewhite;
   border: 3px solid white;
@@ -204,14 +205,29 @@ body{
   margin-left: 5pt;
 }
 
-.input-text {
+#input-text {
   text-align: center;
   font-size: 12px;
   border-radius: 6px;
   border: 1px solid black;
   height: 25px;
   /*width: 140px;*/
-  width:54%;
+  width: 54%;
+  /*height: 3.90625%;*/
+  /*width: 46.6666%;*/
+  margin: auto;
+  background: whitesmoke;
+}
+
+#list-input-text {
+
+  text-align: center;
+  font-size: 12px;
+  border-radius: 6px;
+  border: 1px solid black;
+  height: 25px;
+  /*width: 140px;*/
+  width: 72%;
   /*height: 3.90625%;*/
   /*width: 46.6666%;*/
   margin: auto;

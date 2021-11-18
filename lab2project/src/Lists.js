@@ -47,7 +47,7 @@ function Lists(props) {
             <h1 className="top-title">Lists</h1>
             <div id="list-container">
                 <div className="enter-item">
-                    <input type="text" maxLength="28" className="input-text" value={value} onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Create a list..."/>
+                    <input type="text" maxLength="28" id="list-input-text" value={value} onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Create a list..."/>
                     <span className="enter-span">
                         <span className='enter-button-container'>
                         <button className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"}  onClick={enterB} id="enter-button">+</button>
