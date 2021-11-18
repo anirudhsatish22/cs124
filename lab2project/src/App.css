@@ -156,12 +156,15 @@ body{
   display: grid;
   row-gap: 5px;
   grid-template-rows: 1fr 10fr 1.5fr;
-  grid-template-columns: 140px 90px 50px;
+  /*grid-template-columns: 140px 90px 50px;*/
+  grid-template-columns: 14fr 9fr 5fr;
 }
 
 #list-container {
-  width: 300px;
-  height: 580px;
+  /*width: 300px;*/
+  /*height: 580px;*/
+  width: 83.3333%;
+  height: 84.375%;
   margin: auto;
   padding-left: 7px;
   border: 3px solid #eab676;
@@ -169,7 +172,8 @@ body{
   display: grid;
   row-gap: 5px;
   grid-template-rows: 1fr 10fr 1.5fr;
-  grid-template-columns: 140px 90px 50px;
+  grid-template-columns: 46.6666fr 30fr 16.6667fr;
+  /*// 140, 90, 50*/
 }
 
 .enter-item {
@@ -203,6 +207,8 @@ body{
   border: 1px solid black;
   height: 25px;
   width: 140px;
+  /*height: 3.90625%;*/
+  /*width: 46.6666%;*/
   margin: auto;
   background: whitesmoke;
 }
@@ -258,13 +264,14 @@ body{
 .ListItems ul li {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 210px 45px;
+  /*grid-template-columns: 210px 45px;*/
+  grid-template-columns: 210fr 45fr
 }
 
 #List-of-list-items ul li {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 190px 40px 30px;
+  grid-template-columns: 19fr 4fr 3fr;
 }
 .ListItems ul li label span {
   vertical-align: middle;

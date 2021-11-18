@@ -43,7 +43,7 @@ function Lists(props) {
             });
     }
     return (
-        <div>
+        <>
             <h1 className="top-title">Lists</h1>
             <div id="list-container">
                 <div className="enter-item">
@@ -61,7 +61,7 @@ function Lists(props) {
                     </ul>
                </div>
             </div>
-        </div>
+        </>
 
     )
 }
