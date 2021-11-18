@@ -166,7 +166,7 @@ body{
   width: 83.3333%;
   height: 84.375%;
   margin: auto;
-  padding-left: 7px;
+  padding-left: 5%;
   border: 3px solid #eab676;
   border-radius: 8px;
   display: grid;
@@ -179,17 +179,21 @@ body{
 .enter-item {
   align-self: center;
   margin: auto;
+  width: 94%;
   padding: 7px;
+  padding-left: 3%;
   padding-top: 15px;
   grid-row: 1;
   grid-column: 1/ span 3;
 }
 #priority-container{
   padding: 7px;
-  padding-left: 3px;
+  padding-left: 1.4%;
 }
 #priority-button {
   height: 26px;
+  width: 26.8888889%;
+  text-align: center;
   border-radius: 6px;
   border: 1px solid black;
 }
@@ -206,7 +210,8 @@ body{
   border-radius: 6px;
   border: 1px solid black;
   height: 25px;
-  width: 140px;
+  /*width: 140px;*/
+  width:54%;
   /*height: 3.90625%;*/
   /*width: 46.6666%;*/
   margin: auto;
@@ -300,7 +305,7 @@ body{
 }
 
 .ListItems ul {
-  padding-left: 10px;
+  padding-left: 5%;
   margin: auto
 }
 .taskPriority{
@@ -313,6 +318,7 @@ body{
 }
 
 .taskPriorityContainer {
+  padding-left: 9%;
   /*padding-left: 19px;*/
 }
 .ListItems ul li span {
@@ -350,7 +356,7 @@ body{
 }
 
 .enter-button-container {
-  padding-left: 2px;
+  padding-left: 1.4%;
 }
 
 #hide-completed-button {
@@ -375,7 +381,6 @@ body{
   font-size: 10pt;
   font-family: Quicksand;
   border: 1px solid black;
-
   grid-row: 3;
   grid-column: 2/ span 2;
 }
