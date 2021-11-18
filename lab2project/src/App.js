@@ -93,7 +93,17 @@ function App(props) {
         docRef.doc(newItem.id).set(newItem);
     }
     function onDelete(listOfIds) {
-        listOfIds.map(id => docRef.doc(id).delete());
+        if (selectedList === "") {
+            // docRef.doc(listOfIds[0]).collection("Tasks").delete();
+            docRef.doc(listOfIds[0]).collection("Tasks").get().then(querySnapshot =>
+                querySnapshot.docs.map(d => docRef.doc(listOfIds[0]).collection('Tasks').doc(d.id).delete())
+            );
+            docRef.doc(listOfIds[0]).delete();
+
+        }
+        else {
+            listOfIds.map(id => docRef.doc(id).delete());
+        }
     }
     function getFilteredList(currentFilter) {
         if (currentFilter === "name") {

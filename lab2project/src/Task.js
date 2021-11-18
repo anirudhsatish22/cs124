@@ -14,7 +14,7 @@ function Task(props) {
         <span className="taskItem">
         <label>
             <input type="checkbox" onChange={() => {props.onTaskCompleted(props.id, 'completed', !completed); props.displayButtons(!completed)}} checked = {false} class={completed ? "checked" : "unchecked"}/>
-                    <span suppressContentEditableWarning={true} contentEditable={editContent} onKeyDown={(k)=> k.code === 'Enter' ? editTimeout() : null} class={completed ? "checked-text" : "unchecked-text"} onInput={(e) => setTaskValue(e.currentTarget.textContent)}>{props.task}</span>
+                    <span suppressContentEditableWarning={true} contentEditable={editContent} onBlur={() => editTimeout()} onKeyDown={(k)=> k.code === 'Enter' ? editTimeout() : null} class={completed ? "checked-text" : "unchecked-text"} onInput={(e) =>  setTaskValue(e.currentTarget.textContent)}>{props.task}</span>
         </label>
         </span>
         <span className="taskPriorityContainer">

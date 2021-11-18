@@ -24,6 +24,9 @@ function ToDoList(props) {
             setValue("")
         }
     }
+
+    // created: firebase.fitrestore.FieldValue.serverTimestamp()
+    // firebase.firestore.FieldValue.serverTiem
     let numCompleted = 0
     function renderList(unSortedList) {
         let checkedArray = unSortedList.filter(x => x.completed)
