@@ -7,7 +7,11 @@ label {
 label input {
   pointer-events: all;
 }
-
+@media screen and (min-width: 361px) {
+  #container {
+    font-size: 18pt;
+  }
+}
 
 .swal-modal {
   background-color: antiquewhite;
@@ -400,4 +404,6 @@ body{
   grid-row: 3;
   grid-column: 2/ span 2;
 }
+
+
 
