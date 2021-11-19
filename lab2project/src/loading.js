@@ -45,9 +45,7 @@ function Loading(props) {
             <button className="grey-buttons" id="delete-button">Delete Completed</button>
         </div>
 
-        {/*<div id="loading-container">*/}
-        {/*    <img src={logo} alt="Loading"/>*/}
-        {/*</div>*/}
+
     </>)
 }
 
