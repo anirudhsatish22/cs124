@@ -62,10 +62,12 @@ function ToDoList(props) {
 
     return (
         <>
-            <span className='headerClass'>
+
+
+            <span className='headerClass' id="header-one">
             <h1 className="top-title">{props.listName}</h1>
             </span>
-            <span className='headerClass'>
+            <span className='headerClass' id="header-two">
                 <span id='sort-items'>
                 <button id="back-button" className="show-buttons" onClick={props.goBack}>←</button>
                 <select  id="sort-button" defaultValue={dict[props.filterValue]} class={updatedList.length != 0  ? "show-buttons" : "grey-buttons"} onChange={(e) => {
@@ -78,6 +80,7 @@ function ToDoList(props) {
                 </select>
                 </span>
             </span>
+
             <div id="container">
 
                 <div className="enter-item">
