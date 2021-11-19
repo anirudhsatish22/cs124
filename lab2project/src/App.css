@@ -8,7 +8,31 @@ label input {
   pointer-events: all;
 }
 
+#loading-container {
+  /*grid-row: 3;*/
+  /*width: 83.3333%;*/
+  /*!*height: 580px;*!*/
+  /*height: 84.375%;*/
+  /*!*height: 84.375%;*!*/
+  width: 95%;
+  height: 84%;
+  margin: auto;
+  border: 3px solid #eab676;
+  border-radius: 8px;
+  display: grid;
+  grid-template-rows: 1fr;
+  /*grid-template-columns: 140px 90px 50px;*/
+  grid-template-columns: 1fr 1fr 1fr;
+}
 
+
+img {
+  width: 30px;
+  height: 30px;
+  /*align-self: center;*/
+  grid-row: 1;
+  grid-column: 2;
+}
 /*@media screen and (min-width: 600px) {*/
 /*  html {*/
 /*    font-size: x-large;*/

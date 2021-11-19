@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="37153f1b-bb5c-419a-a43b-6ba6c2d79bcf" name="Changes" comment="thursday ani 8 pm">
+      <change afterPath="$PROJECT_DIR$/lab2project/src/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lab2project/src/loading.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2project/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/lab2project/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2project/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/lab2project/src/App.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="lab2" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
+  <component name="ProjectId" id="1yjzEKB7aXqzcBSbpAwgWYd21ho" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lab2project/src" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lab2project/src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.npm start">
+    <configuration name="deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/lab2project/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="deploy" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="install gh-pages" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/lab2project/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="install gh-pages" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="npm start" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/lab2project/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="npm.npm start" />
+      <item itemvalue="npm.install gh-pages" />
+      <item itemvalue="npm.deploy" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.deploy" />
+        <item itemvalue="npm.install gh-pages" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="37153f1b-bb5c-419a-a43b-6ba6c2d79bcf" name="Changes" comment="" />
+      <created>1632779676981</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1632779676981</updated>
+      <workItem from="1632779680209" duration="27000" />
+      <workItem from="1632780770283" duration="634000" />
+      <workItem from="1632952849984" duration="90000" />
+      <workItem from="1632952967339" duration="367000" />
+      <workItem from="1633137736028" duration="23000" />
+      <workItem from="1633137793380" duration="161000" />
+      <workItem from="1633138077725" duration="112000" />
+      <workItem from="1633138351878" duration="35000" />
+      <workItem from="1633559867138" duration="2043000" />
+      <workItem from="1633654076173" duration="8153000" />
+      <workItem from="1633729154391" duration="2056000" />
+      <workItem from="1633914995150" duration="7263000" />
+      <workItem from="1633989351285" duration="6157000" />
+      <workItem from="1634086938524" duration="6488000" />
+      <workItem from="1634161996702" duration="12508000" />
+      <workItem from="1634259869147" duration="9096000" />
+      <workItem from="1634766989177" duration="4514000" />
+      <workItem from="1635372305577" duration="116000" />
+      <workItem from="1635725043222" duration="144000" />
+      <workItem from="1635737978825" duration="1773000" />
+      <workItem from="1635803651890" duration="2399000" />
+      <workItem from="1635900935451" duration="624000" />
+      <workItem from="1635971376092" duration="76000" />
+      <workItem from="1635981460265" duration="1213000" />
+      <workItem from="1636001049609" duration="4992000" />
+      <workItem from="1636059126332" duration="11444000" />
+      <workItem from="1636585863750" duration="925000" />
+      <workItem from="1636586912125" duration="3469000" />
+      <workItem from="1636944008844" duration="5417000" />
+      <workItem from="1636962124090" duration="966000" />
+      <workItem from="1637017534321" duration="29000" />
+      <workItem from="1637021038307" duration="924000" />
+      <workItem from="1637105085421" duration="1633000" />
+      <workItem from="1637115415895" duration="5744000" />
+      <workItem from="1637174996580" duration="2000" />
+      <workItem from="1637189267135" duration="7818000" />
+      <workItem from="1637209075709" duration="3435000" />
+      <workItem from="1637273137150" duration="5195000" />
+      <workItem from="1637304759853" duration="9065000" />
+    </task>
+    <task id="LOCAL-00001" summary="day2">
+      <created>1633654089374</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1633654089374</updated>
+    </task>
+    <task id="LOCAL-00002" summary="day2 end">
+      <created>1633661642182</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1633661642182</updated>
+    </task>
+    <task id="LOCAL-00003" summary="day 2 done">
+      <created>1633922248284</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633922248284</updated>
+    </task>
+    <task id="LOCAL-00004" summary="day3 in class">
+      <created>1633993928663</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1633993928663</updated>
+    </task>
+    <task id="LOCAL-00005" summary="day4 done">
+      <created>1634093189586</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1634093189586</updated>
+    </task>
+    <task id="LOCAL-00006" summary="day1">
+      <created>1634771523188</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1634771523188</updated>
+    </task>
+    <task id="LOCAL-00007" summary="day1">
+      <created>1635725086441</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1635725086441</updated>
+    </task>
+    <task id="LOCAL-00008" summary="day1">
+      <created>1635810370339</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1635810370339</updated>
+    </task>
+    <task id="LOCAL-00009" summary="thursday after night">
+      <created>1636017518524</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1636017518525</updated>
+    </task>
+    <task id="LOCAL-00010" summary="thursday ani 2;30 pm">
+      <created>1636060902600</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1636060902600</updated>
+    </task>
+    <task id="LOCAL-00011" summary="thursday ani 8 pm">
+      <created>1636082013838</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1636082013838</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="day2" />
+    <MESSAGE value="day2 end" />
+    <MESSAGE value="day 2 done" />
+    <MESSAGE value="day3 in class" />
+    <MESSAGE value="day4 done" />
+    <MESSAGE value="my last commit" />
+    <MESSAGE value="day1" />
+    <MESSAGE value="thursday after night" />
+    <MESSAGE value="thursday ani 2;30 pm" />
+    <MESSAGE value="thursday ani 8 pm" />
+    <option name="LAST_COMMIT_MESSAGE" value="thursday ani 8 pm" />
+  </component>
+</project>

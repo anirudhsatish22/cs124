@@ -5,6 +5,7 @@ import React, {useState} from 'react';
 import firebase from "firebase/compat";
 import {useCollection} from "react-firebase-hooks/firestore";
 import Lists from "./Lists";
+import Loading from "./loading";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAMsDbORWI7OtcnI4VjQnY6xEE6XGjZPf0",
@@ -45,20 +46,7 @@ function App(props) {
     if (loading) {
 
    return (
-        <div id="root"><span className="headerClass"><h1 id="top-title">{listName}</h1><span id="sort-items"><select
-            id="sort-button" className="grey-buttons"><option disabled="" selected="">Sort By:</option><option>Priority</option><option>Name</option><option>Date Created</option></select></span></span>
-            <div id="container">
-                <div className="enter-item"><input type="text" className="input-text" placeholder="Add a task..." value=""/><span id="enter-span"><span id="priority-container"><select id="priority-button" className="grey-buttons"><option disabled="" selected="">Priority:</option><option>1</option><option>2</option><option>3</option></select></span><span id="enter-button-container"><button className="grey-buttons" id="enter-button">+</button></span></span>
-                </div>
-                <div className="ListItems">
-                    <ul id="list">
-                        <h2 align="center">Loading...</h2>
-                    </ul>
-                </div>
-                <button className="grey-buttons" id="hide-completed-button">Hide Completed</button>
-                <button className="grey-buttons" id="delete-button">Delete Completed</button>
-            </div>
-        </div>
+        <Loading listName={listName}></Loading>
         );}
 
 
