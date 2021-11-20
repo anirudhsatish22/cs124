@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37153f1b-bb5c-419a-a43b-6ba6c2d79bcf" name="Changes" comment="thursday ani 8 pm">
-      <change afterPath="$PROJECT_DIR$/lab2project/src/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab2project/src/loading.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab2project/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/lab2project/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2project/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/lab2project/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +56,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lab2project/src" />
+      <recent name="$PROJECT_DIR$/lab2project/public" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -149,7 +148,8 @@
       <workItem from="1637189267135" duration="7818000" />
       <workItem from="1637209075709" duration="3435000" />
       <workItem from="1637273137150" duration="5195000" />
-      <workItem from="1637304759853" duration="9065000" />
+      <workItem from="1637304759853" duration="9794000" />
+      <workItem from="1637369070331" duration="632000" />
     </task>
     <task id="LOCAL-00001" summary="day2">
       <created>1633654089374</created>

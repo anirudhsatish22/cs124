@@ -458,21 +458,33 @@ body{
   #container {
     height: 80%;
   }
+
+  #list-container {
+    height: 85%;
+  }
 }
 @media screen and (max-height: 450px) {
   #container {
     height: 75%;
+  }
+  #list-container {
+    height: 80%;
   }
 }
 @media screen and (max-height: 360px) {
   #container {
     height: 70%;
   }
+
 }
 
 @media screen and (max-height: 300px) {
   #container {
     height: 60%;
+  }
+
+  #list-container {
+    height: 70%;
   }
 }
 
