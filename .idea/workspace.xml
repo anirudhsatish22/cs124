@@ -4,6 +4,7 @@
     <list default="true" id="37153f1b-bb5c-419a-a43b-6ba6c2d79bcf" name="Changes" comment="thursday ani 8 pm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab2project/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/lab2project/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab2project/src/Lists.js" beforeDir="false" afterPath="$PROJECT_DIR$/lab2project/src/Lists.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +150,7 @@
       <workItem from="1637209075709" duration="3435000" />
       <workItem from="1637273137150" duration="5195000" />
       <workItem from="1637304759853" duration="9794000" />
-      <workItem from="1637369070331" duration="632000" />
+      <workItem from="1637369070331" duration="3989000" />
     </task>
     <task id="LOCAL-00001" summary="day2">
       <created>1633654089374</created>

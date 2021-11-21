@@ -42,17 +42,44 @@ function Lists(props) {
                 }
             });
     }
+
+
+    function deleteAllLists() {
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover these Lists",
+            icon: "warning",
+            buttons: ["No", "Yes"],
+            dangerMode: true,
+        })
+            .then((okToDelete) => {
+                if (okToDelete) {
+                    props.list.map(list => props.onDeleteItem([list.id]));
+                } else {
+                    return;
+                }
+            });
+
+    }
+
     return (
         <>
             <h1 className="top-title">Lists</h1>
             <div id="list-container">
-                <div className="enter-item">
+                <div className="enter-item" id="list-enter-item">
                     <input type="text" maxLength="28" id="list-input-text" value={value} onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Create a list..."/>
-                    <span className="enter-span">
-                        <span className='enter-button-container'>
-                        <button className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"}  onClick={enterB} id="enter-button">+</button>
-                        </span>
-                    </span>
+                    <button className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"}  onClick={enterB} id="list-enter-button">+</button>
+                    <button className={props.list ? "show-buttons" : "grey-buttons"} id="delete-all-lists" onClick={deleteAllLists}>🗑</button>
+
+
+                    {/*<span className="enter-span">*/}
+                    {/*    <span className='enter-button-container'>*/}
+                    {/*        <button className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"}  onClick={enterB} id="enter-button">+</button>*/}
+                    {/*    </span>*/}
+                    {/*    <span className="delete-button-container">*/}
+                    {/*        <button className={props.list ? "show-buttons" : "grey-buttons"} id="delete-all-lists" onClick={deleteAllLists}>🗑</button>*/}
+                    {/*    </span>*/}
+                    {/*</span>*/}
                 </div>
                 <div class="ListItems" id="List-of-list-items">
                     <ul id="list">{
