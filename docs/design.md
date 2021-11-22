@@ -322,8 +322,6 @@ and want to look into this for possible implementation in future labs!
 
 
 
-#### Person F:
-
 ## Screenshots and Images from our implementation:
 
 Attached below is a screenshot of our application at a random stage, with some items in the list, and some items marked as checked.
