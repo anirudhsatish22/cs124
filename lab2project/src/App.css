@@ -527,6 +527,17 @@ body{
 }
 @media screen and (max-height: 1000px) {
   #container {
+    height: 86%;
+  }
+
+  #list-container {
+    height: 88%;
+  }
+}
+
+
+@media screen and (max-height: 750px) {
+  #container {
     height: 83%;
   }
 
@@ -534,6 +545,7 @@ body{
     height: 85%;
   }
 }
+
 
 @media screen and (max-height: 590px) {
   #container {
