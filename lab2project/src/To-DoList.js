@@ -70,34 +70,35 @@ function ToDoList(props) {
             <span className='headerClass' id="header-two">
                 <span id='sort-items'>
                 <button id="back-button" className="show-buttons" onClick={props.goBack}>←</button>
-                <select  id="sort-button" defaultValue={dict[props.filterValue]} class={updatedList.length != 0  ? "show-buttons" : "grey-buttons"} onChange={(e) => {
+                    {/*defaultValue='Date Created' value={dict[props.filterValue]}*/}
+                    <select  id="sort-button" value={dict[props.filterValue]} class={updatedList.length != 0  ? "show-buttons" : "grey-buttons"} onChange={(e) => {
                     props.filterBy(e.target.value.toLowerCase())
                 }}>
-                    <option selected disabled>Sort By:</option>
+                    <option disabled>Sort By:</option>
+                    <option >Date Created</option>
                     <option>Priority</option>
                     <option>Name</option>
-                    <option>Date Created</option>
                 </select>
                 </span>
             </span>
 
             <div id="container">
 
-                <div className="enter-item">
+                <div id='enter-item-container' className="enter-item">
                     <input type="text" value={value} id="input-text" onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Add a task..."/>
-                    <span className="enter-span">
-                    <span id="priority-container">
+                    {/*<span className="enter-span">*/}
+                    {/*<span id="priority-container">*/}
                     <select id="priority-button" onChange={(e)=> setPriority(parseInt(e.target.value))} defaultValue='Priority:' class={ value !== "" && value !== null ? "show-buttons" : "grey-buttons"}>
                             <option selected disabled>Priority:</option>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
                     </select>
-                    </span>
-                        <span className='enter-button-container'>
+                    {/*</span>*/}
+                    {/*    <span className='enter-button-container'>*/}
                     <button className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"} onClick={enterB} id="enter-button">+</button>
-                        </span>
-                    </span>
+                        {/*</span>*/}
+                    {/*</span>*/}
                 </div>
 
                 <div class="ListItems">

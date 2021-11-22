@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
 label {
   pointer-events: none;
   cursor: default;
@@ -136,26 +137,13 @@ body{
   border-radius: 6px;
   border: 1px solid black;
   text-align: center;
+  margin: auto;
   /*padding-right: 10px;*/
   /*padding-top: ;*/
   vertical-align: auto;
   horiz-align: center;
   padding-left: 4px;
   grid-column: 2;
-}
-
-#delete-list-button {
-  height: 25px;
-  width: 30px;
-  border-radius: 6px;
-  border: 1px solid black;
-  text-align: center;
-
-  /*padding-left: 35%;*/
-  /*padding-top: 0px;*/
-  grid-column: 3;
-  justify-content: center;
-
 }
 
 #back-button {
@@ -173,7 +161,7 @@ body{
 }
 #sort-button {
   border-radius: 08px;
-  width: 105px;
+  width: 125px;
   cursor: pointer;
   font-size: 13px;
   text-align: center;
@@ -185,8 +173,8 @@ body{
   /*!*height: 580px;*!*/
   /*height: 84.375%;*/
   /*!*height: 84.375%;*!*/
-  width: 95%;
-  height: 84%;
+  width: 92%;
+  height: 90%;
   margin: auto;
   border: 3px solid #eab676;
   border-radius: 8px;
@@ -214,7 +202,7 @@ body{
 #list-container {
   /*width: 300px;*/
   /*height: 580px;*/
-  width: 83.3333%;
+  width: 92%;
   height: 90%;
   margin: auto;
   padding-left: 5%;
@@ -238,6 +226,11 @@ body{
   grid-column: 1/ span 3;
 }
 
+#enter-item-container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 5fr 3fr 1fr;
+}
 #list-enter-item {
   display: grid;
   grid-template-rows: 1fr;
@@ -249,10 +242,12 @@ body{
 }
 #priority-button {
   height: 26px;
-  width: 26.8888889%;
+  width: 80%;
   text-align: center;
+  margin:auto;
   border-radius: 6px;
   border: 1px solid black;
+  grid-column: 2;
 }
 .enter-span {
   margin-top: 15pt;
@@ -266,11 +261,12 @@ body{
   border: 1px solid black;
   height: 25px;
   /*width: 140px;*/
-  width: 54%;
+  width: 90%;
   /*height: 3.90625%;*/
   /*width: 46.6666%;*/
   margin: auto;
   background: whitesmoke;
+  grid-column: 1;
 }
 
 #list-input-text {
@@ -303,11 +299,28 @@ body{
   padding-left: 55px;
 }
 
+#delete-list-button {
+  height: 26px;
+  width: 30px;
+  border-radius: 6px;
+  border: 1px solid black;
+  text-align: center;
+  margin: auto;
+  padding-left: 7px;
+  grid-column: 3;
+  justify-content: center;
+
+}
+
+
 #delete-all-lists {
   border-radius: 6px;
   border: 1px solid black;
-  height: 25px;
+  height: 26px;
   width: 30px;
+  margin: auto;
+  text-align: center;
+  padding-left: 7px;
   grid-column: 3;
 }
 
@@ -360,9 +373,10 @@ body{
 
 .ListItems ul li {
   display: grid;
+  padding-right: 1%;
   grid-template-rows: 1fr;
   /*grid-template-columns: 210px 45px;*/
-  grid-template-columns: 210fr 45fr;
+  grid-template-columns: 8fr 0.9fr;
 
 }
 
@@ -370,7 +384,7 @@ body{
   display: grid;
   align-content: center;
   grid-template-rows: 1fr;
-  grid-template-columns: 19fr 4fr 3fr;
+  grid-template-columns: 19fr 4.5fr 2.8fr;
 }
 .ListItems ul li label span {
   vertical-align: middle;
@@ -406,13 +420,9 @@ body{
   border-radius: 6px;
   border: 1px solid black;
   background: #ffaf4b;
-
+  margin:auto;
 }
 
-.taskPriorityContainer {
-  padding-left: 9%;
-  /*padding-left: 19px;*/
-}
 .ListItems ul li span {
   text-align: left ;
 }
@@ -445,6 +455,7 @@ body{
   border-radius: 6px;
   cursor: pointer;
   border: 1px solid black;
+  grid-column: 3/ span 1;
 }
 
 .enter-button-container {
@@ -478,6 +489,51 @@ body{
 }
 
 
+@media screen and (min-width: 720px) {
+
+  #container {
+    height: 86%;
+  }
+  html{
+    font-size: x-large;
+  }
+  #priority-button {
+    font-size: large;
+  }
+  #enter-button {
+    font-size: large;
+  }
+  #hide-completed-button {
+    font-size: large;
+  }
+  #delete-button {
+    font-size: large;
+  }
+  #sort-button{
+    font-size: medium;
+  }
+  #back-button{
+    font-size: medium;
+  }
+  #list-input-text {
+    font-size: large;
+  }
+  #input-text {
+    font-size: large;
+  }
+  .top-title {
+    font-size: xx-large;
+  }
+}
+@media screen and (max-height: 1000px) {
+  #container {
+    height: 83%;
+  }
+
+  #list-container {
+    height: 85%;
+  }
+}
 
 @media screen and (max-height: 590px) {
   #container {
@@ -513,11 +569,35 @@ body{
   }
 }
 
+@media screen and (max-width: 600px) {
+  #list-container {
+    width: 83.333%;
+  }
+  #container {
+    width: 85%;
+  }
+  .ListItems ul li {
+    padding-right: 0%;
+    grid-template-columns: 4.3fr 1fr;
 
+  }
+  #enter-item-container {
+    grid-template-columns: 3.5fr 2fr 1fr;
+  }
 
-@media screen and (max-width: 360px) {
+  #List-of-list-items ul li {
+    grid-template-columns: 13fr 4.5fr 3.5fr;
+  }
 
+  #list-enter-item {
+    grid-template-columns: 5fr 2fr 1fr;
+  }
+}
 
+@media screen and (max-height: 630px) {
+  #container {
+    grid-template-rows: 1fr 10fr 1.5fr 0.2fr;
+  }
 }
 
 

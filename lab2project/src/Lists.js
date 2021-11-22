@@ -46,8 +46,8 @@ function Lists(props) {
 
     function deleteAllLists() {
         swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover these Lists",
+            title: "Delete All Lists?",
+            text: "Once deleted, you will not be able to recover these Lists!",
             icon: "warning",
             buttons: ["No", "Yes"],
             dangerMode: true,
@@ -69,7 +69,7 @@ function Lists(props) {
                 <div className="enter-item" id="list-enter-item">
                     <input type="text" maxLength="28" id="list-input-text" value={value} onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Create a list..."/>
                     <button className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"}  onClick={enterB} id="list-enter-button">+</button>
-                    <button className={props.list ? "show-buttons" : "grey-buttons"} id="delete-all-lists" onClick={deleteAllLists}>🗑</button>
+                    <button className={props.list.length > 0 ? "show-buttons" : "grey-buttons"} id="delete-all-lists" onClick={deleteAllLists}>🗑</button>
 
 
                     {/*<span className="enter-span">*/}

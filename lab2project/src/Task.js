@@ -17,13 +17,11 @@ function Task(props) {
                     <span suppressContentEditableWarning={true} contentEditable={editContent} onBlur={() => editTimeout()} onKeyDown={(k)=> k.code === 'Enter' ? editTimeout() : null} class={completed ? "checked-text" : "unchecked-text"} onInput={(e) =>  setTaskValue(e.currentTarget.textContent)}>{props.task}</span>
         </label>
         </span>
-        <span className="taskPriorityContainer">
         <select className="taskPriority" onChange={(e) => props.onTaskCompleted(props.id, 'priority', parseInt(e.target.value))} value={props.priority}>
             <option>1</option>
             <option>2</option>
             <option>3</option>
         </select>
-        </span>
     </li>
     );
 

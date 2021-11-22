@@ -46,7 +46,7 @@ function App(props) {
     if (loading) {
 
    return (
-        <Loading listName={listName}></Loading>
+        <Loading loadingType={selectedList} listName={listName}></Loading>
         );}
 
 
