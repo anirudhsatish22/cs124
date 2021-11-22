@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37153f1b-bb5c-419a-a43b-6ba6c2d79bcf" name="Changes" comment="thursday ani 8 pm">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/design.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/design.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +151,7 @@
       <workItem from="1637304759853" duration="9794000" />
       <workItem from="1637369070331" duration="7032000" />
       <workItem from="1637564441946" duration="10000" />
-      <workItem from="1637566442141" duration="2822000" />
+      <workItem from="1637566442141" duration="5383000" />
     </task>
     <task id="LOCAL-00001" summary="day2">
       <created>1633654089374</created>

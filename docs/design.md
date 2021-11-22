@@ -225,7 +225,28 @@ sizes, which we think is very cool and important. That is, not only does it work
 When used on larger screens, our application is not just a zoomed in version of the mobile screen, but the extra screen real estate is used for more items/tasks/TaskLists
 to be visible at once without scrolling. We do have slightly larger fonts for bigger displays just to make it easier on the user to parse the information, and use the application to its best potential. 
 
-A few pictures indicating the application in different screen sizes are below!
+A few pictures indicating the application in a few different screen sizes are below (not all)!:
+
+Desktop: 
+
+<img src='Screenshots/DesktopTaskList.png' width=30%/>
+
+Phone Landscape:
+
+<img src='Screenshots/MobileLandscape.png' width=30%/>
+
+iPad Portrait:
+
+<img src='Screenshots/IpadPortrait.png' width=30%/>
+
+iPad Landscape:
+
+<img src='Screenshots/IpadLandscape.png' width=30%/>
+
+iPad Landscape List of TaskLists view:
+
+<img src='Screenshots/IpadLandscapeLists.png' width=30%/>
+
 
 ## User Testing:
 
@@ -266,7 +287,7 @@ While we do note Person C's thoughts, we were having trouble wrapping the text o
 
 ### Lab 3
 
-#### Person D. 
+#### Person D: 
 This user testing was done before the complete version of our application for this lab was completed. 
 This person's feedback really helped and resulted in some changes in our delpoyed model. 
 This user, while adding items to our list, did not know what the 1, 2, 3 referred to priorities. At this stage, 
@@ -279,6 +300,12 @@ informative, and we took this advice and made the required change to our app.
 This user also really liked our alert that pops up when deleted items are deleted. 
 
 
+### Lab 4
+
+#### Person E: 
+
+
+#### Person F:
 
 ## Screenshots and Images from our implementation:
 
@@ -288,6 +315,10 @@ Attached below is a screenshot of our application at a random stage, with some i
 
 
 We also have images from different stages of our application to show the flow when completing the different tasks that it is intended to do. 
+
+For all the following Flows below are flows for any particular TaskList. Since we just added our List of TaskLists functionality, there is a slight to change to this flow 
+The root flow in each TaskList remains the same, except going to that particular TaskList requires the additional step of clicking "GO" on the corresponding TaskList. 
+
 
 ### Task 1: Adding a task to an empty list
 
@@ -401,10 +432,48 @@ Screen if No/Cancel is hit:
 
 <img src='Screenshots/PreTask6.png' width=30%/>
 
+The flows for a few additional things that we thought would be good to elaborate on are mentioned below.
 
+### Task 7: Going to the TaskList named Homework:
+
+Screen when on the main page of the application:
+
+<img src='Screenshots/GoingToTaskListBeginning.png' width=30%/>
+
+Screen while selecting Go button:
+
+<img src='Screenshots/GoingToTaskListIntermediate.png' width=30%/>
+
+Screen after clicking Go Button:
+
+<img src='Screenshots/GoingToTaskListEndpng' width=30%/>
+
+There is a loading screen with a spinning wheel that shows as the page is loaded. This is more visible on lower end devices, or with throttling/bad internet. 
+
+
+### Task 8: Deleting a TaskList:
+
+Screen when inside that TaskList:
+
+<img src='Screenshots/DeletingTasklistBeginning.png' width=30%/>
+
+Screen after clicking Back:
+
+<img src='Screenshots/DeletingTasklistInter1.png' width=30%/>
+
+Screen after clicking the Trash can corresponding to this List:
+
+<img src='Screenshots/DeletingTasklistInter2.png' width=30%/>
+
+Screen after confirming the deletion:
+
+<img src='Screenshots/DeletingTasklistEnd.png' width=30%/>
+
+The other flows, such as creating a new list, deleting all lists, editing a list follow the same philosophy that was and continues to be used with individual tasks in their TaskLists. Thus we do not mention and have pictures for all these tasks, but do mention that they 
+are the same in terms of how to do them, with the exception that no marking lists as checked. The analogous thing to do here is to simply delete
+the entire list when completed (or keep it. Upto the user).
 
 ## Challenges Faced
-
 
 ### Lab 1
 Our initial mistake was in understanding the purpose of this lab. We thought that we had to make a fully functioning JavaScript based
@@ -436,6 +505,19 @@ we could see the update on the other tabs when the change was made on one. Howev
 was changed, the changes were not showing on the other devices. It took us a while to debug this, but we figured it out, and the issue was with
 us using a React state, when the props could be used directly. 
 
+### Lab 4
+
+The most challenging part of this lab was making it usable in multiple screen sizes. Playing around with a lot of @media screen queries was tedious, but it paid off in the end.
+To accomplish this goal of usability in different screen sizes, we had to make some under the hood changes to our implementation, such as adding flex-boxes (grid-boxes with one row)
+in multiple other locations. We also had to revert from coding all our CSS in Pixels to percentages and "fr", which was tedious, but made us realize that using percentages is usually the way to go when
+creating an application, and to always/most of the time start with that as the foundation. 
+
+Another slightly challenging this lab was implementing the List of TaskLists. It took us a bit to visualize what this would entail, 
+how we would create this new component/components and integrate it into our app. This entailed creating new components, and calling them from our App.js, 
+and making a host of changes to how the data was stored in our database (adding another layer of nesting). We also had to make 
+changes to how we used firebase queries, and functions that called firebase functions to do operations on the database. However, once we understood 
+how to do this, it was smooth sailing from there on. 
+
 ## Part of the Design you are most proud of: 
 
 We are quite proud of the color scheme that we ended up using. We both think that we are not super artistic and hence are quite proud of how pleasing
@@ -458,3 +540,16 @@ it slots into its required position according to the filter as soon as the chang
 We are also proud of our alignment of elements in this application. We used the advice from the guest lecture from Wednesday's class
 and applied the same to our app. We tried our best to align elements with something else, and we think this turned out really well. 
 
+
+### Lab 4:
+We are really proud of our overall implementation and how this app turned out. We are very pleased with our drive to stick to a design philosophy throughout the development of this application, 
+and even when implementing the List of TaskLists. 
+We are also very pleased with the ability of our application to handle different screen sizes and be usable in all of them including landscape mode on devices that support this feature. 
+
+Another thing that we are proud of, that is a feature we have carried over from lab 4, but worked really hard to maintain across all screen sizes is alignment. 
+Aligning the different elements with each other, as the screen changed in size was quite challenging, but quite satisfying once we finished. 
+
+Additionally, we are happy with the accessibility that this application has. That is, it is easy to 
+use with the keyboard only. Also, this is the first time we are using Aria-labels in such a widespread manner, and we are happy with how it turned out. 
+
+Finally, during our user testing, we got feedback that our app is intuitive, easy to use, and looks visually appealing. This feedback from our users really made us very proud.  
