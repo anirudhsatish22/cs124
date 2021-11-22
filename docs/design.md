@@ -1,5 +1,5 @@
 
-# CS124: Interaction Design Lab 1 , Lab 2, and Lab 3 
+# CS124: Interaction Design Lab 1 , Lab 2, , Lab 3 and Lab 4.
 
 (Saatvik Sejpal, Anirudh Satish
 )
@@ -16,7 +16,7 @@ Our design process began with some discussions on what a to-do list is meant to 
 sketches of prospective desings that are included below.
 
 
-<img src='Screenshots/Page2.png' text-align='center' width=50%/>
+<img src='Screenshots/Page2.png' text-align='center' width=40%/>
 
 We thought about the "plus" button being floating, moving down as we added items.
 Although this probably looks cool, this is not ideal as the user needs to search for the "plus"
@@ -25,7 +25,7 @@ We also thought about having a separate section for completed items at the botto
 to just do away with having a separate section and just float the completed tasks to the bottom of the page when we mark them
 completed.
 
-<img src='Screenshots/Page3.png' text-align='center' width=50%/>
+<img src='Screenshots/Page3.png' text-align='center' width=40%/>
 
 The intent of the "plus" button in our initial designs was to bring up a text box
 for input. But after some deliberation, we came to the conclusion that this was unnecessarily
@@ -49,7 +49,7 @@ at the bottom of the application.
 The "Hide Completed" Button's purpose is to hide all completed/checked tasks, and the "Delete Completed" button is meant 
 to delete all completed tasks from the list.
 
-<img src='Screenshots/Page4.png' text-align='center' width=50%/>
+<img src='Screenshots/Page4.png' text-align='center' width=40%/>
 
 
 ## Lab 2 Design (changes in Lab2 React implementation):
@@ -73,14 +73,14 @@ Along the same lines, when no items are marked as completed, or when the to-do l
 greyed out to indicate that they cannot be used (have no function). In addition to this, the buttons are disabled so that accidentally clicking on them does not trigger any
 unwanted actions
 
-<img src='Screenshots/HideDeleteDeactivated.png' text-align='center' width=50%/>
+<img src='Screenshots/HideDeleteDeactivated.png' text-align='center' width=40%/>
 
 
 When the "hide completed" button is clicked to hide items, the delete button becomes grey and disabled so that users do not accidentally delete
 items that they cannot see. Therefore, you can only delete completed items from the list if you are in the visibility mode where you can 
 see all the items. 
 
-<img src='Screenshots/DeleteDeactivate.png' text-align='center' width=50%/>
+<img src='Screenshots/DeleteDeactivate.png' text-align='center' width=40%/>
 
 Finally, we considered comments from Lab 1 about our buttons for the items resembling radio buttons. However, considering the context that they are in (todo list app)
 plus the results from the user testing we did, we decided to keep the same design for the buttons (as they also match our rounded theme without sacrificing usability)
@@ -99,7 +99,7 @@ changing this, but then decided that this makes senese, as users cannot accident
 
 Sweet Alert: https://sweetalert.js.org/
 
-<img src='Screenshots/Alertbox.png' text-align='center' width=50%/>
+<img src='Screenshots/Alertbox.png' text-align='center' width=40%/>
 
 
 
@@ -109,12 +109,12 @@ To implement editing of items in the Todo List, we removed the functionality of 
 as completed, a click on the checkbox is required. Clicking on the label enables editing of the text, and allows the user to change the name/title of any task already 
 in the todo List. 
 
-<img src='Screenshots/NewLabelCheck.png' text-align='center' width=50%/>
+<img src='Screenshots/NewLabelCheck.png' text-align='center' width=40%/>
 
 Additionally, to deal with long tasks (singel task), we implemented a horizontal scrolling mechanism, rather than wrapping. An example of the same is shown below. 
 This screenshot is a frame while scrolling to the right to see the full item.
 
-<img src='Screenshots/HorizontalScrolling.png' text-align='center' width=50%/>
+<img src='Screenshots/HorizontalScrolling.png' text-align='center' width=40%/>
 
 ### Vertical Scrolling
 
@@ -122,7 +122,7 @@ After thinking about edge cases/possible situations where our initial design mig
 a vertical scrolling mechanism to help deal with lists that have a lot of tasks. A picture of the same is attached below for illustration. 
 The scroll bar can be seen on the right side of the app. 
 
-<img src='Screenshots/VerticalScrolling.png' text-align='center' width=50%/>
+<img src='Screenshots/VerticalScrolling.png' text-align='center' width=40%/>
 
 
 ## Lab 3 Design:
@@ -145,42 +145,87 @@ The dropdown at the top provides three features to the user. We allow the user t
 The pictures for the flow of performing a sorting task are below. 
 
 #### Filter Button at the beginning of the task:
-<img src='Screenshots/FilterButtonStart.png' width=50%/>
+<img src='Screenshots/FilterButtonStart.png' width=40%/>
 
 #### Filter Button while selecting a metric to filter by:
-<img src='Screenshots/FilterButtonIntermediate.png' width=50%/>
+<img src='Screenshots/FilterButtonIntermediate.png' width=40%/>
 
 #### Filter Button after selecting a metric to filter by:
-<img src='Screenshots/FilterButtonEnd.png' width=50%/>
+<img src='Screenshots/FilterButtonEnd.png' width=40%/>
 
 ### 2. Dropdown by Input Field:
 
 #### When there is nothing in the input field, the dropdown button remains greyed out
-<img src='Screenshots/InputPriorityStart.png' width=50%/>
+<img src='Screenshots/InputPriorityStart.png' width=40%/>
 
 #### While typing, the button becomes orange to indicate that it can be used.
-<img src='Screenshots/InputPriorityAdding.png' width=50%/>
+<img src='Screenshots/InputPriorityAdding.png' width=40%/>
 
 #### Clicking on the button gives the following dropdown.
-<img src='Screenshots/InputPriorityInter.png' width=50%/>
+<img src='Screenshots/InputPriorityInter.png' width=40%/>
 
 #### After selecting the priority, and enter/item is added. 
 Then, the item is added, and the next priority remains the same.
 This allows users to enter multiple items in quick succession with the same priority.
 
-<img src='Screenshots/InputPriorityEnd.png' width=50%/>
+<img src='Screenshots/InputPriorityEnd.png' width=40%/>
 
 ### 3. Dropdown button for each task item in the list:
 
 #### Before editing the priority of the task, screen looks like this.
-<img src='Screenshots/TaskPriorityStart.png' width=50%/>
+<img src='Screenshots/TaskPriorityStart.png' width=40%/>
 
 #### Screen while editing the priority:
-<img src='Screenshots/TaskPriorityInter.png' width=50%/>
+<img src='Screenshots/TaskPriorityInter.png' width=40%/>
 
 #### Screen After priority is edited:
-<img src='Screenshots/TaskPriorityEnd.png' width=50%/>
+<img src='Screenshots/TaskPriorityEnd.png' width=40%/>
 
+## Lab 4 Design:
+For this Lab, we added more functionality to our application. These were accessibility (both tabbing and voice over), multiple list functionality and support for multiple
+screen sizes. 
+
+### Accessibility:
+TODO
+Tabbing follows the order of HTML as it is generated. During all our labs, we were conscious about this, and ensured
+that we generated our HTML in the order we want it displayed. Therefore, tabbing through the application (including shift+tab for going in the backward direction) works
+really well. Additionally, using the spacebar/enter key to select, move to different pages of the application depending on what the feature is 
+is needed. Exactly how these mechanics work is addressed in our YouTube video linked below!
+
+### Multiple Lists:
+
+Multiple lists is a must-have feature in any good To-Do list. Now that we have a much better understanding of React, and components, 
+we were able to implement the same with little to no hiccups. The design for this follows our philosophy that we used for items in our single list To-Do List. 
+When the application is opened, a screen with all the lists is shown (if any exists, else empty), and adding a new TaskList is the same as adding a new item. The TaskList name is entered in the text input field, 
+and then it is added to the "List of Lists" or "List of TaskLists". 
+
+Each TaskList name can be edited by clicking on it, much like the items in the To-Do List. Then, for each TaskList, there is a "Go" button, which when clicked 
+opens the "TO-Do List" for that TaskList. Once inside a particular list, we also have a "back" button to allow the user to come back to the main screen with all the different TaskLists, to do other actions. 
+There is also a delete button, which allows users to delete entire TaskLists individually. However, since deleting a whole TaskList
+is a big task (in that you do not want any mistakes), we have an alert pop up to indicate to the user that this is an irreversible action, asking for confirmation to proceed. 
+We also have a delete-all-lists button that is pretty self explanatory. It deletes all the TaskList, and therefore all the individual tasks in all the TaskLists. Naturally, as this is also a potentially dangerous action, 
+we have an alert box asking for confirmation from the user that they intend to do the indicated action. 
+
+There are some pictures below to show this new features. 
+
+Homepage:
+
+<img src='Screenshots/ListOfTasklistsHome.png' width=40%/>
+
+Inside a particular TaskList:
+
+<img src='Screenshots/IndicateBackButton.png' width=40%/>
+
+### Multiple Screen Sizes:
+
+Responsive design is a very important component of an application, that allows it to be used on different sized devices, from different manufacturers. 
+While our design works for mobiles, desktops and iPads in both landscape and Portrait mode, the way our CSS works allows the application to be viewed in all sizes of screen in between and larger than these three mentioned
+sizes, which we think is very cool and important. That is, not only does it work on Moto G4, but also on other mobile devices, and other tablets, and desktop sizes and aspect ratios. 
+
+When used on larger screens, our application is not just a zoomed in version of the mobile screen, but the extra screen real estate is used for more items/tasks/TaskLists
+to be visible at once without scrolling. We do have slightly larger fonts for bigger displays just to make it easier on the user to parse the information, and use the application to its best potential. 
+
+A few pictures indicating the application in different screen sizes are below!
 
 ## User Testing:
 
@@ -239,7 +284,7 @@ This user also really liked our alert that pops up when deleted items are delete
 
 Attached below is a screenshot of our application at a random stage, with some items in the list, and some items marked as checked.
 
-<img src='Screenshots/MainHTMLPic.png' width=50%/>
+<img src='Screenshots/MainHTMLPic.png' width=40%/>
 
 
 We also have images from different stages of our application to show the flow when completing the different tasks that it is intended to do. 
@@ -251,15 +296,15 @@ to add the item to the list.
 
 Screen at the Beginning of the task: 
 
-<img src='Screenshots/PreTask1.png' width=50%/>
+<img src='Screenshots/PreTask1.png' width=40%/>
 
 Screen during the process of adding an item to the list:
 
-<img src='Screenshots/IntermediateTask1.png' width=50%/>
+<img src='Screenshots/IntermediateTask1.png' width=40%/>
 
 Screen after adding said item to the list:
 
-<img src='Screenshots/PostTask1.png' width=50%/>
+<img src='Screenshots/PostTask1.png' width=40%/>
 
 ### Task 2: Adding an element to a non-empty List
 
@@ -268,15 +313,15 @@ to add the item to the list.
 
 Screen at the Beginning of the task:
 
-<img src='Screenshots/PreTask2.png' width=50%/>
+<img src='Screenshots/PreTask2.png' width=40%/>
 
 Screen during the process of adding the item to the list:
 
-<img src='Screenshots/IntermediateTask2.png' width=50%/>
+<img src='Screenshots/IntermediateTask2.png' width=40%/>
 
 Screen after adding said item to the list:
 
-<img src='Screenshots/PostTask2.png' width=50%/>
+<img src='Screenshots/PostTask2.png' width=40%/>
 
 Here we can see how our app deals with new items when there are already existing things to do. 
 It simply adds it to the bottom of the unchecked portion of the list (if there are any checked items). Therefore, a newly added item floats down the list
@@ -289,11 +334,11 @@ To mark an item as completed, simply click on the check button on the left, and 
 
 Screen at the Beginning of the task:
 
-<img src='Screenshots/PreTask3.png' width=50%/>
+<img src='Screenshots/PreTask3.png' width=40%/>
 
 Screen after marking item as completed:
 
-<img src='Screenshots/PostTask3.png' width=50%/>
+<img src='Screenshots/PostTask3.png' width=40%/>
 
 Our app moves the completed items to the bottom of the list, as talked about earlier, therefore grouping all
 completed and uncompleted items together. 
@@ -305,15 +350,15 @@ hit enter
 
 Screen at the Beginning of the task:
 
-<img src='Screenshots/PreTask4.png' width=50%/>
+<img src='Screenshots/PreTask4.png' width=40%/>
 
 Screen during the process of renaming the item:
 
-<img src='Screenshots/IntermediateTask4.png' width=50%/>
+<img src='Screenshots/IntermediateTask4.png' width=40%/>
 
 Screen after renaming the item:
 
-<img src='Screenshots/PostTask4.png' width=50%/>
+<img src='Screenshots/PostTask4.png' width=40%/>
 
 To rename the item, our text is editable, and thus when a user clicks on the text, they are able 
 to rename that to whatever they please. whether this be completely removing text, or adding some more. 
@@ -327,11 +372,11 @@ to show all. Clicking this button show all will revert to the stage where all ta
 
 Screen at the Beginning of the task:
 
-<img src='Screenshots/PreTask5.png' width=50%/>
+<img src='Screenshots/PreTask5.png' width=40%/>
 
 Screen after clicking hide completed button:
 
-<img src='Screenshots/PostTask5.png' width=50%/>
+<img src='Screenshots/PostTask5.png' width=40%/>
 
 ### Task 6: Delete all completed tasks:
 
@@ -342,19 +387,19 @@ than just not showing the completed tasks.
 
 Screen at the Beginning of the task:
 
-<img src='Screenshots/PreTask6.png' width=50%/>
+<img src='Screenshots/PreTask6.png' width=40%/>
 
 Screen during the alert pop up: 
 
-<img src='Screenshots/IntermediateTask6.png' width=50%/>
+<img src='Screenshots/IntermediateTask6.png' width=40%/>
 
 Screen after deleting all completed tasks (if yes):
 
-<img src='Screenshots/PostTask6.png' width=50%/>
+<img src='Screenshots/PostTask6.png' width=40%/>
 
 Screen if No/Cancel is hit: 
 
-<img src='Screenshots/PreTask6.png' width=50%/>
+<img src='Screenshots/PreTask6.png' width=40%/>
 
 
 
