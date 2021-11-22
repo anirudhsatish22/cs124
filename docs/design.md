@@ -302,7 +302,24 @@ This user also really liked our alert that pops up when deleted items are delete
 
 ### Lab 4
 
+
 #### Person E: 
+
+This user testing was done after the complete implementation of our list of TaskLists, with the most recent version of the UI. 
+This person identified that the main page was a list of TaskLists quite quickly, but suggested that the name we used for this 
+landing page be something else, and not just "Lists". We took this advice and made the change to it. Person E was very appreciate of the 
+trash can symbols we used to indicate the delete action, and said that it was "neat" and very intuitive. They were impressed by the ability to edit 
+the names of TaskLists themselves!
+
+Upon entering a particular TaskList, they were able to find their way around the application quite easily, understanding the mechanics
+of how adding/deleting/renaming tasks work. Similar to Person D from Lab 3, they were confused by what the 1,2,3 meant for priority for a bit, but
+then were able to understand/use their own interpretation for it, that being that it was the urgency with which the tasks had to be completed.
+
+They liked that the back button was at the top left, keeping with standard conventions of back buttons, particularly in web browsers. 
+Person E enquired about whether swiping to the right from the left corner of the screen would work/take them back on a mobile device. 
+To be honest, we did not really think of this until they brought it up, but we recognize that this is a very common gesture in mobile applications, 
+and want to look into this for possible implementation in future labs!
+
 
 
 #### Person F:
