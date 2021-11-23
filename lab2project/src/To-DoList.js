@@ -23,10 +23,12 @@ function ToDoList(props) {
             props.onNewItemAdded(newItem);
             setValue("")
         }
+
     }
 
-    // created: firebase.fitrestore.FieldValue.serverTimestamp()
-    // firebase.firestore.FieldValue.serverTiem
+    // console.log(firebase.firestore.FieldValue.serverTimestamp())
+    // // created: firebase.fitrestore.FieldValue.serverTimestamp()
+    // // firebase.firestore.FieldValue.serverTiem
     let numCompleted = 0
     function renderList(unSortedList) {
         let checkedArray = unSortedList.filter(x => x.completed)
@@ -86,19 +88,14 @@ function ToDoList(props) {
 
                 <div id='enter-item-container' className="enter-item">
                     <input aria-label="Enter the name of your new Task" type="text" value={value} id="input-text" onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Add a task..."/>
-                    {/*<span className="enter-span">*/}
-                    {/*<span id="priority-container">*/}
                     <select aria-label="Set Task Priority" id="priority-button" onChange={(e)=> setPriority(parseInt(e.target.value))} defaultValue='Priority:' class={ value !== "" && value !== null ? "show-buttons" : "grey-buttons"}>
                             <option selected disabled>Priority:</option>
                             <option aria-label="Set Task Priority to 1">1</option>
                             <option aria-label="Set Task Priority to 2">2</option>
                             <option aria-label="Set Task Priority to 3">3</option>
                     </select>
-                    {/*</span>*/}
-                    {/*    <span className='enter-button-container'>*/}
                     <button aria-label="Click this button to add your task to the list." className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"} onClick={enterB} id="enter-button">+</button>
-                        {/*</span>*/}
-                    {/*</span>*/}
+
                 </div>
 
                 <div class="ListItems">

@@ -18,7 +18,6 @@ function Lists(props) {
             let newItem = {
                 id: generateUniqueID(),
                 name: value
-                // created: firebase.database.ServerValue.TIMESTAMP
             };
             props.onNewItemAdded(newItem);
             setValue("")
@@ -72,14 +71,6 @@ function Lists(props) {
                     <button aria-label="Click this button to delete all the Lists that you have." className={props.list.length > 0 ? "show-buttons" : "grey-buttons"} id="delete-all-lists" onClick={deleteAllLists}>🗑</button>
 
 
-                    {/*<span className="enter-span">*/}
-                    {/*    <span className='enter-button-container'>*/}
-                    {/*        <button className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"}  onClick={enterB} id="enter-button">+</button>*/}
-                    {/*    </span>*/}
-                    {/*    <span className="delete-button-container">*/}
-                    {/*        <button className={props.list ? "show-buttons" : "grey-buttons"} id="delete-all-lists" onClick={deleteAllLists}>🗑</button>*/}
-                    {/*    </span>*/}
-                    {/*</span>*/}
                 </div>
                 <div class="ListItems" id="List-of-list-items">
                     <ul id="list">{
@@ -92,11 +83,6 @@ function Lists(props) {
 
     )
 }
-
-// onTaskCompleted={ (selectedId, field, value) =>
-//     props.onContentChange(selectedId, field, value) ?  numCompleted--  : null
-// }
-// displayButtons ={(whetherCompleted)=> {whetherCompleted ? numCompleted++ : numCompleted--}}
 
 export default Lists;
 

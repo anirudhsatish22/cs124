@@ -19,5 +19,4 @@ function List(props) {
     );
 }
 
-{/*<label onChange={() => {props.onTaskCompleted(props.id, 'completed', !completed); props.displayButtons(!completed)}} checked = {false} class={completed ? "checked" : "unchecked"}/>*/}
 export default List;

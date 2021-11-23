@@ -77,12 +77,10 @@ function App(props) {
         }
     }
     function addItem(newItem) {
-        // const docRef = db.collection(ourCollection).doc(newItem.id);
         docRef.doc(newItem.id).set(newItem);
     }
     function onDelete(listOfIds) {
         if (selectedList === "") {
-            // docRef.doc(listOfIds[0]).collection("Tasks").delete();
             docRef.doc(listOfIds[0]).collection("Tasks").get().then(querySnapshot =>
                 querySnapshot.docs.map(d => docRef.doc(listOfIds[0]).collection('Tasks').doc(d.id).delete())
             );
