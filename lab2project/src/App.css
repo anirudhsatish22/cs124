@@ -307,7 +307,7 @@ body{
   text-align: center;
   margin: auto;
   /*padding-left: 7px;*/
-  padding-left: 7px;
+  padding-left: 6px;
   grid-column: 3;
   /*justify-content: center;*/
 
@@ -321,7 +321,7 @@ body{
   width: 30px;
   text-align: center;
   margin: auto;
-  padding-left: 6px;
+  padding-left: 5px;
   /*padding-left: 7px;*/
   grid-column: 3;
 }
