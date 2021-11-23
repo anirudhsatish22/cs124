@@ -189,10 +189,10 @@ screen sizes.
 Tabbing follows the order of HTML as it is generated. During all our labs, we were conscious about this, and ensured
 that we generated our HTML in the order we want it displayed. Therefore, tabbing through the application (including shift+tab for going in the backward direction) works
 really well. Additionally, using the spacebar/enter key to select, move to different pages of the application depending on what the feature is
-is needed. Exactly how these mechanics work is addressed in our [YouTube video] (https://youtu.be/K11KCT0sHxA)!
+is needed. Exactly how these mechanics work is addressed in our <a href='https://youtu.be/K11KCT0sHxA'>Youtube Video</a>!
 
 Furthermore, we have made our app very accessible for people with low vision and people who are visually impaired through the use of Aria Labels for our HTML elements. These Aria Labels make it such that if someone uses a Text to Speech Helper such as VoiceOver on Mac, then helper will be able to provide detailed descriptions of what each of the elements in our app do.
-A demo showing the functionality of our app with the VoiceOver Utility can be found in this [YouTube Video] (https://youtu.be/V2-YBc7EShA).
+A demo showing the functionality of our app with the VoiceOver Utility can be found in this <a href='https://youtu.be/V2-YBc7EShA'>Youtube Video</a>.
 
 ### Multiple Lists:
 
