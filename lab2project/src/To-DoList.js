@@ -9,7 +9,7 @@ function ToDoList(props) {
     const [value, setValue] = useState(null);
     const [priority, setPriority] = useState(1);
     const [showCompleted, setShowCompleted] = useState(true);
-    const dict = {'task': 'Name', 'priority': 'Priority', 'created':'Date Created', 'Filter By:':'Filter By:'};
+    const dict = {'task': 'Name', 'priority': 'Priority', 'created':'Date Created', 'Sort By:':'Sort By:'};
 
     function enterB() {
         if (value !== null && value !== "") {
@@ -23,9 +23,13 @@ function ToDoList(props) {
             props.onNewItemAdded(newItem);
             setValue("")
         }
+
     }
+
+    // console.log(firebase.firestore.FieldValue.serverTimestamp())
+    // // created: firebase.fitrestore.FieldValue.serverTimestamp()
+    // // firebase.firestore.FieldValue.serverTiem
     let numCompleted = 0
-    console.log(props.list)
     function renderList(unSortedList) {
         let checkedArray = unSortedList.filter(x => x.completed)
         numCompleted = checkedArray.length
@@ -60,36 +64,38 @@ function ToDoList(props) {
 
     return (
         <>
-            <span className='headerClass'>
-            <h1 id="top-title">To-Do List</h1>
+
+
+            <span className='headerClass' id="header-one">
+            <h1 className="top-title">{props.listName}</h1>
+            </span>
+            <span className='headerClass' id="header-two">
                 <span id='sort-items'>
-                <select  id="sort-button" defaultValue={dict[props.filterValue]} class={updatedList.length != 0  ? "show-buttons" : "grey-buttons"} onChange={(e) => {
+                <button aria-label="Go back to the List of all Lists" id="back-button" className="show-buttons" onClick={props.goBack}>←</button>
+                    {/*defaultValue='Date Created' value={dict[props.filterValue]}*/}
+                    <select aria-label="Click this button to sort list items by a certain criterion"  id="sort-button" value={dict[props.filterValue]} class={updatedList.length != 0  ? "show-buttons" : "grey-buttons"} onChange={(e) => {
                     props.filterBy(e.target.value.toLowerCase())
                 }}>
-                    <option selected disabled>Filter By:</option>
-                    <option>Priority</option>
-                    <option>Name</option>
-                    <option>Date Created</option>
+                    <option  disabled>Sort By:</option>
+                    <option aria-label="Sort By Creation Date">Date Created</option>
+                    <option aria-label="Sort By Task Priority">Priority</option>
+                    <option aria-label="Sort Lexicographically by Task Name">Name</option>
                 </select>
                 </span>
             </span>
+
             <div id="container">
 
-                <div id="enter-item">
-                    <input type="text" value={value} id="input-text" onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Add a task..."/>
-                    <span id="enter-span">
-                    <span id="priority-container">
-                    <select id="priority-button" onChange={(e)=> setPriority(parseInt(e.target.value))} defaultValue='Priority:' class={ value !== "" && value !== null ? "show-buttons" : "grey-buttons"}>
+                <div id='enter-item-container' className="enter-item">
+                    <input aria-label="Enter the name of your new Task" type="text" value={value} id="input-text" onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Add a task..."/>
+                    <select aria-label="Set Task Priority" id="priority-button" onChange={(e)=> setPriority(parseInt(e.target.value))} defaultValue='Priority:' class={ value !== "" && value !== null ? "show-buttons" : "grey-buttons"}>
                             <option selected disabled>Priority:</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                            <option aria-label="Set Task Priority to 1">1</option>
+                            <option aria-label="Set Task Priority to 2">2</option>
+                            <option aria-label="Set Task Priority to 3">3</option>
                     </select>
-                    </span>
-                        <span id='enter-button-container'>
-                    <button className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"} onClick={enterB} id="enter-button">+</button>
-                        </span>
-                    </span>
+                    <button aria-label="Click this button to add your task to the list." className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"} onClick={enterB} id="enter-button">+</button>
+
                 </div>
 
                 <div class="ListItems">
@@ -109,12 +115,10 @@ function ToDoList(props) {
                             displayButtons ={(whetherCompleted)=> whetherCompleted ? numCompleted++ : numCompleted--}
                             {...a}
                         />)}
-                        {console.log(numCompleted)}
-
                     </ul>
                 </div>
-                <button class={numCompleted > 0 ? "show-buttons" : "grey-buttons"} id="hide-completed-button" onClick={() => setShowCompleted(!showCompleted)}>{showCompleted ? "Hide Completed" : "Show Completed"}</button>
-                <button class={numCompleted > 0 && showCompleted ? "show-buttons" : "grey-buttons"} id="delete-button" onClick={onDelete}>Delete Completed</button>
+                <button aria-label={showCompleted ? "Click this button to hide completed tasks" : "Click this button to show completed tasks"} class={numCompleted > 0 ? "show-buttons" : "grey-buttons"} id="hide-completed-button" onClick={() => setShowCompleted(!showCompleted)}>{showCompleted ? "Hide Completed" : "Show Completed"}</button>
+                <button aria-label="Click this button to Delete Completed Tasks" class={numCompleted > 0 && showCompleted ? "show-buttons" : "grey-buttons"} id="delete-button" onClick={onDelete}>Delete Completed</button>
             </div>
         </>
 );
