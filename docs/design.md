@@ -249,6 +249,9 @@ iPad Landscape List of TaskLists view:
 
 <img src='Screenshots/IpadLandscapeLists.png' width=30%/>
 
+### Loading Pages
+
+Another change we made to our design, was to  have two separate loading screens: one for the Lists of Lists page, and the other for when we're inside a List. We also added a nice spinning loading icon to our loading pages.
 
 ## User Testing:
 
