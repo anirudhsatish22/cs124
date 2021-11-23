@@ -321,6 +321,22 @@ To be honest, we did not really think of this until they brought it up, but we r
 and want to look into this for possible implementation in future labs!
 
 
+#### Person F:
+
+This users experience seemed to echo the comments of Person E. They were able to very quickly navigate through the application. This person 
+added new taskLists to the list, and played around with renaming it, then deleting them/going into a particular list and then adding individual items. 
+This was very nice to see as they seemed to get all the features fairly intuitively. One comment they made was that they were not sure why the priority dropdown was greyed out
+and they kept trying to click this. Our rationale for greying this button out was that when there is no item to be added, the button serves no purpose, and is therefore greyed out, and deactivated. 
+
+On discussion later they seemed to like this, but they were still a bit confused by this behaviour while using the application. However, this behaviour did not hinder the way they used the app, rather it was 
+a minor issue. Due to this observation, we decided to not change the existing functionality of the button, but we do intend on keeping this in mind, and should the 
+situation come where multiple users are confused by it, or it only hinders more than helps, the change can be made to ensure that the button is not greyed out. 
+
+Apart from this, the user had positive feedback, and was quite happy with its performance! This made us very happy as well. 
+
+Both Person E and F for this user testing are people who are NOT in this class, and are not CS majors. Therefore they represent a larger percentage of the user population, and it was nice to see
+that to even such users, the application was intuitive, and helpful. 
+
 
 ## Screenshots and Images from our implementation:
 
