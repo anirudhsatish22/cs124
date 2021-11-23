@@ -300,15 +300,16 @@ body{
 }
 
 #delete-list-button {
-  height: 26px;
-  width: 30px;
   border-radius: 6px;
   border: 1px solid black;
+  height: 26px;
+  width: 30px;
   text-align: center;
   margin: auto;
+  /*padding-left: 7px;*/
   padding-left: 7px;
   grid-column: 3;
-  justify-content: center;
+  /*justify-content: center;*/
 
 }
 
@@ -318,9 +319,10 @@ body{
   border: 1px solid black;
   height: 26px;
   width: 30px;
-  margin: auto;
   text-align: center;
-  padding-left: 7px;
+  margin: auto;
+  padding-left: 6px;
+  /*padding-left: 7px;*/
   grid-column: 3;
 }
 

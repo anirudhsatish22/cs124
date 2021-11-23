@@ -67,9 +67,9 @@ function Lists(props) {
             <h1 className="top-title">Lists</h1>
             <div id="list-container">
                 <div className="enter-item" id="list-enter-item">
-                    <input type="text" maxLength="28" id="list-input-text" value={value} onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Create a list..."/>
-                    <button className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"}  onClick={enterB} id="list-enter-button">+</button>
-                    <button className={props.list.length > 0 ? "show-buttons" : "grey-buttons"} id="delete-all-lists" onClick={deleteAllLists}>🗑</button>
+                    <input aria-label="Enter the name of your new List" type="text" maxLength="28" id="list-input-text" value={value} onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Create a list..."/>
+                    <button aria-label="Click this button to add your new List to the List of Lists." className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"}  onClick={enterB} id="list-enter-button">+</button>
+                    <button aria-label="Click this button to delete all the Lists that you have." className={props.list.length > 0 ? "show-buttons" : "grey-buttons"} id="delete-all-lists" onClick={deleteAllLists}>🗑</button>
 
 
                     {/*<span className="enter-span">*/}

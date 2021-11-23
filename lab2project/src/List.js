@@ -11,10 +11,10 @@ function List(props) {
     return (
         <li className="listItem" key={props.id}>
         <span className="taskItem">
-            <label suppressContentEditableWarning={true} contentEditable={editContent} onBlur={()=>editTimeout()} onKeyDown={(k)=> k.code === 'Enter' ? editTimeout() : null} onInput={(e) => setListValue(e.currentTarget.textContent)}>{props.name}</label>
+            <label aria-label="Start typing to edit the name of the corresponding List." suppressContentEditableWarning={true} contentEditable={editContent} onBlur={()=>editTimeout()} onKeyDown={(k)=> k.code === 'Enter' ? editTimeout() : null} onInput={(e) => setListValue(e.currentTarget.textContent)}>{props.name}</label>
         </span>
-            <button className="show-buttons" id="go-button" onClick={() => props.onGo(props.id, props.name)}>Go</button>
-            <button className="show-buttons" id="delete-list-button" onClick={() =>props.onDelete(props.id)}>🗑</button>
+            <button aria-label="Click this button to see the corresponding List." className="show-buttons" id="go-button" onClick={() => props.onGo(props.id, props.name)}>Go</button>
+            <button aria-label="Click this button to delete the corresponding List." className="show-buttons" id="delete-list-button" onClick={() =>props.onDelete(props.id)}>🗑</button>
         </li>
     );
 }

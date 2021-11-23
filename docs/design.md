@@ -1,5 +1,5 @@
 
-# CS124: Interaction Design Lab 1 , Lab 2, and Lab 3 
+# CS124: Interaction Design Lab 1, Lab 2, Lab 3, and Lab 4
 
 (Saatvik Sejpal, Anirudh Satish
 )

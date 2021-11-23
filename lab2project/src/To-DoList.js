@@ -69,15 +69,15 @@ function ToDoList(props) {
             </span>
             <span className='headerClass' id="header-two">
                 <span id='sort-items'>
-                <button id="back-button" className="show-buttons" onClick={props.goBack}>←</button>
+                <button aria-label="Go back to the List of all Lists" id="back-button" className="show-buttons" onClick={props.goBack}>←</button>
                     {/*defaultValue='Date Created' value={dict[props.filterValue]}*/}
-                    <select  id="sort-button" value={dict[props.filterValue]} class={updatedList.length != 0  ? "show-buttons" : "grey-buttons"} onChange={(e) => {
+                    <select aria-label="Click this button to sort list items by a certain criterion"  id="sort-button" value={dict[props.filterValue]} class={updatedList.length != 0  ? "show-buttons" : "grey-buttons"} onChange={(e) => {
                     props.filterBy(e.target.value.toLowerCase())
                 }}>
-                    <option disabled>Sort By:</option>
-                    <option >Date Created</option>
-                    <option>Priority</option>
-                    <option>Name</option>
+                    <option  disabled>Sort By:</option>
+                    <option aria-label="Sort By Creation Date">Date Created</option>
+                    <option aria-label="Sort By Task Priority">Priority</option>
+                    <option aria-label="Sort Lexicographically by Task Name">Name</option>
                 </select>
                 </span>
             </span>
@@ -85,18 +85,18 @@ function ToDoList(props) {
             <div id="container">
 
                 <div id='enter-item-container' className="enter-item">
-                    <input type="text" value={value} id="input-text" onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Add a task..."/>
+                    <input aria-label="Enter the name of your new Task" type="text" value={value} id="input-text" onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Add a task..."/>
                     {/*<span className="enter-span">*/}
                     {/*<span id="priority-container">*/}
-                    <select id="priority-button" onChange={(e)=> setPriority(parseInt(e.target.value))} defaultValue='Priority:' class={ value !== "" && value !== null ? "show-buttons" : "grey-buttons"}>
+                    <select aria-label="Set Task Priority" id="priority-button" onChange={(e)=> setPriority(parseInt(e.target.value))} defaultValue='Priority:' class={ value !== "" && value !== null ? "show-buttons" : "grey-buttons"}>
                             <option selected disabled>Priority:</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                            <option aria-label="Set Task Priority to 1">1</option>
+                            <option aria-label="Set Task Priority to 2">2</option>
+                            <option aria-label="Set Task Priority to 3">3</option>
                     </select>
                     {/*</span>*/}
                     {/*    <span className='enter-button-container'>*/}
-                    <button className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"} onClick={enterB} id="enter-button">+</button>
+                    <button aria-label="Click this button to add your task to the list." className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"} onClick={enterB} id="enter-button">+</button>
                         {/*</span>*/}
                     {/*</span>*/}
                 </div>
@@ -120,8 +120,8 @@ function ToDoList(props) {
                         />)}
                     </ul>
                 </div>
-                <button class={numCompleted > 0 ? "show-buttons" : "grey-buttons"} id="hide-completed-button" onClick={() => setShowCompleted(!showCompleted)}>{showCompleted ? "Hide Completed" : "Show Completed"}</button>
-                <button class={numCompleted > 0 && showCompleted ? "show-buttons" : "grey-buttons"} id="delete-button" onClick={onDelete}>Delete Completed</button>
+                <button aria-label={showCompleted ? "Click this button to hide completed tasks" : "Click this button to show completed tasks"} class={numCompleted > 0 ? "show-buttons" : "grey-buttons"} id="hide-completed-button" onClick={() => setShowCompleted(!showCompleted)}>{showCompleted ? "Hide Completed" : "Show Completed"}</button>
+                <button aria-label="Click this button to Delete Completed Tasks" class={numCompleted > 0 && showCompleted ? "show-buttons" : "grey-buttons"} id="delete-button" onClick={onDelete}>Delete Completed</button>
             </div>
         </>
 );

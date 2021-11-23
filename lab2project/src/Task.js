@@ -13,14 +13,14 @@ function Task(props) {
     <li key ={props.key}>
         <span className="taskItem">
         <label>
-            <input type="checkbox" onChange={() => {props.onTaskCompleted(props.id, 'completed', !completed); props.displayButtons(!completed)}} checked = {false} class={completed ? "checked" : "unchecked"}/>
-                    <span suppressContentEditableWarning={true} contentEditable={editContent} onBlur={() => editTimeout()} onKeyDown={(k)=> k.code === 'Enter' ? editTimeout() : null} class={completed ? "checked-text" : "unchecked-text"} onInput={(e) =>  setTaskValue(e.currentTarget.textContent)}>{props.task}</span>
+            <input aria-label={completed ? "Click this Checkbox to mark this task as not completed" : "Click this Checkbox to mark this task as completed"} type="checkbox" onChange={() => {props.onTaskCompleted(props.id, 'completed', !completed); props.displayButtons(!completed)}} checked = {false} class={completed ? "checked" : "unchecked"}/>
+                    <span aria-label="Start typing to edit the name of the corresponding task." suppressContentEditableWarning={true} contentEditable={editContent} onBlur={() => editTimeout()} onKeyDown={(k)=> k.code === 'Enter' ? editTimeout() : null} class={completed ? "checked-text" : "unchecked-text"} onInput={(e) =>  setTaskValue(e.currentTarget.textContent)}>{props.task}</span>
         </label>
         </span>
-        <select className="taskPriority" onChange={(e) => props.onTaskCompleted(props.id, 'priority', parseInt(e.target.value))} value={props.priority}>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
+        <select aria-label="Set Task Priority" className="taskPriority" onChange={(e) => props.onTaskCompleted(props.id, 'priority', parseInt(e.target.value))} value={props.priority}>
+            <option aria-label="Set Task Priority to 1">1</option>
+            <option aria-label="Set Task Priority to 2">2</option>
+            <option aria-label="Set Task Priority to 3">3</option>
         </select>
     </li>
     );
