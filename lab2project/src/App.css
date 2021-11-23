@@ -113,6 +113,10 @@ body{
   /*margin-left: 115px;*/
   /*margin-right: 00px;*/
   width: 85%;
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+  overflow: hidden;
 }
 .headerClass select {
   height: 25px;
