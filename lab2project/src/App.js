@@ -6,6 +6,7 @@ import firebase from "firebase/compat";
 import {useCollection} from "react-firebase-hooks/firestore";
 import Lists from "./Lists";
 import Loading from "./loading";
+import {useAuthState, useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword} from 'react-firebase-hooks/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAMsDbORWI7OtcnI4VjQnY6xEE6XGjZPf0",
@@ -20,8 +21,47 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const ourCollection = "Lists";
+const auth = firebase.auth();
+const googleProvider = new firebase.auth.GoogleAuthProvider();
 
 function App(props) {
+    const [user, loading, error] = useAuthState(auth) 
+    if (loading) {
+        return <Loading loadingType="" listName=""></Loading>
+    }
+    else if (user) {
+        return <SignedInApp {...props}></SignedInApp>
+    }
+    else {
+        return <SignIn></SignIn>
+    }
+}
+const FAKE_EMAIL = 'foo@bar.com';
+const FAKE_PASSWORD = 'xyzzyxx';
+function SignIn() {
+    const [
+        signInWithEmailAndPassword,
+        userCredential, loading, error
+    ] = useSignInWithEmailAndPassword(auth);
+
+    if (userCredential) {
+        // Shouldn't happen because App should see that
+        // we are signed in.
+        return <div>Unexpectedly signed in already</div>
+    } else if (loading) {
+        return <p>Logging in…</p>
+    }
+    return <div>
+        {error && <p>"Error logging in: " {error.message}</p>}
+        <button onClick={() =>
+            signInWithEmailAndPassword(FAKE_EMAIL, FAKE_PASSWORD)}>Login with test user Email/PW
+        </button>
+        <button onClick={() =>
+            auth.signInWithPopup(googleProvider)}>Login with Google
+        </button>
+    </div>
+}
+function SignedInApp(props) {
     const [filter, setFilter] = useState('Sort By:');
     const [selectedList, setSelectedList] = useState('');
     const [listName, setListName] = useState('');
