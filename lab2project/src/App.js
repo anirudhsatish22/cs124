@@ -33,11 +33,38 @@ function App(props) {
         return <SignedInApp {...props}></SignedInApp>
     }
     else {
-        return <SignIn></SignIn>
+        return (
+        <>
+        <SignUp></SignUp>
+        <SignIn></SignIn>
+        </>
+        )
     }
 }
 const FAKE_EMAIL = 'foo@bar.com';
 const FAKE_PASSWORD = 'xyzzyxx';
+function SignUp() {
+    const [
+        createUserWithEmailAndPassword,
+        userCredential, loading, error
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    if (userCredential) {
+        // Shouldn't happen because App should see that
+        // we are signed in.
+        return <div>Unexpectedly signed in already</div>
+    } else if (loading) {
+        return <p>Signing up…</p>
+    }
+    return <div>
+        {error && <p>"Error signing up: " {error.message}</p>}
+        <button onClick={() =>
+            createUserWithEmailAndPassword(FAKE_EMAIL, FAKE_PASSWORD)}>
+            Create test user
+        </button>
+
+    </div>
+}
 function SignIn() {
     const [
         signInWithEmailAndPassword,
@@ -94,7 +121,10 @@ function SignedInApp(props) {
 
     if (selectedList === '') {
         return (
+            <>
+            <button type="button" onClick={() => auth.signOut()}>Logout</button>
             <Lists list={taskList} displayList={(id,name)=>{setSelectedList(id); setListName(name)}} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete}/>
+            </>
         )
     }
     function setField(id, field, value) {
@@ -142,7 +172,10 @@ function SignedInApp(props) {
         }
 
   return (
+      <>
       <ToDoList listName={listName} list={taskList} goBack={()=>setSelectedList('')} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete} filterBy={getFilteredList} filterValue={filter}/>
+      <button type="button" onClick={() => auth.signOut()}>Logout</button>
+      </>
   );
 }
 
