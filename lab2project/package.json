@@ -13,7 +13,11 @@
     "sweetalert": "^2.1.2",
     "web-vitals": "^1.1.2",
     "firebase": "^9.1.2",
-    "react-firebase-hooks": "^3.0.4"
+    "react-firebase-hooks": "^3.0.4",
+    "react-google-button": "^0.7.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16"
   },
   "scripts": {
     "start": "react-scripts start",

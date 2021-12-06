@@ -78,6 +78,14 @@ html {
   box-sizing: border-box;
   background: antiquewhite;
 }
+
+#icon-button {
+  background: black;
+}
+
+#google-button {
+  background: revert;
+}
 .headerClass {
   display: flex;
   justify-content: center;
