@@ -35,8 +35,8 @@ function App(props) {
         return <Loading loadingType="" listName=""></Loading>
     }
     else if (user) {
-        console.log("Hello", user.email)
-        return <SignedInApp {...props}></SignedInApp>
+        console.log("Hello", auth.uid)
+        return <SignedInApp user={user} {...props}></SignedInApp>
     }
     else {
         return (
@@ -62,7 +62,7 @@ function SignUp() {
     if (error) {
         swal({
             title: "Error!",
-            text: "Your Email or Password is invalid.",
+            text: error.message,
             icon: "warning",
             showConfirmButton: true,
             dangerMode: true,
@@ -74,18 +74,11 @@ function SignUp() {
         // we are signed in.
         return <div>Unexpectedly signed in already</div>
     } else if (loading) {
-        return <p>Logging in…</p>
+        return <p>Signing Up...</p>
     }
     const togglePasswordVisiblity = () => {
         setPasswordShown(passwordShown ? false : true);
     };
-    if (userCredential) {
-        // Shouldn't happen because App should see that
-        // we are signed in.
-        return <div>Unexpectedly signed in already</div>
-    } else if (loading) {
-        return <p>Signing up…</p>
-    }
     return <div>
         <form>
                 <input
@@ -124,11 +117,10 @@ function SignIn() {
         signInWithEmailAndPassword,
         userCredential, loading, error
     ] = useSignInWithEmailAndPassword(auth);
-
     if (error) {
         swal({
             title: "Error!",
-            text: "Your Email or Password is invalid.",
+            text: error.message,
             icon: "warning",
             showConfirmButton: true,
             dangerMode: true,
@@ -214,7 +206,7 @@ function SignedInApp(props) {
         return (
             <>
             <button type="button" onClick={() => auth.signOut()}>Logout</button>
-            <Lists list={taskList} displayList={(id,name)=>{setSelectedList(id); setListName(name)}} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete}/>
+            <Lists userEmail={props.user.email} list={taskList} displayList={(id,name)=>{setSelectedList(id); setListName(name)}} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete}/>
             </>
         )
     }

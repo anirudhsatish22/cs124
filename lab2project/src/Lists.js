@@ -17,7 +17,8 @@ function Lists(props) {
         if (value !== null && value !== "") {
             let newItem = {
                 id: generateUniqueID(),
-                name: value
+                name: value,
+                ownerEmail: props.userEmail
             };
             props.onNewItemAdded(newItem);
             setValue("")
