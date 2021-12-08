@@ -161,6 +161,14 @@ body{
   text-align: center;
   border: 1px solid black;
 }
+#share-button {
+  border-radius: 08px;
+  width: 125px;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: center;
+  border: 1px solid black;
+}
 #container {
   width: 92%;
   height: 90%;

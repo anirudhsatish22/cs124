@@ -18,7 +18,8 @@ function Lists(props) {
             let newItem = {
                 id: generateUniqueID(),
                 name: value,
-                ownerEmail: props.userEmail
+                ownerEmail: props.userEmail,
+                sharedWith: []
             };
             props.onNewItemAdded(newItem);
             setValue("")

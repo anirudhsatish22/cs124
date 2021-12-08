@@ -26,6 +26,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const ourCollection = "Lists";
+const userCollection = "Users";
 const auth = firebase.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
@@ -57,7 +58,7 @@ function SignUp() {
     const [passwordShown, setPasswordShown] = useState(false);
     function onSubmit() {
         createUserWithEmailAndPassword(email, password);
-        console.log(email, password);
+        console.log("error msg", error)
     };
     if (error) {
         swal({
@@ -176,10 +177,16 @@ function SignedInApp(props) {
     const [selectedList, setSelectedList] = useState('');
     const [listName, setListName] = useState('');
     let query = ''
+    const sharedQuery = db.collection(ourCollection).where('sharedWith','array-contains',props.user.email);
     let docRef = db.collection(ourCollection)
+
+    // Add User to our List of Users
+    db.collection(userCollection).doc(props.user.uid).set({email:props.user.email});
+    console.log("Successfully Added!");
+
     if (selectedList === '') {
-        query = db.collection(ourCollection)
-        docRef = query
+        query = db.collection(ourCollection).where('ownerEmail','==',props.user.email);
+        docRef = db.collection(ourCollection)
     }
     else {
         if (filter === 'Sort By:') {
@@ -191,6 +198,9 @@ function SignedInApp(props) {
         }
     }
     const [value, loading, error] = useCollection(query);
+    const [sharedValue, sharedLoading, sharedError] = useCollection(sharedQuery);
+    const usersQuery = db.collection(userCollection);
+    const [users, usersLoading, usersError] = useCollection(usersQuery);
 
 
     if (loading) {
@@ -201,12 +211,15 @@ function SignedInApp(props) {
 
 
     let taskList = value != null? value.docs.map((doc) => doc.data()) : []
+    let sharedList = sharedValue != null? sharedValue.docs.map((doc) => doc.data()) : []
+    taskList = [...taskList, ...sharedList]
+    let usersList = users != null? users.docs.map((doc) => doc.data().email) : []
 
     if (selectedList === '') {
         return (
             <>
             <button type="button" onClick={() => auth.signOut()}>Logout</button>
-            <Lists userEmail={props.user.email} list={taskList} displayList={(id,name)=>{setSelectedList(id); setListName(name)}} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete}/>
+            <Lists userEmail={props.user.email} list={taskList} displayList={(id,name)=>{setSelectedList(id); setListName(name);}} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete}/>
             </>
         )
     }
@@ -254,9 +267,16 @@ function SignedInApp(props) {
         setFilter(currentFilter)
         }
 
+    function shareWith(email, listId) {
+        const docRef = db.collection(ourCollection).doc(listId);
+        docRef.update({
+            sharedWith: firebase.firestore.FieldValue.arrayUnion.apply(this, [email])
+    });
+    }
+
   return (
       <>
-      <ToDoList listName={listName} list={taskList} goBack={()=>setSelectedList('')} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete} filterBy={getFilteredList} filterValue={filter}/>
+      <ToDoList shareWith={shareWith} usersList={usersList} listId={selectedList} listName={listName} list={taskList} goBack={()=>setSelectedList('')} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete} filterBy={getFilteredList} filterValue={filter}/>
       <button type="button" onClick={() => auth.signOut()}>Logout</button>
       </>
   );

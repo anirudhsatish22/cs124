@@ -37,6 +37,9 @@ function ToDoList(props) {
         return [...uncheckedArray, ...checkedArray]
     }
 
+    function shareWith(email) {
+    }
+
     function onDelete(){
         swal({
             title: "Are you sure?",
@@ -81,6 +84,14 @@ function ToDoList(props) {
                     <option aria-label="Sort By Task Priority">Priority</option>
                     <option aria-label="Sort Lexicographically by Task Name">Name</option>
                 </select>
+                    <select aria-label="Click this button to see the list of users who you can share this list with." id="share-button" className="show-buttons" onChange={(e)=> props.shareWith(e.target.value.toLowerCase(), props.listId)}>
+                        <option disabled>Share With:</option>
+                        {
+                            props.usersList.map((email)=> {
+                                return <option>{email}</option>
+                            })
+                        }
+                    </select>
                 </span>
             </span>
 
