@@ -212,7 +212,9 @@ function SignedInApp(props) {
 
     let taskList = value != null? value.docs.map((doc) => doc.data()) : []
     let sharedList = sharedValue != null? sharedValue.docs.map((doc) => doc.data()) : []
-    taskList = [...taskList, ...sharedList]
+    if (sharedList != []) {
+        taskList = [...taskList, ...sharedList]
+    }
     let usersList = users != null? users.docs.map((doc) => doc.data().email) : []
 
     if (selectedList === '') {

@@ -63,12 +63,11 @@ function ToDoList(props) {
 
 
     let updatedList = renderList(props.list)
+    console.log("THis is the updated list", updatedList)
 
 
     return (
         <>
-
-
             <span className='headerClass' id="header-one">
             <h1 className="top-title">{props.listName}</h1>
             </span>
