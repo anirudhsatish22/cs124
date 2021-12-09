@@ -3,13 +3,19 @@ import swal from 'sweetalert';
 import React, {useEffect, useState} from 'react';
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import firebase from "firebase/compat";
+import Select from 'react-select'
 
-
+// const DropdownInput = require("react-dropdown-input");
 function ToDoList(props) {
     const [value, setValue] = useState(null);
     const [priority, setPriority] = useState(1);
     const [showCompleted, setShowCompleted] = useState(true);
     const dict = {'task': 'Name', 'priority': 'Priority', 'created':'Date Created', 'Sort By:':'Sort By:'};
+    const options = [
+        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' }
+    ]
 
     function enterB() {
         if (value !== null && value !== "") {
@@ -64,8 +70,10 @@ function ToDoList(props) {
 
     let updatedList = renderList(props.list)
     console.log("THis is the updated list", updatedList)
-
-
+    let emailList = props.usersList.map((email) => {
+        return {"value":email, "label":email}
+    })
+    console.log("Email List", emailList)
     return (
         <>
             <span className='headerClass' id="header-one">
@@ -93,7 +101,8 @@ function ToDoList(props) {
                             })
                         }
                     </select>
-                <input type="text" id="share-text-field"/>
+
+                {/*<input type="text" id="share-text-field"/>*/}
                 </span>
             </span>
 
@@ -112,6 +121,8 @@ function ToDoList(props) {
                 </div>
 
                 <div class="ListItems">
+                    {console.log(props.usersList)}
+                    <Select id="share-dropdown" isMulti options={emailList}/>
                     <ul id="list">
                         {showCompleted ? updatedList.map(a => <Task
                             onTaskCompleted={ (selectedId, field, value) =>
