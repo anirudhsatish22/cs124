@@ -212,16 +212,16 @@ function SignedInApp(props) {
 
     let taskList = value != null? value.docs.map((doc) => doc.data()) : []
     let sharedList = sharedValue != null? sharedValue.docs.map((doc) => doc.data()) : []
-    if (sharedList != [] && selectedList == '') {
-        taskList = [...taskList, ...sharedList]
-    }
+    // if (sharedList != [] && selectedList == '') {
+    //     taskList = [...taskList, ...sharedList]
+    // }
     let usersList = users != null? users.docs.map((doc) => doc.data().email) : []
 
     if (selectedList === '') {
         return (
             <>
             <button type="button" onClick={() => auth.signOut()}>Logout</button>
-            <Lists userEmail={props.user.email} list={taskList} displayList={(id,name)=>{setSelectedList(id); setListName(name);}} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete}/>
+            <Lists userEmail={props.user.email} taskList={taskList} sharedList={sharedList} displayList={(id,name)=>{setSelectedList(id); setListName(name);}} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete}/>
             </>
         )
     }

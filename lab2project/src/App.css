@@ -195,7 +195,7 @@ body{
   border-radius: 8px;
   display: grid;
   row-gap: 5px;
-  grid-template-rows: 1fr 10fr 1.5fr;
+  grid-template-rows: 1fr 10fr 1fr;
   grid-template-columns: 46.6666fr 30fr 16.6667fr;
   /*// 140, 90, 50*/
 }

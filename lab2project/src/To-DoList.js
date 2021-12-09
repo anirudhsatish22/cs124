@@ -88,11 +88,12 @@ function ToDoList(props) {
                         {
                             props.usersList.map((email)=> {
                                 if(email != props.email) {
-                                    return <option>{email}</option>
+                                    return <option disabled>{email}</option>
                                 }
                             })
                         }
                     </select>
+                <input type="text" id="share-text-field"/>
                 </span>
             </span>
 
