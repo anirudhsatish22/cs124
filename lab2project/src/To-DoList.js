@@ -87,7 +87,9 @@ function ToDoList(props) {
                         <option disabled>Share With:</option>
                         {
                             props.usersList.map((email)=> {
-                                return <option>{email}</option>
+                                if(email != props.email) {
+                                    return <option>{email}</option>
+                                }
                             })
                         }
                     </select>

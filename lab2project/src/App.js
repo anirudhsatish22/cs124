@@ -212,7 +212,7 @@ function SignedInApp(props) {
 
     let taskList = value != null? value.docs.map((doc) => doc.data()) : []
     let sharedList = sharedValue != null? sharedValue.docs.map((doc) => doc.data()) : []
-    if (sharedList != []) {
+    if (sharedList != [] && selectedList == '') {
         taskList = [...taskList, ...sharedList]
     }
     let usersList = users != null? users.docs.map((doc) => doc.data().email) : []
@@ -278,7 +278,7 @@ function SignedInApp(props) {
 
   return (
       <>
-      <ToDoList shareWith={shareWith} usersList={usersList} listId={selectedList} listName={listName} list={taskList} goBack={()=>setSelectedList('')} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete} filterBy={getFilteredList} filterValue={filter}/>
+      <ToDoList shareWith={shareWith} email={props.user.email} usersList={usersList} listId={selectedList} listName={listName} list={taskList} goBack={()=>setSelectedList('')} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete} filterBy={getFilteredList} filterValue={filter}/>
       <button type="button" onClick={() => auth.signOut()}>Logout</button>
       </>
   );
