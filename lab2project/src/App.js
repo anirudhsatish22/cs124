@@ -7,11 +7,10 @@ import swal from 'sweetalert';
 import {useCollection} from "react-firebase-hooks/firestore";
 import Lists from "./Lists";
 import Loading from "./loading";
-import GoogleButton from 'react-google-button'
-import {useAuthState, useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword} from 'react-firebase-hooks/auth';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
-const eye = <FontAwesomeIcon icon={faEye} />;
+import SignUp from "./SignUp"
+import SignIn from "./SignIn"
+import {useAuthState} from 'react-firebase-hooks/auth';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyAMsDbORWI7OtcnI4VjQnY6xEE6XGjZPf0",
@@ -42,136 +41,13 @@ function App(props) {
     else {
         return (
         <>
-        <SignUp></SignUp>
-        <SignIn></SignIn>
+        <SignUp auth={auth}></SignUp>
+        <SignIn auth={auth} googleProvider={googleProvider}></SignIn>
         </>
         )
     }
 }
-function SignUp() {
-    const [
-        createUserWithEmailAndPassword,
-        userCredential, loading, error
-    ] = useCreateUserWithEmailAndPassword(auth);
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [passwordShown, setPasswordShown] = useState(false);
-    function onSubmit() {
-        createUserWithEmailAndPassword(email, password);
-        console.log("error msg", error)
-    };
-    if (error) {
-        swal({
-            title: "Error!",
-            text: error.message,
-            icon: "warning",
-            showConfirmButton: true,
-            dangerMode: true,
-        })
-    }
 
-    if (userCredential) {
-        // Shouldn't happen because App should see that
-        // we are signed in.
-        return <div>Unexpectedly signed in already</div>
-    } else if (loading) {
-        return <p>Signing Up...</p>
-    }
-    const togglePasswordVisiblity = () => {
-        setPasswordShown(passwordShown ? false : true);
-    };
-    return <div>
-        <form>
-                <input
-                    name="username"
-                    type="text"
-                    placeholder="Enter Email Here..."
-                    required="true"
-                    onChange={(e)=>setEmail(e.target.value)}
-                />
-                <br/>
-                <input
-                    placeholder="Password"
-                    name="password"
-                    placeholder="Enter Password Here..."
-                    type={passwordShown ? "text" : "password"}
-                    required="true"
-                    onChange={(e)=>setPassword(e.target.value)}
-                />
-                <i onClick={togglePasswordVisiblity}>{eye}</i>
-                <br/>
-                <button type="submit" onClick={onSubmit}>
-                    Sign Up
-                </button>
-            </form>
-        </div>
-}
-function SignIn() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [passwordShown, setPasswordShown] = useState(false);
-    function onSubmit() {
-        signInWithEmailAndPassword(email, password);
-        console.log(email, password);
-    };
-    const [
-        signInWithEmailAndPassword,
-        userCredential, loading, error
-    ] = useSignInWithEmailAndPassword(auth);
-    if (error) {
-        swal({
-            title: "Error!",
-            text: error.message,
-            icon: "warning",
-            showConfirmButton: true,
-            dangerMode: true,
-        })
-    }
-
-    if (userCredential) {
-        // Shouldn't happen because App should see that
-        // we are signed in.
-        return <div>Unexpectedly signed in already</div>
-    } else if (loading) {
-        return <p>Logging in…</p>
-    }
-    const togglePasswordVisiblity = () => {
-        setPasswordShown(passwordShown ? false : true);
-    };
-    return <div>
-        <form>
-        <input
-            name="username"
-            type="text"
-            placeholder="Enter Email Here..."
-            required="true"
-            onChange={(e)=>setEmail(e.target.value)}
-        />
-            <br/>
-        <input
-            placeholder="Password"
-            name="password"
-            placeholder="Enter Password Here..."
-            type={passwordShown ? "text" : "password"}
-            required="true"
-            onChange={(e)=>setPassword(e.target.value)}
-        />
-            <i onClick={togglePasswordVisiblity}>{eye}</i>
-            <br/>
-        <button type="submit" onClick={onSubmit}>
-            Sign In
-        </button>
-        </form>
-        <GoogleButton style={{
-        background: "revert"
-        }}
-          onClick={() => auth.signInWithPopup(googleProvider)}
-        /> 
-        {/*<button onClick={() =>*/}
-        {/*    auth.signInWithPopup(googleProvider)}>Login with Google*/}
-        {/*</button>*/}
-    </div>
-}
 function SignedInApp(props) {
     const [filter, setFilter] = useState('Sort By:');
     const [selectedList, setSelectedList] = useState('');
