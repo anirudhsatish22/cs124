@@ -5,7 +5,6 @@ import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import firebase from "firebase/compat";
 import Select from 'react-select'
 import useComponentVisible from "./test"
-import onClickOutside from "react-onclickoutside"
 
 // const DropdownInput = require("react-dropdown-input");
 function ToDoList(props) {
@@ -27,16 +26,20 @@ function ToDoList(props) {
 
     function handleOk(listToShare) {
         console.log("list to share", listToShare)
+        props.shareWith(listToShare.map(item => item.value), props.listId)
         toggleModal()
     }
 
+    let listSharedWith = props.listSharedWith.data().sharedWith((email) => {
+        return {"value":email, "label":email}
+    })
     function Alert(props) {
         const [listToShare, setListToShare] = useState(null)
         return (
         <div className={"backdrop"}>
            <div className="modal">
                 {props.children}
-               <Select class="modal-content" id="share-dropdown" isMulti options={emailList} onChange={e => setListToShare(e)}/>
+               <Select class="modal-content" id="share-dropdown" defaultValue={listToShare} isMulti blurInputOnSelect={false} options={emailList} onChange={e => setListToShare(e)}/>
                 <div className="alert-buttons">
                     <button className="show-buttons" id="pop-up-cancel" type={"button"}
                             onClick={props.onClose}>
@@ -75,9 +78,6 @@ function ToDoList(props) {
         numCompleted = checkedArray.length
         let uncheckedArray = unSortedList.filter(x => !x.completed)
         return [...uncheckedArray, ...checkedArray]
-    }
-
-    function shareWith(email) {
     }
 
     function onDelete(){

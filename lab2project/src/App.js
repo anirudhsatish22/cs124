@@ -53,6 +53,7 @@ function SignedInApp(props) {
     const [selectedList, setSelectedList] = useState('');
     const [listName, setListName] = useState('');
     let query = ''
+    let getSharedQuery = db.collection(ourCollection).doc(selectedList);
     const sharedQuery = db.collection(ourCollection).where('sharedWith','array-contains',props.user.email);
     let docRef = db.collection(ourCollection)
 
@@ -72,9 +73,11 @@ function SignedInApp(props) {
             query = db.collection(ourCollection).doc(selectedList).collection('Tasks').orderBy(filter);
             docRef = db.collection(ourCollection).doc(selectedList).collection('Tasks')
         }
+        getSharedQuery = db.collection(ourCollection).doc(selectedList);
     }
     const [value, loading, error] = useCollection(query);
     const [sharedValue, sharedLoading, sharedError] = useCollection(sharedQuery);
+    const [getSharedValue, getSharedLoading, getSharedError] = useCollection(getSharedQuery);
     const usersQuery = db.collection(userCollection);
     const [users, usersLoading, usersError] = useCollection(usersQuery);
 
@@ -87,6 +90,10 @@ function SignedInApp(props) {
 
 
     let taskList = value != null? value.docs.map((doc) => doc.data()) : []
+    // let listSharedWith = getSharedValue != null? getSharedValue.docs.map((doc) => doc.data()) : []
+    if (getSharedQuery != '') {
+        // console.log("Value.SharedWith", getSharedValue.data());
+    }
     let sharedList = sharedValue != null? sharedValue.docs.map((doc) => doc.data()) : []
     // if (sharedList != [] && selectedList == '') {
     //     taskList = [...taskList, ...sharedList]
@@ -148,13 +155,13 @@ function SignedInApp(props) {
     function shareWith(email, listId) {
         const docRef = db.collection(ourCollection).doc(listId);
         docRef.update({
-            sharedWith: firebase.firestore.FieldValue.arrayUnion.apply(this, [email])
+            sharedWith: firebase.firestore.FieldValue.arrayUnion.apply(this, email)
     });
     }
 
   return (
       <>
-      <ToDoList shareWith={shareWith} email={props.user.email} usersList={usersList} listId={selectedList} listName={listName} list={taskList} goBack={()=>setSelectedList('')} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete} filterBy={getFilteredList} filterValue={filter}/>
+      <ToDoList shareWith={shareWith} email={props.user.email} usersList={usersList} listId={selectedList} listName={listName} list={taskList} listSharedWith={getSharedValue} goBack={()=>setSelectedList('')} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete} filterBy={getFilteredList} filterValue={filter}/>
       <button type="button" onClick={() => auth.signOut()}>Logout</button>
       </>
   );
