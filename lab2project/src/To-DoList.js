@@ -3,9 +3,23 @@ import swal from 'sweetalert';
 import React, {useEffect, useState} from 'react';
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import firebase from "firebase/compat";
+import {useCollection} from "react-firebase-hooks/firestore";
 import Select from 'react-select'
 import useComponentVisible from "./test"
 
+const firebaseConfig = {
+    apiKey: "AIzaSyAMsDbORWI7OtcnI4VjQnY6xEE6XGjZPf0",
+    authDomain: "to-do-list-78c30.firebaseapp.com",
+    projectId: "to-do-list-78c30",
+    storageBucket: "to-do-list-78c30.appspot.com",
+    messagingSenderId: "466185835646",
+    appId: "1:466185835646:web:dbe8a4413a6cad9f3f742f",
+    measurementId: "G-3Q5LDPJYK6"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const ourCollection = "Lists";
 // const DropdownInput = require("react-dropdown-input");
 function ToDoList(props) {
     const [value, setValue] = useState(null);
@@ -20,6 +34,9 @@ function ToDoList(props) {
         { value: 'vanilla', label: 'Vanilla' }
     ]
 
+    const getSharedQuery = db.collection(ourCollection).doc(props.listId);
+    const [getSharedValue, getSharedLoading, getSharedError] = useCollection(getSharedQuery);
+    console.log('getSharedValue', getSharedValue.data())
     function toggleModal() {
         setShowPop(!showPop)
     }
@@ -30,9 +47,9 @@ function ToDoList(props) {
         toggleModal()
     }
 
-    let listSharedWith = props.listSharedWith.data().sharedWith((email) => {
-        return {"value":email, "label":email}
-    })
+    // let listSharedWith = props.listSharedWith.data().sharedWith((email) => {
+    //     return {"value":email, "label":email}
+    // })
     function Alert(props) {
         const [listToShare, setListToShare] = useState(null)
         return (

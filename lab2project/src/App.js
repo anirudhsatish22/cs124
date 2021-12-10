@@ -53,7 +53,7 @@ function SignedInApp(props) {
     const [selectedList, setSelectedList] = useState('');
     const [listName, setListName] = useState('');
     let query = ''
-    let getSharedQuery = db.collection(ourCollection).doc(selectedList);
+    let getSharedQuery = '';
     const sharedQuery = db.collection(ourCollection).where('sharedWith','array-contains',props.user.email);
     let docRef = db.collection(ourCollection)
 
@@ -77,10 +77,9 @@ function SignedInApp(props) {
     }
     const [value, loading, error] = useCollection(query);
     const [sharedValue, sharedLoading, sharedError] = useCollection(sharedQuery);
-    const [getSharedValue, getSharedLoading, getSharedError] = useCollection(getSharedQuery);
     const usersQuery = db.collection(userCollection);
     const [users, usersLoading, usersError] = useCollection(usersQuery);
-
+    const [getSharedValue, getSharedLoading, getSharedError] = useCollection(getSharedQuery);
 
     if (loading) {
 
@@ -90,8 +89,8 @@ function SignedInApp(props) {
 
 
     let taskList = value != null? value.docs.map((doc) => doc.data()) : []
-    // let listSharedWith = getSharedValue != null? getSharedValue.docs.map((doc) => doc.data()) : []
     if (getSharedQuery != '') {
+        // let listSharedWith = getSharedValue != null? getSharedValue.docs.map((doc) => doc.data()) : []
         // console.log("Value.SharedWith", getSharedValue.data());
     }
     let sharedList = sharedValue != null? sharedValue.docs.map((doc) => doc.data()) : []
