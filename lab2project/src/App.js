@@ -165,9 +165,11 @@ function SignedInApp(props) {
 
     function shareWith(email, listId) {
         const docRef = db.collection(ourCollection).doc(listId);
-        docRef.update({
-            sharedWith: firebase.firestore.FieldValue.arrayUnion.apply(this, email)
-    });
+        docRef.update({['sharedWith']: email});
+        // docRef.set(email)
+    //     docRef.update({
+    //         sharedWith: firebase.firestore.FieldValue.arrayUnion.apply(this, email)
+    // });
     }
 
   return (
