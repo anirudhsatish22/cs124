@@ -47,11 +47,22 @@ function ToDoList(props) {
         toggleModal()
     }
 
-    // let listSharedWith = props.listSharedWith.data().sharedWith((email) => {
+    console.log("listSharedWith", props.listSharedWith.sharedWith)
+    let sharingList = []
+    try {
+        sharingList = props.listSharedWith.sharedWith.map((email) => {
+            return {"value":email, "label":email}
+        })
+    }
+    catch (error) {
+
+    }
+    // let listSharedWith = props.listSharedWith.sharedWith.map((email) => {
     //     return {"value":email, "label":email}
     // })
+    console.log("listSharedWith", sharingList)
     function Alert(props) {
-        const [listToShare, setListToShare] = useState(null)
+        const [listToShare, setListToShare] = useState(sharingList)
         return (
         <div className={"backdrop"}>
            <div className="modal">
