@@ -36,7 +36,7 @@ function ToDoList(props) {
 
     const getSharedQuery = db.collection(ourCollection).doc(props.listId);
     const [getSharedValue, getSharedLoading, getSharedError] = useCollection(getSharedQuery);
-    console.log('getSharedValue', getSharedValue.data())
+    // console.log('getSharedValue', getSharedValue.data())
     function toggleModal() {
         setShowPop(!showPop)
     }
@@ -55,14 +55,15 @@ function ToDoList(props) {
         return (
         <div className={"backdrop"}>
            <div className="modal">
-                {props.children}
+               <h4>Select the users you want to share with</h4>
                <Select class="modal-content" id="share-dropdown" defaultValue={listToShare} isMulti blurInputOnSelect={false} options={emailList} onChange={e => setListToShare(e)}/>
                 <div className="alert-buttons">
-                    <button className="show-buttons" id="pop-up-cancel" type={"button"}
+                    <button className="show-buttons pop-up-buttons" type={"button"}
                             onClick={props.onClose}>
                         Cancel
                     </button>
-                    <button onClick={() => props.onDone(listToShare)} className="show-buttons" id="pop-up-done">
+
+                    <button onClick={() => props.onDone(listToShare)} className="show-buttons pop-up-buttons" id="pop-up-done">
                         Done
                     </button>
                 </div>
@@ -131,9 +132,6 @@ function ToDoList(props) {
             <h1 className="top-title">{props.listName}</h1>
                 {showPop &&
                     <Alert onClose={toggleModal} onDone={handleOk}>
-                        <>
-                            <h4>Select the users you want to share with</h4>
-                        </>
                     </Alert>
                 }
             </span>
@@ -149,7 +147,9 @@ function ToDoList(props) {
                         <option aria-label="Sort By Task Priority">Priority</option>
                         <option aria-label="Sort Lexicographically by Task Name">Name</option>
                     </select>
-                    <button className="show-buttons" onClick={toggleModal}>share with</button>
+                    <button id="share-button" className="show-buttons" onClick={toggleModal}>Share List</button>
+                    <button  onClick={props.logOut} className="show-buttons log-out-buttons">Log out</button>
+
                 </span>
             </span>
 

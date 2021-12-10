@@ -65,7 +65,10 @@ function Lists(props) {
 
     return (
         <>
-            <h1 className="top-title">Lists</h1>
+            <div id="list-title-container">
+            <label id="list-title" className="top-title">Lists</label>
+            <button id="list-log-out" className="show-buttons log-out-buttons" onClick={props.logOut}>Log out</button>
+            </div>
             <div id="list-container">
                 <div className="enter-item" id="list-enter-item">
                     <input aria-label="Enter the name of your new List" type="text" maxLength="28" id="list-input-text" value={value} onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Create a list..."/>

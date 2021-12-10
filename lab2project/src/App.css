@@ -126,6 +126,9 @@ body{
   height: 100%;
 }
 
+.list-top-title {
+  width: 25%;
+}
 
 .top-title {
   text-align: center;
@@ -184,7 +187,7 @@ body{
 }
 #sort-button {
   border-radius: 08px;
-  width: 125px;
+  width: 80px;
   cursor: pointer;
   font-size: 13px;
   text-align: center;
@@ -192,7 +195,7 @@ body{
 }
 #share-button {
   border-radius: 08px;
-  width: 125px;
+  width: 80px;
   cursor: pointer;
   font-size: 15px;
   text-align: center;
@@ -267,6 +270,20 @@ body{
   margin-top: 15pt;
   margin-left: 5pt;
 }
+
+#list-title-container {
+  text-align: center;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+
+#list-log-out {
+  float: right;
+  margin: auto;
+  margin-right: 5%;
+}
+
+
 
 #input-text {
   text-align: center;
@@ -493,7 +510,33 @@ body{
   grid-column: 2/ span 2;
 }
 
+#share-button {
+  margin: auto;
+  height: 25px;
+  width: 85px;
+  border-radius: 08px;
+  border: 1px solid black;
+  text-align: center;
+}
 
+.log-out-buttons {
+  margin: auto;
+  height: 25px;
+  width: 60px;
+  border-radius: 08px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.pop-up-buttons {
+  width: 80px;
+  height: 25px;
+  /*margin-left: 8px;*/
+  margin: 5px;
+  border-radius: 08px;
+  border: 1px solid black;
+
+}
 @media screen and (min-width: 720px) {
 
   #container {
@@ -516,6 +559,18 @@ body{
   }
   #sort-button{
     font-size: medium;
+    width: 100px;
+  }
+  .log-out-buttons {
+    font-size: medium;
+    width: 75px;
+  }
+  #list-log-out {
+    margin-top: 9px;
+  }
+  #share-button {
+    font-size: medium;
+    width: 100px;
   }
   #back-button{
     font-size: medium;
@@ -589,6 +644,11 @@ body{
 @media screen and (max-width: 600px) {
   #list-container {
     width: 83.333%;
+  }
+  #list-log-out {
+    margin: auto;
+    margin-right: 8%;
+
   }
   #container {
     width: 85%;
