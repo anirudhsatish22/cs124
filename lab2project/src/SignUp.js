@@ -44,32 +44,37 @@ function SignUp(props) {
     };
 
     return <div className={"backdrop"}>
-        <div className={"modal"}>
-        <form>
+        <div className={"modal modal-sign-in"}>
+        <form id="sign-up-pop-container">
+            <h4 id="sign-in-title">Sign up with a valid email and password!</h4>
+            <label id="sign-in-user-email">User Email:</label>
             <input
                 className="input-email log-in-input"
+                id="sign-in-email"
                 name="username"
                 type="text"
-                placeholder="Enter Email Here..."
+                placeholder="Email..."
                 required="true"
                 onChange={(e)=>setEmail(e.target.value)}
             />
             <br/>
+            <label id="sign-up-user-password">Password:</label>
             <input
+                id={"sign-in-password"}
                 className="input-password log-in-input"
                 placeholder="Password"
                 name="password"
-                placeholder="Enter Password Here..."
+                placeholder="Password..."
                 type={passwordShown ? "text" : "password"}
                 required="true"
                 onChange={(e)=>setPassword(e.target.value)}
             />
-            <i onClick={togglePasswordVisiblity}>{eye}</i>
+            <i id="sign-in-eye" onClick={togglePasswordVisiblity}>{eye}</i>
             <br/>
-            <button className="sign-buttons show-buttons" type="submit" onClick={onSubmit}>
+            <button id="sign-in-button" className="sign-buttons show-buttons" type="submit" onClick={onSubmit}>
                 Sign Up
             </button>
-            <button onClick={props.onClose}>cancel</button>
+            <button class="show-buttons sign-buttons" id="sign-up-cancel" onClick={props.onClose}>cancel</button>
         </form>
         </div>
     </div>

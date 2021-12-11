@@ -58,7 +58,7 @@ function SignIn(props) {
                 onChange={(e)=>setEmail(e.target.value)}
             />
             <br/>
-            <label id="sign=up-user-password">Password:</label>
+            <label id="sign-in-user-password">Password:</label>
             <input
                 className="log-in-input"
                 id="sign-in-password"
