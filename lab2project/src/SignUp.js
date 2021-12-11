@@ -43,9 +43,11 @@ function SignUp(props) {
         setPasswordShown(passwordShown ? false : true);
     };
 
-    return <div>
+    return <div className={"backdrop"}>
+        <div className={"modal"}>
         <form>
             <input
+                className="input-email log-in-input"
                 name="username"
                 type="text"
                 placeholder="Enter Email Here..."
@@ -54,6 +56,7 @@ function SignUp(props) {
             />
             <br/>
             <input
+                className="input-password log-in-input"
                 placeholder="Password"
                 name="password"
                 placeholder="Enter Password Here..."
@@ -63,10 +66,12 @@ function SignUp(props) {
             />
             <i onClick={togglePasswordVisiblity}>{eye}</i>
             <br/>
-            <button type="submit" onClick={onSubmit}>
+            <button className="sign-buttons show-buttons" type="submit" onClick={onSubmit}>
                 Sign Up
             </button>
+            <button onClick={props.onClose}>cancel</button>
         </form>
+        </div>
     </div>
 }
 

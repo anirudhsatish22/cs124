@@ -44,31 +44,38 @@ function SignIn(props) {
     const togglePasswordVisiblity = () => {
         setPasswordShown(passwordShown ? false : true);
     };
-    return <div>
-        <form>
+    return <div id="sign-in-container">
+        <form id="manual-sign-in-container">
+            <h4 id="sign-in-title">Enter your Email and Password to log in!</h4>
+            <label id="sign-in-user-email">User Email:</label>
             <input
+                className="log-in-input"
+                id="sign-in-email"
                 name="username"
                 type="text"
-                placeholder="Enter Email Here..."
+                placeholder="Email..."
                 required="true"
                 onChange={(e)=>setEmail(e.target.value)}
             />
             <br/>
+            <label id="sign=up-user-password">Password:</label>
             <input
+                className="log-in-input"
+                id="sign-in-password"
                 placeholder="Password"
                 name="password"
-                placeholder="Enter Password Here..."
+                placeholder="Password..."
                 type={passwordShown ? "text" : "password"}
                 required="true"
                 onChange={(e)=>setPassword(e.target.value)}
             />
-            <i onClick={togglePasswordVisiblity}>{eye}</i>
+            <i id="sign-in-eye" onClick={togglePasswordVisiblity}>{eye}</i>
             <br/>
-            <button type="submit" onClick={onSubmit}>
+            <button id="sign-in-button" type="submit" onClick={onSubmit} className="sign-buttons show-buttons">
                 Sign In
             </button>
         </form>
-        <GoogleButton style={{
+        <GoogleButton id="google-sign-in" style={{
             background: "revert"
         }}
                       onClick={() => props.auth.signInWithPopup(props.googleProvider)}

@@ -30,7 +30,12 @@ const auth = firebase.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
 function App(props) {
-    const [user, loading, error] = useAuthState(auth) 
+    const [user, loading, error] = useAuthState(auth)
+    const [showSignUp, setShowSignUp] = useState(false)
+
+    function toggleSignUp() {
+        setShowSignUp(!showSignUp)
+    }
     if (loading) {
         return <Loading loadingType="" listName=""></Loading>
     }
@@ -40,10 +45,13 @@ function App(props) {
     }
     else {
         return (
-        <>
-        <SignUp auth={auth}></SignUp>
-        <SignIn auth={auth} googleProvider={googleProvider}></SignIn>
-        </>
+            <>
+                {showSignUp && <SignUp onClose={toggleSignUp} auth={auth}></SignUp>}
+                <div id="sign-up-container">
+                    <SignIn auth={auth} googleProvider={googleProvider}></SignIn>
+                    <button className={"show-buttons"} id="click-to-signup" onClick={toggleSignUp}>click here to sign up</button>
+                </div>
+            </>
         )
     }
 }
