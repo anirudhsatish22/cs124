@@ -10,6 +10,8 @@ import Loading from "./loading";
 import SignUp from "./SignUp"
 import SignIn from "./SignIn"
 import {useAuthState} from 'react-firebase-hooks/auth';
+import { FacebookAuthProvider } from "firebase/auth";
+
 
 
 const firebaseConfig = {
@@ -41,7 +43,7 @@ function App(props) {
     }
     else if (user) {
         console.log("Hello", auth.uid)
-        return <SignedInApp user={user} {...props}></SignedInApp>
+        return <SignedInApp selectedList={''} user={user} {...props}></SignedInApp>
     }
     else {
         return (
@@ -49,7 +51,7 @@ function App(props) {
                 {showSignUp && <SignUp  onClose={toggleSignUp} auth={auth}></SignUp>}
                 <div id="sign-up-container">
                     <SignIn auth={auth} googleProvider={googleProvider}></SignIn>
-                    <button className={"show-buttons"} id="click-to-signup" onClick={toggleSignUp}>click here to sign up</button>
+                    <button className={"show-buttons"} id="click-to-signup" onClick={toggleSignUp}>New Here? Sign Up!</button>
                 </div>
             </>
         )

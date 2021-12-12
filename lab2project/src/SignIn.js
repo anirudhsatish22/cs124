@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import swal from 'sweetalert';
 import GoogleButton from 'react-google-button'
+import FacebookLogin from 'react-facebook-login';
+import { getAuth, signInWithRedirect } from "firebase/auth";
 
 
 const eye = <FontAwesomeIcon icon={faEye} />;
@@ -81,9 +83,9 @@ function SignIn(props) {
         <span id={"google-container"}>
             <GoogleButton id="google-sign-in" style={{
                 background: "revert",
-                color: "red"
+                color: "black"
             }}
-                          onClick={() => props.auth.signInWithPopup(props.googleProvider)}
+                          onClick={() =>  props.auth.signInWithPopup(props.googleProvider)}
             />
         </span>
 
