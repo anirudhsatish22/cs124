@@ -24,11 +24,6 @@ function SignUp(props) {
 
     function onSubmit() {
 
-        // else {
-        //     console.log("entered the else")
-
-
-        // if (email !== "" ) {
             if (password !== confirmPassword) {
                 swal({
                     title: "Passwords do not match!",
@@ -57,7 +52,6 @@ function SignUp(props) {
             }
 
         }
-    // }
 
 
 
