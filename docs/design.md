@@ -421,7 +421,7 @@ One of the only negatives that this user had was the fact that there was a Pop-u
 to being redirected to a new page altogether, this was something out of the norm. We took this criticism constructively, but decided to not apply the suggested changes
 to our application. We believe that the pop up makes the flow easier, and that a whole new page is not required for the amount of information that we require of this feature (just three fields, and two buttons) 
 
-This this user had mostly positive feedback, which was reassuring to us as this solidified our idea that our application is easy and intuitive to use.  
+This user had mostly positive feedback, which was reassuring to us as this solidified our idea that our application is easy and intuitive to use.  
 
 
 ## Screenshots and Images from our implementation:
