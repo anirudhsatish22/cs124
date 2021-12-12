@@ -79,6 +79,7 @@ function SignUp(props) {
             <h4 id="sign-in-title">Sign up with a valid email and password!</h4>
             <label id="sign-in-email-label">User Email:</label>
             <input
+                aria-label="Enter your email that you wish to sign in with"
                 className="input-email log-in-input"
                 id="sign-in-email"
                 name="username"
@@ -90,6 +91,7 @@ function SignUp(props) {
             <br/>
             <label id="sign-in-password-label">Password:</label>
             <input
+                aria-label="Enter your password"
                 id={"sign-in-password"}
                 className="input-password log-in-input"
                 placeholder="Password"
@@ -99,9 +101,10 @@ function SignUp(props) {
                 required="true"
                 onChange={(e)=>setPassword(e.target.value)}
             />
-            <i id="sign-in-eye" onClick={togglePasswordVisiblity}>{eye}</i>
+            <i aria-label="Click here to show password" id="sign-in-eye" onClick={togglePasswordVisiblity}>{eye}</i>
             <label id="confirm-password-label">Confirm Password:</label>
             <input
+                aria-label="Confirm your password by entering it here again"
                 id={"confirm-password"}
                 className="input-password log-in-input"
                 placeholder="Password"
@@ -111,12 +114,12 @@ function SignUp(props) {
                 required="true"
                 onChange={(e)=>setConfirmPassword(e.target.value)}
             />
-            <i id="confirm-eye" onClick={toggleConfirmPasswordVisiblity}>{eye}</i>
+            <i aria-label="Click here to show password" id="confirm-eye" onClick={toggleConfirmPasswordVisiblity}>{eye}</i>
             <br/>
-            <button id="sign-up-button" className="sign-buttons show-buttons" onClick={onSubmit}>
+            <button aria-label="Click this button to Sign up with your newly entered username and password" id="sign-up-button" className="sign-buttons show-buttons" onClick={onSubmit}>
                 Sign Up
             </button>
-            <button class="show-buttons sign-buttons" id="sign-up-cancel" onClick={props.onClose}>Cancel</button>
+            <button aria-label="Click this button to cancel changes and go back to the log in screen" class="show-buttons sign-buttons" id="sign-up-cancel" onClick={props.onClose}>Cancel</button>
         </form>
         </div>
     </div>
