@@ -3,6 +3,7 @@ import './App.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import swal from 'sweetalert';
+import Loading from "./loading";
 import {useCreateUserWithEmailAndPassword} from 'react-firebase-hooks/auth';
 
 const eye = <FontAwesomeIcon icon={faEye} />;
@@ -62,7 +63,7 @@ function SignUp(props) {
         // we are signed in.
         return <div>Unexpectedly signed in already</div>
     } else if (loading) {
-        return <p>Signing Up...</p>
+        return <Loading loadingType="" listName=""></Loading>
     }
     const togglePasswordVisiblity = () => {
         setPasswordShown(passwordShown ? false : true);
@@ -114,7 +115,7 @@ function SignUp(props) {
             <button id="sign-up-button" className="sign-buttons show-buttons" onClick={onSubmit}>
                 Sign Up
             </button>
-            <button class="show-buttons sign-buttons" id="sign-up-cancel" onClick={props.onClose}>cancel</button>
+            <button class="show-buttons sign-buttons" id="sign-up-cancel" onClick={props.onClose}>Cancel</button>
         </form>
         </div>
     </div>
