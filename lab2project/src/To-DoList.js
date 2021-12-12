@@ -66,7 +66,7 @@ function ToDoList(props) {
         return (
         <div className={"backdrop"}>
            <div className="modal">
-               <h4>Select the users you want to share with</h4>
+               <h4>Share With: </h4>
                <Select class="modal-content" id="share-dropdown" defaultValue={listToShare} isMulti blurInputOnSelect={false} options={emailList} onChange={e => setListToShare(e)}/>
                 <div className="alert-buttons">
                     <button className="show-buttons pop-up-buttons" type={"button"}

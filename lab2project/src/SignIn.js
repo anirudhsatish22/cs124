@@ -6,6 +6,7 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import swal from 'sweetalert';
 import GoogleButton from 'react-google-button'
 import { getAuth, signInWithRedirect } from "firebase/auth";
+import Loading from "./loading";
 
 
 const eye = <FontAwesomeIcon icon={faEye} />;
@@ -43,7 +44,7 @@ function SignIn(props) {
         // we are signed in.
         return <div>Unexpectedly signed in already</div>
     } else if (loading) {
-        return <p>Logging in…</p>
+        return <></>
     }
     const togglePasswordVisiblity = () => {
         setPasswordShown(passwordShown ? false : true);

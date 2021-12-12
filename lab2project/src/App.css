@@ -143,6 +143,9 @@ h2 {
   grid-column: 1/ span 3;
   text-decoration: underline;
 }
+h4 {
+  text-align: center;
+}
 
 #sign-up-container  {
   display: grid;

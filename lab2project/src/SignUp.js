@@ -33,8 +33,7 @@ function SignUp(props) {
                     dangerMode: true,
                 })
             }
-            else if (true) {
-                setShowError(true)
+            else {
                 if (error && showError) {
                     swal({
                         title: "Error!",
@@ -45,7 +44,9 @@ function SignUp(props) {
                     })
                     setShowError(false);
                 }
-                createUserWithEmailAndPassword(email, password);
+                else {
+                    createUserWithEmailAndPassword(email, password);
+                }
             }
             if (loading) {
                 return <Loading loadingType="" listName=""></Loading>

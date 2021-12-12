@@ -48,7 +48,8 @@ function App(props) {
     else {
         return (
             <>
-                {showSignUp && <SignUp  onClose={toggleSignUp} auth={auth}></SignUp>}
+                {showSignUp && <SignUp onClose={toggleSignUp} auth={auth}></SignUp>}
+
                 <br></br>
                 <div id="sign-up-container">
                     <h2>Welcome to our To-Do List</h2>

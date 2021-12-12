@@ -17,7 +17,7 @@ function Loading(props) {
             </>
         )
     }
-    if (props.loadingType === '') {
+    else if (props.loadingType === '') {
 
     return (
         <>
