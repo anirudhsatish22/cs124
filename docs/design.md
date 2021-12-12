@@ -266,6 +266,8 @@ In our UI, shared lists and unshared lists are distinguishable, as we display th
 
 If User A shares with user B, it automatically shows up amongst their lists. 
 
+If User A shares with User B, User B cannot share it with anyone else. The power of sharing lies with the owner only.
+
 If User A shares a list with User B, User B cannot delete that list
 
 if User A shares a list with User B, User B does not need to accept the sharing, it just shows up. 
@@ -283,6 +285,8 @@ is able to look at the same, and make any changes necessary.
 ### New Sign Up Page: 
 
 <img src='Screenshots/Signup.png' width=30%/>
+
+Once a user signs up, they must sign in again with the newly created log in and password!
 
 ### Example pop up Alert when user enters a wrong password:
 
