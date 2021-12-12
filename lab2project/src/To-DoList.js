@@ -133,8 +133,8 @@ function ToDoList(props) {
 
     let updatedList = renderList(props.list)
     console.log("THis is the updated list", updatedList)
-    let emailList = props.usersList.map((email) => {
-        return {"value":email, "label":email}
+    let emailList = props.usersList.filter((email)=> email != props.email).map((email) => {
+            return {"value":email, "label":email}
     })
     console.log("Email List", emailList)
     return (
