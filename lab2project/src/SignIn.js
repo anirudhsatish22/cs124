@@ -15,8 +15,10 @@ const eye = <FontAwesomeIcon icon={faEye} />;
 function SignIn(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showError, setShowError] = useState(false);
     const [passwordShown, setPasswordShown] = useState(false);
     function onSubmit() {
+        setShowError(true);
         signInWithEmailAndPassword(email, password);
         console.log(email, password);
     };
@@ -24,7 +26,7 @@ function SignIn(props) {
         signInWithEmailAndPassword,
         userCredential, loading, error
     ] = useSignInWithEmailAndPassword(props.auth);
-    if (error) {
+    if (error && showError) {
         swal({
             title: "Error!",
             text: error.message,
@@ -32,6 +34,7 @@ function SignIn(props) {
             showConfirmButton: true,
             dangerMode: true,
         })
+        setShowError(false);
     }
 
     if (userCredential) {
@@ -47,7 +50,7 @@ function SignIn(props) {
     return <div id="sign-in-container">
         <form id="manual-sign-in-container">
             <h4 id="sign-in-title">Enter your Email and Password to log in!</h4>
-            <label id="sign-in-user-email">User Email:</label>
+            <label id="sign-in-email-label">User Email:</label>
             <input
                 className="log-in-input"
                 id="sign-in-email"
@@ -58,7 +61,7 @@ function SignIn(props) {
                 onChange={(e)=>setEmail(e.target.value)}
             />
             <br/>
-            <label id="sign-in-user-password">Password:</label>
+            <label id="sign-in-pasword-label">Password:</label>
             <input
                 className="log-in-input"
                 id="sign-in-password"
@@ -75,11 +78,15 @@ function SignIn(props) {
                 Sign In
             </button>
         </form>
-        <GoogleButton id="google-sign-in" style={{
-            background: "revert"
-        }}
-                      onClick={() => props.auth.signInWithPopup(props.googleProvider)}
-        />
+        <span id={"google-container"}>
+            <GoogleButton id="google-sign-in" style={{
+                background: "revert",
+                color: "red"
+            }}
+                          onClick={() => props.auth.signInWithPopup(props.googleProvider)}
+            />
+        </span>
+
         {/*<button onClick={() =>*/}
         {/*    auth.signInWithPopup(googleProvider)}>Login with Google*/}
         {/*</button>*/}

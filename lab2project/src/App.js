@@ -46,7 +46,7 @@ function App(props) {
     else {
         return (
             <>
-                {showSignUp && <SignUp onClose={toggleSignUp} auth={auth}></SignUp>}
+                {showSignUp && <SignUp  onClose={toggleSignUp} auth={auth}></SignUp>}
                 <div id="sign-up-container">
                     <SignIn auth={auth} googleProvider={googleProvider}></SignIn>
                     <button className={"show-buttons"} id="click-to-signup" onClick={toggleSignUp}>click here to sign up</button>
