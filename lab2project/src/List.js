@@ -16,7 +16,7 @@ function List(props) {
         </span>
             <button aria-label="Click this button to see the corresponding List." className="show-buttons" id="go-button" onClick={() => props.onGo(props.id, props.name)}>Go</button>
             {props.shared ?
-                <button aria-label="Click this button to remove the corresponding shared List." className="show-buttons" id="delete-list-button" onClick={() =>props.onUnshare(props.id)}>X</button>
+                <button aria-label="Click this button to remove the corresponding shared List." className="show-buttons" id="delete-list-button" onClick={() =>props.onUnshare(props.id)}>✖</button>
                 : <button aria-label="Click this button to delete the corresponding List." className="show-buttons" id="delete-list-button" onClick={() =>props.onDelete(props.id)}>🗑</button>}
         </li>
     );

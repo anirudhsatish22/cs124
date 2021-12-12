@@ -106,15 +106,16 @@ function SignedInApp(props) {
     let taskList = value != null? value.docs.map((doc) => doc.data()) : []
 
     let listSharedWith = []
+    let isSharedWith = false
     try {
         if (selectedList != "" && !getSharedLoading && !getSharedError) {
             // setListSharedWith(getSharedValue.data())
             // console.log("getSharedValue", getSharedValue.data());
             listSharedWith = getSharedValue.data();
+            isSharedWith = listSharedWith.sharedWith.includes(props.user.email);
         }
     }
     catch (error) {
-        console.log("error")
     }
     let sharedList = sharedValue != null? sharedValue.docs.map((doc) => doc.data()) : []
     // if (sharedList != [] && selectedList == '') {
@@ -190,7 +191,7 @@ function SignedInApp(props) {
 
   return (
       <>
-      <ToDoList logOut={handleLogOut} shareWith={shareWith} email={props.user.email} usersList={usersList} listId={selectedList} listName={listName} list={taskList} listSharedWith={listSharedWith} goBack={()=>setSelectedList('')} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete} filterBy={getFilteredList} filterValue={filter}/>
+      <ToDoList logOut={handleLogOut} shareWith={shareWith} email={props.user.email} usersList={usersList} listId={selectedList} listName={listName} list={taskList} listSharedWith={listSharedWith} isSharedWith={isSharedWith} goBack={()=>setSelectedList('')} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete} filterBy={getFilteredList} filterValue={filter}/>
 
       </>
   );

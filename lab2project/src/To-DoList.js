@@ -34,8 +34,8 @@ function ToDoList(props) {
         { value: 'vanilla', label: 'Vanilla' }
     ]
 
-    const getSharedQuery = db.collection(ourCollection).doc(props.listId);
-    const [getSharedValue, getSharedLoading, getSharedError] = useCollection(getSharedQuery);
+    // const getSharedQuery = db.collection(ourCollection).doc(props.listId);
+    // const [getSharedValue, getSharedLoading, getSharedError] = useCollection(getSharedQuery);
     // console.log('getSharedValue', getSharedValue.data())
     function toggleModal() {
         setShowPop(!showPop)
@@ -158,7 +158,7 @@ function ToDoList(props) {
                         <option aria-label="Sort By Task Priority">Priority</option>
                         <option aria-label="Sort Lexicographically by Task Name">Name</option>
                     </select>
-                    <button id="share-button" className="show-buttons" onClick={toggleModal}>Share List</button>
+                    {props.isSharedWith ? null : <button id="share-button" className="show-buttons" onClick={toggleModal}>Share List</button>}
                     <button  onClick={props.logOut} className="show-buttons log-out-buttons">Log out</button>
 
                 </span>
