@@ -257,7 +257,7 @@ Another change we made to our design, was to  have two separate loading screens:
 ## Lab 5 Design:
 
 For this final Lab, we added support for logging in, and therefore multiple users. We support creating new log ins through 
-valid usernames and passwords. We also support logging in via google, and facebook. (TODO)
+valid usernames and passwords. We also support logging in via google, which is quite nice.
 In conjunction with this, we support sharing of lists with other users. A shared list is editable by the owner, and everyone to whom it is shared, 
 however, only the owner can delete this list. 
 
@@ -270,13 +270,15 @@ If User A shares a list with User B, User B cannot delete that list
 
 if User A shares a list with User B, User B does not need to accept the sharing, it just shows up. 
 
+if User A shares a list with User B, User B can unshare it from themselves
+
 We added some pop up Alert boxes to indicate to the user when something goes wrong while signing up. These errors include, but are not limited to:
 bad username formatting, too short a password, wrong password, etc. We display the error message that we get from firebase, so that the user
 is able to look at the same, and make any changes necessary. 
 
 ### New log in page: 
 
-TODO
+<img src='Screenshots/logInScreen.png' width=30%/>
 
 ### New Sign Up Page: 
 

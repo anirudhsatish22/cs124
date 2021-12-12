@@ -49,8 +49,8 @@ function App(props) {
         return (
             <>
                 {showSignUp && <SignUp  onClose={toggleSignUp} auth={auth}></SignUp>}
-                <h2>Welcome to our To-Do List App!</h2>
                 <div id="sign-up-container">
+                    <h2>Welcome to our To-Do List</h2>
                     <SignIn auth={auth} googleProvider={googleProvider}></SignIn>
                     <button className={"show-buttons"} id="click-to-signup" onClick={toggleSignUp}>New Here? Sign Up!</button>
                 </div>

@@ -75,7 +75,7 @@ function SignIn(props) {
             />
             <i id="sign-in-eye" onClick={togglePasswordVisiblity}>{eye}</i>
             <br/>
-            <button id="sign-in-button" type="submit" onClick={onSubmit} className="sign-buttons show-buttons">
+            <button id="sign-in-button" type="submit" onClick={onSubmit} className="show-buttons">
                 Sign In
             </button>
         </form>
