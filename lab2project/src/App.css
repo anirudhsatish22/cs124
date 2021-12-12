@@ -25,7 +25,7 @@ label {
 }
 .modal-sign-in {
   width: 90%;
-  height: 60%;
+  height: 50%;
 }
 .alert-buttons {
   position: absolute;
@@ -127,7 +127,7 @@ html {
 .sign-buttons {
   margin: auto;
   height: 25px;
-  width: 75px;
+  width: 80px;
   border-radius: 08px;
   border: 1px solid black;
   text-align: center
