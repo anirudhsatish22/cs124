@@ -17,7 +17,7 @@ function SignUp(props) {
         userCredential, loading, error] = useCreateUserWithEmailAndPassword(props.auth);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [showError, setShowError] = useState(false);
+    const [showError, setShowError] = useState(true);
     const [passwordShown, setPasswordShown] = useState(false);
     const [confirmPassword, setConfirmPassword] = useState('');
     const [confirmPasswordShown, setConfirmPasswordShown] = useState(false);
@@ -28,7 +28,7 @@ function SignUp(props) {
         //     console.log("entered the else")
 
 
-        if (email !== "" ) {
+        // if (email !== "" ) {
             if (password !== confirmPassword) {
                 swal({
                     title: "Passwords do not match!",
@@ -38,32 +38,33 @@ function SignUp(props) {
                     dangerMode: true,
                 })
             }
-            else {
+            else if (true) {
                 setShowError(true)
+                if (error && showError) {
+                    swal({
+                        title: "Error!",
+                        text: error.message,
+                        icon: "warning",
+                        showConfirmButton: true,
+                        dangerMode: true,
+                    })
+                    setShowError(false);
+                }
                 createUserWithEmailAndPassword(email, password);
+            }
+            if (loading) {
+                return <Loading loadingType="" listName=""></Loading>
             }
 
         }
-    }
+    // }
 
 
-    if (error && showError) {
-        swal({
-            title: "Error!",
-            text: error.message,
-            icon: "warning",
-            showConfirmButton: true,
-            dangerMode: true,
-        })
-        setShowError(false);
-    }
 
     if (userCredential) {
         // Shouldn't happen because App should see that
         // we are signed in.
         return <div>Unexpectedly signed in already</div>
-    } else if (loading) {
-        return <Loading loadingType="" listName=""></Loading>
     }
     const togglePasswordVisiblity = () => {
         setPasswordShown(passwordShown ? false : true);
