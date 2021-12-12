@@ -399,8 +399,30 @@ that to even such users, the application was intuitive, and helpful.
 
 ### Lab 5:
 
-#### Person G:
-TODO
+#### Person E:
+This person was one of the people who did some user testing for Lab 4. They had a similar experience to the last round of testing with regards to 
+the list of Tasklists, and adding items to a particular list, as this flow did not change at all from our previous iteration. They commented on the ease of use
+of the application, and the intuitive flow of adding items, changing priority, and deleting lists altogether.
+
+After a bit of playing around, I asked them to try "breaking" the application, starting from the log-in screen. 
+Person E proceeded to log out, and then tried breaking the application with bad emails, passwords, mismatching passwords and more. Most of the time
+they were hit with a pop-up that displayed the corresponding error from firebase, and they were really impressed with this. They particularly 
+pointed out the fact that the message had great detail into what went wrong, and they commented that this would "enable users to make the change to the error".
+
+They were also impressed with the ability to sign in via other methods, such as Google on our application. 
+
+Then, seeing as they did not try sharing with other users until  this point, I directed them to try doing the same. Upon this instruction, 
+they very quickly navigated to the list of their choice, and began trying to share the same. They were quite thrilled with the ability of being able to 
+share the list with multiple people, and the way the UI worked. They appreciated the fact that the field had the functionality of filtering based
+on what was typed, and the ability to hit "return/enter" to add the highlighted user to the list to share to. In conjunction with this, the ability to thit
+the "x" button to remove a user with whom the list was shared to was a great touch. 
+
+One of the only negatives that this user had was the fact that there was a Pop-up when they had to sign up. I guess they are more used
+to being redirected to a new page altogether, this was something out of the norm. We took this criticism constructively, but decided to not apply the suggested changes
+to our application. We believe that the pop up makes the flow easier, and that a whole new page is not required for the amount of information that we require of this feature (just three fields, and two buttons) 
+
+This this user had mostly positive feedback, which was reassuring to us as this solidified our idea that our application is easy and intuitive to use.  
+
 
 ## Screenshots and Images from our implementation:
 
