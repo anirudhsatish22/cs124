@@ -39,7 +39,7 @@ function App(props) {
         setShowSignUp(!showSignUp)
     }
     if (loading) {
-        return <Loading loadingType="" listName=""></Loading>
+        return <Loading loadLogin={true} loadingType="" listName=""></Loading>
     }
     else if (user) {
         console.log("Hello", auth.uid)
@@ -52,7 +52,7 @@ function App(props) {
                 <div id="sign-up-container">
                     <h2>Welcome to our To-Do List</h2>
                     <SignIn auth={auth} googleProvider={googleProvider}></SignIn>
-                    <button className={"show-buttons"} id="click-to-signup" onClick={toggleSignUp}>New Here? Sign Up!</button>
+                    <button aria-label="Click this button to Sign up!" className={"show-buttons"} id="click-to-signup" onClick={toggleSignUp}>New Here? Sign Up!</button>
                 </div>
             </>
         )
@@ -100,7 +100,7 @@ function SignedInApp(props) {
     if (loading) {
 
    return (
-        <Loading loadingType={selectedList} listName={listName}></Loading>
+        <Loading loadLogin={false} loadingType={selectedList} listName={listName}></Loading>
         );}
 
 

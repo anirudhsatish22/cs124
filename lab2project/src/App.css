@@ -11,6 +11,9 @@ label {
   background-color: rgba(0, 0, 0, .3);
 }
 
+#gif {
+  grid-column: 2;
+}
 
 .modal {
   background-color: antiquewhite;

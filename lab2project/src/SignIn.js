@@ -53,6 +53,7 @@ function SignIn(props) {
             <h4 id="sign-in-title">Enter your Email and Password to log in!</h4>
             <label id="sign-in-email-label">User Email:</label>
             <input
+                aria-label="Enter your user email"
                 className="log-in-input"
                 id="sign-in-email"
                 name="username"
@@ -64,6 +65,7 @@ function SignIn(props) {
             <br/>
             <label id="sign-in-pasword-label">Password:</label>
             <input
+                aria-label="Enter your password"
                 className="log-in-input"
                 id="sign-in-password"
                 placeholder="Password"
@@ -73,14 +75,14 @@ function SignIn(props) {
                 required="true"
                 onChange={(e)=>setPassword(e.target.value)}
             />
-            <i id="sign-in-eye" onClick={togglePasswordVisiblity}>{eye}</i>
+            <i aria-label="Click here to show password" id="sign-in-eye" onClick={togglePasswordVisiblity}>{eye}</i>
             <br/>
-            <button id="sign-in-button" type="submit" onClick={onSubmit} className="show-buttons">
+            <button aria-label="Click here to Sign in!" id="sign-in-button" type="submit" onClick={onSubmit} className="show-buttons">
                 Sign In
             </button>
         </form>
         <span id={"google-container"}>
-            <GoogleButton id="google-sign-in" style={{
+            <GoogleButton aria-label="Click here to sign in with google" id="google-sign-in" style={{
                 background: "revert",
                 color: "black"
             }}
