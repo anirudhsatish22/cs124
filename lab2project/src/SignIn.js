@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import swal from 'sweetalert';
 import GoogleButton from 'react-google-button'
-import FacebookLogin from 'react-facebook-login';
 import { getAuth, signInWithRedirect } from "firebase/auth";
 
 

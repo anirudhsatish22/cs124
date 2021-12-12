@@ -45,6 +45,23 @@ function Lists(props) {
     }
 
 
+    function unShare(id) {
+        swal({
+            title: "Are you sure?",
+            text: "Once Unshared, you will not be able to view or edit this List unless the owner shares it with you again!",
+            icon: "warning",
+            buttons: ["No", "Yes"],
+            dangerMode: true,
+        })
+            .then((okToUnshare) => {
+                if (okToUnshare) {
+                    props.onUnshare(id);
+                } else {
+                    return;
+                }
+            });
+    }
+
     function deleteAllLists() {
         swal({
             title: "Delete All Lists?",
@@ -83,7 +100,7 @@ function Lists(props) {
                         <>
                         <h3>Your Lists</h3>
                         <ul id="list">{
-                        props.taskList.map(a => <List onGo={props.displayList} onListChange={props.onContentChange} onDelete={onDelete}{...a}/>)
+                        props.taskList.map(a => <List shared={false} onGo={props.displayList} onListChange={props.onContentChange} onDelete={onDelete}{...a}/>)
                     }
                         </ul>
                         </>
@@ -96,7 +113,7 @@ function Lists(props) {
                             <>
                                 <h3>Shared Lists</h3>
                                 <ul id="list">{
-                                    props.sharedList.map(a => <List onGo={props.displayList} onListChange={props.onContentChange} onDelete={onDelete}{...a}/>)
+                                    props.sharedList.map(a => <List shared={true} onGo={props.displayList} onListChange={props.onContentChange} onUnshare={unShare}{...a}/>)
                                 }
                                 </ul>
                             </>

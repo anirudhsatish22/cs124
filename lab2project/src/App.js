@@ -125,7 +125,7 @@ function SignedInApp(props) {
     if (selectedList === '') {
         return (
             <>
-            <Lists logOut={handleLogOut} userEmail={props.user.email} taskList={taskList} sharedList={sharedList} displayList={(id,name)=>{setSelectedList(id); setListName(name);}} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete}/>
+            <Lists onUnshare={handleUnshare}logOut={handleLogOut} userEmail={props.user.email} taskList={taskList} sharedList={sharedList} displayList={(id,name)=>{setSelectedList(id); setListName(name);}} onContentChange={setField} onNewItemAdded={addItem} onDeleteItem={onDelete}/>
             </>
         )
     }
@@ -173,6 +173,12 @@ function SignedInApp(props) {
         setFilter(currentFilter)
         }
 
+    function handleUnshare(listId) {
+        const docRef = db.collection(ourCollection).doc(listId);
+        docRef.update({
+                    sharedWith: firebase.firestore.FieldValue.arrayRemove(props.user.email)
+            });
+    }
     function shareWith(email, listId) {
         const docRef = db.collection(ourCollection).doc(listId);
         docRef.update({['sharedWith']: email});
