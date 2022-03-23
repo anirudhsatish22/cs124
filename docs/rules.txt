@@ -1,0 +1,59 @@
+rules_version = '2';
+service cloud.firestore {
+match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth.uid != null;
+    }
+
+    function isDocOwner() {
+      return request.auth.token.email == resource.data.ownerEmail;
+    }
+
+    function updatedDocHasCorrectOwner() {
+      return request.auth.token.email == request.resource.data.ownerEmail;
+    }
+
+    function updatedDocHasSameOwner() {
+      return resource.data.ownerEmail == request.resource.data.ownerEmail;
+    }
+
+    function isSharedWithMe() {
+      return request.auth.token.email in resource.data.sharedWith;
+    }
+
+    function updatedDocHasSameSharing() {
+      return (resource.data.sharedWith == request.resource.data.sharedWith) ||
+      (resource.data.sharedWith.removeAll(request.resource.data.sharedWith)[0] == request.auth.token.email);
+    }
+
+    function updatedUserIsCorrect() {
+         return request.resource.data.email == request.auth.token.email
+    }
+
+    match /Lists/{List} {
+      allow read: if signedIn() && (isDocOwner() || isSharedWithMe());
+      allow create: if signedIn() && updatedDocHasCorrectOwner();
+      allow update: if signedIn() && ((isDocOwner() && updatedDocHasSameOwner()) ||
+        (isSharedWithMe() && updatedDocHasSameSharing() && updatedDocHasSameOwner()));
+      allow delete: if signedIn() && isDocOwner();
+    }
+
+    match /Lists/{List}/Tasks/{Task} {
+      function isListOwner() {
+        return request.auth.token.email == get(/databases/$(database)/documents/Lists/$(List)).data.ownerEmail;
+      }
+
+      function isListSharedWithMe() {
+        return request.auth.token.email in get(/databases/$(database)/documents/Lists/$(List)).data.sharedWith;
+      }
+        allow read: if signedIn() && (isListOwner() || isListSharedWithMe());
+        allow write: if signedIn() && (isListOwner() || isListSharedWithMe());
+    }
+
+    match /Users/{User} {
+      allow read: if signedIn();
+      allow write: if signedIn() && updatedUserIsCorrect();
+    }
+
+  }
+}

@@ -3,13 +3,85 @@ import swal from 'sweetalert';
 import React, {useEffect, useState} from 'react';
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import firebase from "firebase/compat";
+import {useCollection} from "react-firebase-hooks/firestore";
+import Select from 'react-select'
+import useComponentVisible from "./test"
 
+const firebaseConfig = {
+    apiKey: "AIzaSyAMsDbORWI7OtcnI4VjQnY6xEE6XGjZPf0",
+    authDomain: "to-do-list-78c30.firebaseapp.com",
+    projectId: "to-do-list-78c30",
+    storageBucket: "to-do-list-78c30.appspot.com",
+    messagingSenderId: "466185835646",
+    appId: "1:466185835646:web:dbe8a4413a6cad9f3f742f",
+    measurementId: "G-3Q5LDPJYK6"
+};
 
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const ourCollection = "Lists";
+// const DropdownInput = require("react-dropdown-input");
 function ToDoList(props) {
     const [value, setValue] = useState(null);
     const [priority, setPriority] = useState(1);
     const [showCompleted, setShowCompleted] = useState(true);
+    const [showPop, setShowPop] = useState(false)
+    const { ref, isComponentVisible } = useComponentVisible(true);
     const dict = {'task': 'Name', 'priority': 'Priority', 'created':'Date Created', 'Sort By:':'Sort By:'};
+    const options = [
+        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' }
+    ]
+
+    // const getSharedQuery = db.collection(ourCollection).doc(props.listId);
+    // const [getSharedValue, getSharedLoading, getSharedError] = useCollection(getSharedQuery);
+    // console.log('getSharedValue', getSharedValue.data())
+    function toggleModal() {
+        setShowPop(!showPop)
+    }
+
+    function handleOk(listToShare) {
+        console.log("list to share", listToShare)
+        props.shareWith(listToShare.map(item => item.value), props.listId)
+        toggleModal()
+    }
+
+    console.log("listSharedWith", props.listSharedWith.sharedWith)
+    let sharingList = []
+    try {
+        sharingList = props.listSharedWith.sharedWith.map((email) => {
+            return {"value":email, "label":email}
+        })
+    }
+    catch (error) {
+
+    }
+    // let listSharedWith = props.listSharedWith.sharedWith.map((email) => {
+    //     return {"value":email, "label":email}
+    // })
+    console.log("listSharedWith", sharingList)
+    function Alert(props) {
+        const [listToShare, setListToShare] = useState(sharingList)
+        return (
+        <div className={"backdrop"}>
+           <div className="modal">
+               <h4>Share With: </h4>
+               <Select class="modal-content" id="share-dropdown" defaultValue={listToShare} isMulti blurInputOnSelect={false} options={emailList} onChange={e => setListToShare(e)}/>
+                <div className="alert-buttons">
+                    <button className="show-buttons pop-up-buttons" type={"button"}
+                            onClick={props.onClose}>
+                        Cancel
+                    </button>
+
+                    <button onClick={() => props.onDone(listToShare)} className="show-buttons pop-up-buttons" id="pop-up-done">
+                        Done
+                    </button>
+                </div>
+            </div>
+        </div>)
+
+    }
 
     function enterB() {
         if (value !== null && value !== "") {
@@ -60,29 +132,41 @@ function ToDoList(props) {
 
 
     let updatedList = renderList(props.list)
-
-
+    console.log("THis is the updated list", updatedList)
+    let emailList = props.usersList.filter((email)=> email != props.email).map((email) => {
+            return {"value":email, "label":email}
+    })
+    console.log("Email List", emailList)
     return (
         <>
-
-
             <span className='headerClass' id="header-one">
             <h1 className="top-title">{props.listName}</h1>
+                {showPop &&
+                    <Alert onClose={toggleModal} onDone={handleOk}>
+                    </Alert>
+                }
             </span>
             <span className='headerClass' id="header-two">
                 <span id='sort-items'>
-                <button aria-label="Go back to the List of all Lists" id="back-button" className="show-buttons" onClick={props.goBack}>←</button>
-                    {/*defaultValue='Date Created' value={dict[props.filterValue]}*/}
-                    <select aria-label="Click this button to sort list items by a certain criterion"  id="sort-button" value={dict[props.filterValue]} class={updatedList.length != 0  ? "show-buttons" : "grey-buttons"} onChange={(e) => {
-                    props.filterBy(e.target.value.toLowerCase())
-                }}>
-                    <option  disabled>Sort By:</option>
-                    <option aria-label="Sort By Creation Date">Date Created</option>
-                    <option aria-label="Sort By Task Priority">Priority</option>
-                    <option aria-label="Sort Lexicographically by Task Name">Name</option>
-                </select>
+                    <button aria-label="Go back to the List of all Lists" id="back-button" className="show-buttons" onClick={props.goBack}>←</button>
+                        {/*defaultValue='Date Created' value={dict[props.filterValue]}*/}
+                        <select aria-label="Click this button to sort list items by a certain criterion"  id="sort-button" value={dict[props.filterValue]} class={updatedList.length != 0  ? "show-buttons" : "grey-buttons"} onChange={(e) => {
+                        props.filterBy(e.target.value.toLowerCase())
+                    }}>
+                        <option  disabled>Sort By:</option>
+                        <option aria-label="Sort By Creation Date">Date Created</option>
+                        <option aria-label="Sort By Task Priority">Priority</option>
+                        <option aria-label="Sort Lexicographically by Task Name">Name</option>
+                    </select>
+                    {props.isSharedWith ? null : <button id="share-button" className="show-buttons" onClick={toggleModal}>Share List</button>}
+                    <button  onClick={props.logOut} className="show-buttons log-out-buttons">Log out</button>
+
                 </span>
             </span>
+
+
+
+
 
             <div id="container">
 
@@ -98,7 +182,15 @@ function ToDoList(props) {
 
                 </div>
 
+
+                    {/*<div class="modal">*/}
+                    {/*    <Select class="modal-content" id="share-dropdown" isMulti options={emailList}/>*/}
+                    {/*</div>*/}
+
+
                 <div class="ListItems">
+                    {console.log(props.usersList)}
+
                     <ul id="list">
                         {showCompleted ? updatedList.map(a => <Task
                             onTaskCompleted={ (selectedId, field, value) =>
