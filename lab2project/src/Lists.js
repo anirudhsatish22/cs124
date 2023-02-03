@@ -17,7 +17,9 @@ function Lists(props) {
         if (value !== null && value !== "") {
             let newItem = {
                 id: generateUniqueID(),
-                name: value
+                name: value,
+                ownerEmail: props.userEmail,
+                sharedWith: []
             };
             props.onNewItemAdded(newItem);
             setValue("")
@@ -43,6 +45,23 @@ function Lists(props) {
     }
 
 
+    function unShare(id) {
+        swal({
+            title: "Are you sure?",
+            text: "Once Unshared, you will not be able to view or edit this List unless the owner shares it with you again!",
+            icon: "warning",
+            buttons: ["No", "Yes"],
+            dangerMode: true,
+        })
+            .then((okToUnshare) => {
+                if (okToUnshare) {
+                    props.onUnshare(id);
+                } else {
+                    return;
+                }
+            });
+    }
+
     function deleteAllLists() {
         swal({
             title: "Delete All Lists?",
@@ -53,7 +72,7 @@ function Lists(props) {
         })
             .then((okToDelete) => {
                 if (okToDelete) {
-                    props.list.map(list => props.onDeleteItem([list.id]));
+                    props.taskList.map(list => props.onDeleteItem([list.id]));
                 } else {
                     return;
                 }
@@ -63,20 +82,45 @@ function Lists(props) {
 
     return (
         <>
-            <h1 className="top-title">Lists</h1>
+            <div id="list-title-container">
+            <label id="list-title" className="top-title">Lists</label>
+            <button id="list-log-out" className="show-buttons log-out-buttons" onClick={props.logOut}>Log out</button>
+            </div>
             <div id="list-container">
                 <div className="enter-item" id="list-enter-item">
                     <input aria-label="Enter the name of your new List" type="text" maxLength="28" id="list-input-text" value={value} onKeyDown={(e) => e.code === "Enter" ? enterB() : null} onChange={ (e) => setValue(e.target.value)} placeholder="Create a list..."/>
                     <button aria-label="Click this button to add your new List to the List of Lists." className={value !== "" && value !== null ? "show-buttons" : "grey-buttons"}  onClick={enterB} id="list-enter-button">+</button>
-                    <button aria-label="Click this button to delete all the Lists that you have." className={props.list.length > 0 ? "show-buttons" : "grey-buttons"} id="delete-all-lists" onClick={deleteAllLists}>🗑</button>
+                    <button aria-label="Click this button to delete all the Lists that you have." className={props.taskList.length > 0 ? "show-buttons" : "grey-buttons"} id="delete-all-lists" onClick={deleteAllLists}>🗑</button>
 
 
                 </div>
                 <div class="ListItems" id="List-of-list-items">
-                    <ul id="list">{
-                        props.list.map(a => <List onGo={props.displayList} onListChange={props.onContentChange} onDelete={onDelete}{...a}/>)
+                    {
+                        props.taskList.length > 0 ?
+                        <>
+                        <h3>Your Lists</h3>
+                        <ul id="list">{
+                        props.taskList.map(a => <List shared={false} onGo={props.displayList} onListChange={props.onContentChange} onDelete={onDelete}{...a}/>)
                     }
-                    </ul>
+                        </ul>
+                        </>
+                        :
+                        null
+
+                    }
+                    {
+                        props.sharedList.length > 0 ?
+                            <>
+                                <h3>Shared Lists</h3>
+                                <ul id="list">{
+                                    props.sharedList.map(a => <List shared={true} onGo={props.displayList} onListChange={props.onContentChange} onUnshare={unShare}{...a}/>)
+                                }
+                                </ul>
+                            </>
+                            :
+                            null
+
+                    }
                </div>
             </div>
         </>

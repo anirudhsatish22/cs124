@@ -253,6 +253,67 @@ iPad Landscape List of TaskLists view:
 
 Another change we made to our design, was to  have two separate loading screens: one for the Lists of Lists page, and the other for when we're inside a List. We also added a nice spinning loading icon to our loading pages.
 
+
+## Lab 5 Design:
+
+For this final Lab, we added support for logging in, and therefore multiple users. We support creating new log ins through 
+valid usernames and passwords. We also support logging in via google, which is quite nice.
+In conjunction with this, we support sharing of lists with other users. A shared list is editable by the owner, and everyone to whom it is shared, 
+however, only the owner can delete this list. 
+
+### Sharing decisions:
+In our UI, shared lists and unshared lists are distinguishable, as we display them in two different groups.
+
+If User A shares with user B, it automatically shows up amongst their lists. 
+
+If User A shares with User B, User B cannot share it with anyone else. The power of sharing lies with the owner only.
+
+If User A shares a list with User B, User B cannot delete that list
+
+if User A shares a list with User B, User B does not need to accept the sharing, it just shows up. 
+
+if User A shares a list with User B, User B can unshare it from themselves
+
+We added some pop up Alert boxes to indicate to the user when something goes wrong while signing up. These errors include, but are not limited to:
+bad username formatting, too short a password, wrong password, etc. We display the error message that we get from firebase, so that the user
+is able to look at the same, and make any changes necessary. 
+
+### New log in page: 
+
+<img src='Screenshots/logInScreen.png' width=30%/>
+
+### New Sign Up Page: 
+
+<img src='Screenshots/Signup.png' width=30%/>
+
+Once a user signs up, they must sign in again with the newly created log in and password!
+
+### Example pop up Alert when user enters a wrong password:
+
+<img src='Screenshots/WrongPassword.png' width=30%/>
+
+### New List of Tasklist screen with log out feature:
+
+<img src='Screenshots/NewTasklistView.png' width=30%/>
+
+### New View of one TaskList with Log out and share list buttons:
+
+<img src='Screenshots/NewTaskView.png' width=30%/>
+
+
+### View of pop up to share with other users:
+
+<img src='Screenshots/ShareListPopup.png' width=30%/>
+
+We are very proud of this feature to share with multiple users. This allows us to auto-fill usernames (emails in this case), and enter multiple
+users to share with in the field, very quickly through the keyboard
+
+
+<img src='Screenshots/ShareListMultiPopup.png' width=30%/>
+
+
+
+
 ## User Testing:
 
 ### Lab 1 (static app)
@@ -341,6 +402,32 @@ Apart from this, the user had positive feedback, and was quite happy with its pe
 
 Both Person E and F for this user testing are people who are NOT in this class, and are not CS majors. Therefore they represent a larger percentage of the user population, and it was nice to see
 that to even such users, the application was intuitive, and helpful.
+
+### Lab 5:
+
+#### Person E:
+This person was one of the people who did some user testing for Lab 4. They had a similar experience to the last round of testing with regards to 
+the list of Tasklists, and adding items to a particular list, as this flow did not change at all from our previous iteration. They commented on the ease of use
+of the application, and the intuitive flow of adding items, changing priority, and deleting lists altogether.
+
+After a bit of playing around, I asked them to try "breaking" the application, starting from the log-in screen. 
+Person E proceeded to log out, and then tried breaking the application with bad emails, passwords, mismatching passwords and more. Most of the time
+they were hit with a pop-up that displayed the corresponding error from firebase, and they were really impressed with this. They particularly 
+pointed out the fact that the message had great detail into what went wrong, and they commented that this would "enable users to make the change to the error".
+
+They were also impressed with the ability to sign in via other methods, such as Google on our application. 
+
+Then, seeing as they did not try sharing with other users until  this point, I directed them to try doing the same. Upon this instruction, 
+they very quickly navigated to the list of their choice, and began trying to share the same. They were quite thrilled with the ability of being able to 
+share the list with multiple people, and the way the UI worked. They appreciated the fact that the field had the functionality of filtering based
+on what was typed, and the ability to hit "return/enter" to add the highlighted user to the list to share to. In conjunction with this, the ability to thit
+the "x" button to remove a user with whom the list was shared to was a great touch. 
+
+One of the only negatives that this user had was the fact that there was a Pop-up when they had to sign up. I guess they are more used
+to being redirected to a new page altogether, this was something out of the norm. We took this criticism constructively, but decided to not apply the suggested changes
+to our application. We believe that the pop up makes the flow easier, and that a whole new page is not required for the amount of information that we require of this feature (just three fields, and two buttons) 
+
+This user had mostly positive feedback, which was reassuring to us as this solidified our idea that our application is easy and intuitive to use.  
 
 
 ## Screenshots and Images from our implementation:
@@ -554,6 +641,27 @@ and making a host of changes to how the data was stored in our database (adding 
 changes to how we used firebase queries, and functions that called firebase functions to do operations on the database. However, once we understood
 how to do this, it was smooth sailing from there on.
 
+
+### Lab 5:
+We faced quite a few challenges during this lab. The most pressing one was to get the "sharedWith" field for the list that was selected, 
+so that we could use this information to display to the user with whom they have shared the list previously. This is a huge usability feature, 
+and helps users from forgetting that they already shared this information with people earlier. However, querying this information was quite difficult for us, as it this
+diverted from the way we were querying. We finally managed to figure it out after around 3 hours of debugging by doing some error handling. 
+
+The second major challenge we faced was figuring out how to use a react-plug in that helps us display all the users of the application in a neat way, such as to facilitate
+filtering when the user enters emails to share with. We managed to get it working, and style it to our liking. We included it in our app as a pop-up so as to not 
+clog up the screen with clutter if a user intends on sharing the information with a lot of users. We are really happy with how this turned out. 
+
+A final hiccup we had was when styling the log in page. Due to our design decisions, we had a lot of nested elements, and therefore had to use a lot of nested gridboxes. 
+This was a bit tedious, and hard to do initially, but in the end we figured this out, and the design looks quite appealing and easy to use as well. 
+
+Finally, we were trying to incorporate password verification while signing up. This helps users from typos in the password field which is quite important. 
+We did the same, however had some issues with the DOM re-rendering  unexpectedly. We managed to fix most of the issues, but seeing as there are 3 fields to enter while signing up, 
+with multiple errors possible in each, we were not able to fix all the permutations and combinations, but we feel like we addressed the most. These issues were entirely visual.  
+Due to the robustness of the firebase API, and our checking of matching passwords, users cannot sign in unless the email is formatted accurately, and their passwords match. Sometimes due to the funny 
+re-rendering  that we have not fully understood yet, the app goes back to the log in screen. This indicates to the user that something went  wrong ,but the issue is that they would be unsure about what went wrong.
+We do our best to minimize this issue. 
+
 ## Part of the Design you are most proud of:
 
 We are quite proud of the color scheme that we ended up using. We both think that we are not super artistic and hence are quite proud of how pleasing
@@ -589,3 +697,22 @@ Additionally, we are happy with the accessibility that this application has. Tha
 use with the keyboard only. Also, this is the first time we are using Aria-labels in such a widespread manner, and we are happy with how it turned out.
 
 Finally, during our user testing, we got feedback that our app is intuitive, easy to use, and looks visually appealing. This feedback from our users really made us very proud.  
+
+
+### Lab 5: 
+
+We are proud of the way we have implemented sharing of lists. We think it is really neat that users are able to see other users on the platform, and select from that list. Additionally,
+the filter feature in the plug in that we use, where the user enters the email to share with is really neat. This would be particularly useful when there are a lot of users on the platform , and when someone wants
+to share with a lot of users. The plug in also has an auto-fill feature, so hitting enter on the highlighted name adds it to the list to share, and the user can continue entering other people to share to from their keyboard without using
+a mouse, or retouching the input field (if on mobile). 
+
+We are very happy with the look of the application. We think it is very intuitive to use, both to us as the developers of this app, but also from the feedback we got during our multiple 
+rounds of user testing throughout the development of this application. 
+
+We are also really pleased with the way we stuck to our design philosophy while adding these new features. We stick to our theme, and also stick to the concept of alignment, where
+we align items with respect to one another, making it appealing / less cumbersome to use. 
+
+Additionally, implementing  small but really useful features was something we really wanted to pull off well. These were features such as the pop-ups on the log-in screen 
+when the user enters information that causes errors from the firebase API, pop-ups when passwords do not match, different UI for shared and unshared lists, and a separate pop-up window where sharing of lists
+can be done for more screen real estate. Refer to pictures in the design section that highlight some of these features. 
+

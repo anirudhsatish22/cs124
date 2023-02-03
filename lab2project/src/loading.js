@@ -4,7 +4,20 @@ import logo from './loading.gif'
 
 
 function Loading(props) {
-    if (props.loadingType === '') {
+
+    if (props.loadLogin) {
+        return (
+            <>
+                <br/>
+                <div id="sign-up-container">
+                    <h2>Welcome to our To-Do List</h2>
+                    <h3 id="gif" align="center"><img align="center" src={logo} alt="Loading"/></h3>
+
+                </div>
+            </>
+        )
+    }
+    else if (props.loadingType === '') {
 
     return (
         <>
